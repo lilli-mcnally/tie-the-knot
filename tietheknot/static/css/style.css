@@ -1,0 +1,43 @@
+nav {
+    height: 110px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: none;
+}
+
+.ttk-logo {
+    height: 90px;
+    border-radius: 5px;
+    margin-left: 50px;
+}
+
+.ttk-nav-links {
+    margin-right: 50px;
+}
+
+nav ul a {
+    font-size: 18px;
+    margin: 13px;
+    color: #000;
+    border-radius: 10px;
+}
+
+nav ul a:hover {
+    background-color: #dcece7;
+}
+
+.sidenav {
+    background-color: #dcece7;
+}
+
+.material-icons {
+    color: #000;
+}
+
+.ttk-side-nav {
+    margin-top: 30px;
+}
+
+.sidenav li>a {
+    font-size: 18px;
+}

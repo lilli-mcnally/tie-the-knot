@@ -80,3 +80,7 @@ Planning:
 * Logo font – “Sweet” by Canva 
 * Figma – Structure plan and prototype
 * Balsamic – Wireframes
+
+
+Materialize:
+* Navbar
