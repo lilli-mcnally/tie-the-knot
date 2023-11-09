@@ -5,6 +5,8 @@ body {
     color: #000
 }
 
+
+/* base.html */
 nav {
     height: 110px;
     padding: 10px;
@@ -32,6 +34,7 @@ nav ul a {
     color: #000;
     border-radius: 10px;
     display: flex;
+    justify-content: center;
 }
 
 nav ul a:hover {
@@ -52,4 +55,41 @@ nav ul a:hover {
 
 .sidenav li>a {
     font-size: 18px;
+}
+
+/* dashboard.html */
+
+.ttk-dash-heading {
+    display: flex;
+    justify-content: center;
+}
+
+#ttk-dash-container {
+    text-align: center;
+    margin-left: 0;
+}
+
+.ttk-green-row {
+    background-color: #dcece7;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.ttk-green-row h1 {
+    font-size: 3rem;
+    margin: 1.5rem 0;
+}
+
+.ttk-dash-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+#ttk-green-one,
+#ttk-green-two,
+#ttk-green-three,
+#ttk-green-four {
+    margin-left: 0;
+    padding: 30px;
 }

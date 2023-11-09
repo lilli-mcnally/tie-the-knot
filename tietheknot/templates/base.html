@@ -21,6 +21,7 @@
                 </a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down ttk-nav-links">
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
                     <li><a href="">Checklist</a></li>
                     <li><a href="">Guests</a></li>
                     <li><a href="">Table Plan</a></li>
@@ -30,12 +31,18 @@
         </nav>
 
         <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
             <li><a href="" class="ttk-side-nav">Checklist</a></li>
             <li><a href="">Guests</a></li>
             <li><a href="">Table Plan</a></li>
             <li><a href="">Payments</a></li>
         </ul>
     </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 
 
     <footer>
