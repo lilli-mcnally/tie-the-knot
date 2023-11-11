@@ -9,3 +9,21 @@ def home():
 @app.route("/dashboard")
 def dashboard():
     return render_template("dashboard.html")
+
+
+@app.route("/checklist")
+def checklist():
+    return render_template("checklist.html")
+
+
+@app.route("/guests")
+def guests():
+    return render_template("guests.html")
+
+@app.route("/table_plan")
+def table_plan():
+    return render_template("table_plan.html")
+
+@app.route("/payments")
+def payments():
+    return render_template("payments.html")

@@ -10,18 +10,18 @@
             <h5>Only NUMBER days until the big day!</h5>
         </div>
         <div class="col s12 dash-content">
-            <a href="" class="col s5 green-row" id="green-one">
+            <a href="{{ url_for('checklist') }}" class="col s5 green-row" id="green-one">
                 <h5>Checklist</h5>
             </a>
-            <a href="" class="col s5 green-row" id="green-two">
+            <a href="{{ url_for('guests') }}" class="col s5 green-row" id="green-two">
                 <h5>Guests</h5>
             </a>
         </div>
         <div class="col s12 dash-content">
-            <a href="" class="col s5 green-row" id="green-three">
+            <a href="{{ url_for('table_plan') }}" class="col s5 green-row" id="green-three">
                 <h5>Table Plan</h5>
             </a>
-            <a href="" class="col s5 green-row" id="green-four">
+            <a href="{{ url_for('payments') }}" class="col s5 green-row" id="green-four">
                 <h5>Payments</h5>
             </a>
         </div>

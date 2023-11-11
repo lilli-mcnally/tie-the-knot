@@ -11,7 +11,7 @@ footer {
 }
 
 
-/* base.html */
+/* Base */
 nav {
     height: 110px;
     padding: 10px;
@@ -19,22 +19,22 @@ nav {
     box-shadow: none;
 }
 
+#nav-container {
+    display: flex;
+    justify-content: center;
+}
+
+#nav-main {
+    margin-left: 0;
+}
+
 .logo {
     height: 90px;
     border-radius: 5px;
-    margin-left: 50px;
-}
-
-.nav-links {
-    margin-right: 50px;
-}
-
-.nav-links li {
-    width: 136px;
 }
 
 nav ul a {
-    font-size: 18px;
+    font-size: 20px;
     margin: 13px;
     color: #000;
     border-radius: 10px;
@@ -44,6 +44,10 @@ nav ul a {
 
 nav ul a:hover {
     background-color: #dcece7;
+}
+
+nav .sidenav-trigger {
+    float: right;
 }
 
 .sidenav {
@@ -70,13 +74,13 @@ nav ul a:hover {
 }
 
 #footer-links li {
-    font-size: 20px;
+    font-size: 18px;
     margin: 0 30px;
     border-bottom: 1px solid #0081BA;
 }
 
 #footer-socials li {
-    font-size: 30px;
+    font-size: 24px;
     margin: 0 50px;
 }
 
@@ -99,7 +103,7 @@ nav ul a:hover {
     color: #dcece7;
 }
 
-/* dashboard.html */
+/* Dashboard */
 .dash-heading {
     display: flex;
     justify-content: center;
@@ -157,3 +161,5 @@ nav ul a:hover {
 #green-four:hover {
     border: 1.5px solid #0081BA;
 }
+
+/* Checklist */
