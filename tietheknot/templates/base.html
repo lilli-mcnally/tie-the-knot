@@ -16,11 +16,11 @@
         <nav>
             <div class="nav-wrapper">
                 <a href="#!">
-                    <img class="ttk-logo" src="{{ url_for('static', filename='images/logo.png') }}"
+                    <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}"
                         alt="Tie the Knot Wedding Planning Logo">
                 </a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-bars"></i></a>
-                <ul class="right hide-on-med-and-down ttk-nav-links">
+                <ul class="right hide-on-med-and-down nav-links">
                     <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
                     <li><a href="">Checklist</a></li>
                     <li><a href="">Guests</a></li>
@@ -31,8 +31,8 @@
         </nav>
 
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-            <li><a href="" class="ttk-side-nav">Checklist</a></li>
+            <li><a href="{{ url_for('dashboard') }}" class="side-nav">Dashboard</a></li>
+            <li><a href="">Checklist</a></li>
             <li><a href="">Guests</a></li>
             <li><a href="">Table Plan</a></li>
             <li><a href="">Payments</a></li>
@@ -46,6 +46,25 @@
 
 
     <footer>
+        <div class="row">
+            <div class="col s12">
+                <ul id="footer-links">
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="">Checklist</a></li>
+                    <li><a href="">Guests</a></li>
+                    <li><a href="">Table Plan</a></li>
+                    <li><a href="">Payments</a></li>
+                </ul>
+            </div>
+            <div class="col s12">
+                <ul id="footer-socials">
+                    <li><a href="{{ url_for('dashboard') }}"><i class="fa-brands fa-square-facebook"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-square-instagram"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-square-twitter"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-square-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

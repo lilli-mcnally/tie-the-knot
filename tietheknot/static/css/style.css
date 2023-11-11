@@ -5,6 +5,11 @@ body {
     color: #000
 }
 
+footer {
+    background-color: #0081BA;
+    height: 400px;
+}
+
 
 /* base.html */
 nav {
@@ -14,17 +19,17 @@ nav {
     box-shadow: none;
 }
 
-.ttk-logo {
+.logo {
     height: 90px;
     border-radius: 5px;
     margin-left: 50px;
 }
 
-.ttk-nav-links {
+.nav-links {
     margin-right: 50px;
 }
 
-.ttk-nav-links li {
+.nav-links li {
     width: 136px;
 }
 
@@ -49,7 +54,7 @@ nav ul a:hover {
     color: #000;
 }
 
-.ttk-side-nav {
+.side-nav {
     margin-top: 30px;
 }
 
@@ -57,39 +62,61 @@ nav ul a:hover {
     font-size: 18px;
 }
 
+#footer-links,
+#footer-socials {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#footer-links li {
+    font-size: 20px;
+    margin: 0 30px;
+}
+
+#footer-socials li {
+    font-size: 30px;
+    margin: 0 50px;
+}
+
+#footer-links a,
+#footer-socials a {
+    color: #fff;
+}
+
 /* dashboard.html */
 
-.ttk-dash-heading {
+.dash-heading {
     display: flex;
     justify-content: center;
 }
 
-#ttk-dash-container {
+#dash-container {
     text-align: center;
     margin-left: 0;
 }
 
-.ttk-green-row {
+.green-row {
     background-color: #dcece7;
     border-radius: 20px;
     margin-top: 20px;
     margin-left: 0;
 }
 
-.ttk-green-row h1 {
+.green-row h1 {
     font-size: 3rem;
     margin: 1.5rem 0;
 }
 
-.ttk-dash-content {
+.dash-content {
     display: flex;
     justify-content: space-between;
 }
 
-#ttk-green-one,
-#ttk-green-two,
-#ttk-green-three,
-#ttk-green-four {
+#green-one,
+#green-two,
+#green-three,
+#green-four {
     margin-left: 0;
     padding: 30px;
 }
