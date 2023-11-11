@@ -7,7 +7,7 @@ body {
 
 footer {
     background-color: #0081BA;
-    height: 400px;
+    height: 200px;
 }
 
 
@@ -72,6 +72,7 @@ nav ul a:hover {
 #footer-links li {
     font-size: 20px;
     margin: 0 30px;
+    border-bottom: 1px solid #0081BA;
 }
 
 #footer-socials li {
@@ -79,13 +80,26 @@ nav ul a:hover {
     margin: 0 50px;
 }
 
+#footer-links li,
+#footer-socials li {
+    padding: 5px;
+}
+
 #footer-links a,
 #footer-socials a {
     color: #fff;
 }
 
-/* dashboard.html */
+#footer-links a:hover {
+    color: #dcece7;
+    border-bottom: 1px solid #dcece7;
+}
 
+#footer-socials a:hover {
+    color: #dcece7;
+}
+
+/* dashboard.html */
 .dash-heading {
     display: flex;
     justify-content: center;
@@ -94,6 +108,11 @@ nav ul a:hover {
 #dash-container {
     text-align: center;
     margin-left: 0;
+    padding: 0;
+}
+
+.row .col {
+    padding: 0;
 }
 
 .green-row {
@@ -119,4 +138,22 @@ nav ul a:hover {
 #green-four {
     margin-left: 0;
     padding: 30px;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    border: 1.5px solid #dcece7;
+}
+
+#green-one h5,
+#green-two h5,
+#green-three h5,
+#green-four h5 {
+    width: 130px;
+}
+
+#green-one:hover,
+#green-two:hover,
+#green-three:hover,
+#green-four:hover {
+    border: 1.5px solid #0081BA;
 }
