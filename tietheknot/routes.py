@@ -6,6 +6,7 @@ from tietheknot.models import Checklist, Table, Guest
 def home():
     return render_template("base.html")
 
+
 @app.route("/dashboard")
 def dashboard():
     return render_template("dashboard.html")
@@ -15,14 +16,20 @@ def dashboard():
 def checklist():
     return render_template("checklist.html")
 
+@app.route("/add_checklist_item", methods=["GET", "POST"])
+def add_checklist_item():
+    return render_template("add_checklist_item.html")
+
 
 @app.route("/guests")
 def guests():
     return render_template("guests.html")
 
+
 @app.route("/table_plan")
 def table_plan():
     return render_template("table_plan.html")
+
 
 @app.route("/payments")
 def payments():

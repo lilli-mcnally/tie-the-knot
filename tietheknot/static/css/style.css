@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 body {
-    font-family: 'EB+Garamond', serif;
+    font-family: 'Spectral', serif;
     color: #000
 }
 
@@ -163,3 +163,92 @@ nav .sidenav-trigger {
 }
 
 /* Checklist */
+
+.new-green-row {
+    background-color: #EFF6F3;
+    font-size: 18px;
+    color: #000;
+}
+
+.new-green-row:hover {
+    background-color: #dcece7;
+}
+
+/* Add Checklist Item */
+
+#form-row {
+    display: flex;
+    justify-content: center;
+}
+
+#form-col {
+    margin-left: 0;
+    border: 1px solid #dcece7;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#form-col label {
+    font-size: 18px;
+    color: #000;
+}
+
+#form-col input {
+    padding: 0 10px;
+    background-color: #dcece7;
+    border-radius: 10px;
+    box-shadow: 2px 3px #888888;
+    border-bottom: 0;
+    width: auto;
+}
+
+#form-col input:focus {
+    box-shadow: 2px 3px #0081BA;
+    border-bottom: 0;
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#payment-span:before {
+    left: -8px;
+    top: 2px;
+
+}
+
+#payment-span:after {
+    left: -10px;
+    border-radius: 5px;
+    top: 2.5px;
+}
+
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid #0081BA;
+    background-color: #0081BA;
+}
+
+#payment-span {
+    padding-left: 24px;
+    font-size: 18px;
+}
+
+.submit {
+    margin-top: 10px;
+    background-color: #0081BA;
+    width: 50%;
+    margin: auto;
+    font-family: 'Spectral', serif;
+    font-size: 18px;
+    text-transform: none;
+}
+
+.submit:hover {
+    background-color: #3492bb;
+}
