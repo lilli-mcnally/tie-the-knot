@@ -6,7 +6,14 @@
         <div class="col s12 green-row">
             <h1>Checklist</h1>
         </div>
-        <!-- Insert for loop for checklist items -->
+        <div>
+            {% for checklist_item in checklist_items %}
+            <div class="col s12 green-row">
+                <span>{{ checklist_item.checklist_name }}</span>
+                <span>{{ checklist_item.checklist_date }}</span>
+            </div>
+            {% endfor %}
+        </div>
         <a href="{{ url_for('add_checklist_item') }}" class="col s12 green-row new-green-row">
             <p>+ Add new checklist item</p>
         </a>
