@@ -7,18 +7,48 @@
             <h1>Checklist</h1>
         </div>
         <div>
-            {% for checklist_item in checklist_items %}
-            <div class="col s12 green-row">
-                <div class="col s12">
-                    <p>{{ checklist_item.checklist_name }}</p>
-                    <p>{{ checklist_item.checklist_date }}</p>
+            <div class="col s12 green-row green-container">
+                {% for checklist_item in checklist_items %}
+                <!-- Iterates through each Checklist item -->
+                {% if loop.first %}
+                <!-- Checks to see if this is the first iteration, meaning it has no previous -->
+                <p class="checklist-date"><strong>{{ checklist_item.checklist_date.strftime("%-d %B %Y") }}</strong></p>
+                <div class="col s10 checklist-item">
+                    <div class="col s3">
+                        <p>{{ checklist_item.checklist_name }}</p>
+                    </div>
+                    <div class="col s6">
+                        <p class="checklist-notes">{{ checklist_item.checklist_notes }}</p>
+                    </div>
+                    <div class="col s3">
+                        <p>X</p>
+                    </div>
                 </div>
+                {% else %}
+                <!-- For all other iterations after the first one -->
+                {% if checklist_item.checklist_date != loop.previtem.checklist_date %}
+                <!-- If this item date is different to the previous iteration's item date is added -->
+                <p class="checklist-date"><strong>{{ checklist_item.checklist_date.strftime("%-d %B %Y") }}</strong></p>
+                <!-- If the item date is the same as the previous iteration, the p element is not added to the page -->
+                {% endif %}
+                <div class="col s10 checklist-item">
+                    <div class="col s3">
+                        <p>{{ checklist_item.checklist_name }}</p>
+                    </div>
+                    <div class="col s6">
+                        <p class="checklist-notes">{{ checklist_item.checklist_notes }}</p>
+                    </div>
+                    <div class="col s3">
+                        <p>X</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                <a href="{{ url_for('add_checklist_item') }}" class="col s10 green-row new-green-row">
+                    <p>+ Add new checklist item</p>
+                </a>
             </div>
-            {% endfor %}
         </div>
-        <a href="{{ url_for('add_checklist_item') }}" class="col s12 green-row new-green-row">
-            <p>+ Add new checklist item</p>
-        </a>
     </div>
 </div>
 

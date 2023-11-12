@@ -5,8 +5,12 @@ body {
     color: #000;
 }
 
+p {
+    font-size: 16px;
+}
+
 footer {
-    background-color: #0081BA;
+    background-color: #366355;
     height: 200px;
 }
 
@@ -43,7 +47,7 @@ nav ul a {
 }
 
 nav ul a:hover {
-    background-color: #dcece7;
+    background-color: #E8D2CA;
 }
 
 nav .sidenav-trigger {
@@ -51,7 +55,7 @@ nav .sidenav-trigger {
 }
 
 .sidenav {
-    background-color: #dcece7;
+    background-color: #E8D2CA;
 }
 
 .fa-bars {
@@ -76,7 +80,7 @@ nav .sidenav-trigger {
 #footer-links li {
     font-size: 16px;
     margin: 0 30px;
-    border-bottom: 1px solid #0081BA;
+    border-bottom: 1px solid #366355;
 }
 
 #footer-socials li {
@@ -95,12 +99,12 @@ nav .sidenav-trigger {
 }
 
 #footer-links a:hover {
-    color: #dcece7;
-    border-bottom: 1px solid #dcece7;
+    color: #E8D2CA;
+    border-bottom: 1px solid #E8D2CA;
 }
 
 #footer-socials a:hover {
-    color: #dcece7;
+    color: #E8D2CA;
 }
 
 /* Dashboard */
@@ -160,19 +164,52 @@ nav .sidenav-trigger {
 #green-two:hover,
 #green-three:hover,
 #green-four:hover {
-    border: 1.5px solid #0081BA;
+    border: 1.5px solid #366355;
 }
 
 /* Checklist */
 
 .new-green-row {
     background-color: #EFF6F3;
+    border: 1.5px solid #dcece7;
     font-size: 16px;
     color: #000;
+    margin-bottom: 20px;
+}
+
+.new-green-row p {
+    margin: 10px;
 }
 
 .new-green-row:hover {
-    background-color: #dcece7;
+    border: 1.5px solid #366355;
+}
+
+.green-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.checklist-item {
+    background-color: rgb(255, 255, 255, 0.5);
+    margin: 2px 0;
+    border-radius: 4px;
+}
+
+.checklist-item p {
+    margin: 10px 20px;
+    overflow-wrap: break-word;
+}
+
+.checklist-notes {
+    text-align: left;
+}
+
+.checklist-date {
+    text-align: left;
+    margin: 20px 0 5px 10px;
 }
 
 /* Add Checklist Item */
@@ -184,7 +221,7 @@ nav .sidenav-trigger {
 
 #form-col {
     margin-left: 0;
-    border: 2px solid #dcece7;
+    border: 1.5px solid #dcece7;
     border-radius: 4px;
     padding: 30px;
     display: flex;
@@ -209,7 +246,7 @@ nav .sidenav-trigger {
 }
 
 #form-col input:focus {
-    box-shadow: 2px 3px #0081BA;
+    box-shadow: 2px 3px #366355;
     border-bottom: 0;
 }
 
@@ -233,8 +270,8 @@ nav .sidenav-trigger {
 }
 
 [type="checkbox"].filled-in:checked+span:not(.lever):after {
-    border: 2px solid #0081BA;
-    background-color: #0081BA;
+    border: 2px solid #366355;
+    background-color: #366355;
 }
 
 #payment-span {
@@ -244,7 +281,7 @@ nav .sidenav-trigger {
 
 .submit {
     margin-top: 10px;
-    background-color: #0081BA;
+    background-color: #366355;
     width: 50%;
     margin: auto;
     font-family: 'Spectral', serif;
@@ -253,11 +290,5 @@ nav .sidenav-trigger {
 }
 
 .submit:hover {
-    background-color: #3492bb;
-}
-
-
-
-.pink_div {
-    background-color: pink;
+    background-color: #4C8A78;
 }
