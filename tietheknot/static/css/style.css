@@ -334,3 +334,9 @@ nav .sidenav-trigger {
 .fa-arrow-right-long {
     margin-left: 4px;
 }
+
+/* Payments */
+
+#payment-container {
+    padding-bottom: 20px;
+}

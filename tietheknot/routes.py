@@ -19,16 +19,29 @@ def checklist():
 
 @app.route("/add_checklist_item", methods=["GET", "POST"])
 def add_checklist_item():
+    print("one")
     if request.method == "POST":
-            checklist_item = Checklist(
-                checklist_name=request.form.get("checklist_name"),
-                checklist_notes=request.form.get("checklist_notes"),    
-                checklist_date=request.form.get("checklist_date"),
-                checklist_payment=bool(True if request.form.get("checklist_payment") else False)
-            )
-            db.session.add(checklist_item)
-            db.session.commit()
-            return redirect(url_for("checklist"))
+        print("two")
+        checklist_items = list(Checklist.query.order_by(Checklist.checklist_date).all())
+        print("three")
+        for x in checklist_items:
+            print("four")
+            if request.form.get("checklist_name") == x:
+                print("5")
+                flash("Checklist name already taken")
+                print("6")
+                return redirect(url_for("add_checklist_item"))
+                print("7")
+            else:
+                checklist_item = Checklist(
+                    checklist_name=request.form.get("checklist_name"),
+                    checklist_notes=request.form.get("checklist_notes"),    
+                    checklist_date=request.form.get("checklist_date"),
+                    checklist_payment=bool(True if request.form.get("checklist_payment") else False)
+                )
+                db.session.add(checklist_item)
+                db.session.commit()
+                return redirect(url_for("checklist"))
     return render_template("add_checklist_item.html")
 
 @app.route("/edit_checklist_item/<int:checklist_item_id>", methods=["GET", "POST"])

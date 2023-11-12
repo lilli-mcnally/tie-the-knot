@@ -21,8 +21,12 @@
             <input type="date" id="checklist_date" name="checklist_date" value="{{ checklist_item.checklist_date }}"
                 required>
             <label for="checklist_payment" class="form-checkbox">
+                {% if checklist_item.checklist_payment == True %}
                 <input type="checkbox" class="filled-in" id="checklist_payment" name="checklist_payment"
-                    value="{{ checklist_item.checklist_payment }}" />
+                    checked="checked" />
+                {% else %}
+                <input type="checkbox" class="filled-in" id="checklist_payment" name="checklist_payment" />
+                {% endif %}
                 <span id="payment-span">Is this a payment?</span>
             </label>
             <br>
