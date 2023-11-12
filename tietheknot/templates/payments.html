@@ -6,8 +6,90 @@
         <div class="col s12 green-row">
             <h1>Payments</h1>
         </div>
-        <!-- Insert for loop for payments items -->
+        <div>
+            <div class="col s12 green-row green-container">
+                {% for checklist_item in checklist_items %}
+                <!-- Iterates through each Checklist item -->
+                {% if checklist_item.checklist_payment == True %}
+                {% if loop.first %}
+                <!-- Checks to see if this is the first iteration, meaning it has no previous -->
+                <p class="checklist-date"><strong>{{ checklist_item.checklist_date.strftime("%-d %B %Y") }}</strong></p>
+                <div class="col s10 checklist-item">
+                    <div class="col s3">
+                        <p>{{ checklist_item.checklist_name }}</p>
+                    </div>
+                    <div class="col s6">
+                        <p class="checklist-notes">{{ checklist_item.checklist_notes }}</p>
+                    </div>
+                    <div class="col s3">
+                        <p class="checklist-checkbox">
+                            <a href="{{ url_for('edit_checklist_item', checklist_item_id=checklist_item.id) }}">
+                                <i class="fa-solid fa-pencil"></i>
+                            </a>
+                            <a href="#deleteModal" class="modal-trigger">
+                                <i class="fa-solid fa-xmark"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <!-- Modal Structure -->
+                <div id="deleteModal" class="modal">
+                    <div class="modal-content">
+                        <h5>Are you sure you want to delete "{{ checklist_item.checklist_name }}"?</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="modal-close waves-effect waves-green btn-flat">Cancel changes</a>
+                        <a href="{{ url_for('delete_checklist_item', checklist_item_id=checklist_item.id) }}"
+                            class="waves-effect waves-green btn-flat">Confirm changes</a>
+                    </div>
+                </div>
+                {% else %}
+                <!-- For all other iterations after the first one -->
+                {% if checklist_item.checklist_date != loop.previtem.checklist_date %}
+                <!-- If this item date is different to the previous iteration's item date is added -->
+                <p class="checklist-date"><strong>{{ checklist_item.checklist_date.strftime("%-d %B %Y") }}</strong></p>
+                <!-- If the item date is the same as the previous iteration, the p element is not added to the page -->
+                {% endif %}
+                <div class="col s10 checklist-item">
+                    <div class="col s3">
+                        <p>{{ checklist_item.checklist_name }}</p>
+                    </div>
+                    <div class="col s6">
+                        <p class="checklist-notes">{{ checklist_item.checklist_notes }}</p>
+                    </div>
+                    <div class="col s3">
+                        <p class="checklist-checkbox">
+                            <a href="{{ url_for('edit_checklist_item', checklist_item_id=checklist_item.id) }}">
+                                <i class="fa-solid fa-pencil"></i>
+                            </a>
+                            <a href="#deleteModal">
+                                <i class="fa-solid fa-xmark"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+                {% endif %}
+                <!-- Modal Structure -->
+                <div id="deleteModal" class="modal">
+                    <div class="modal-content">
+                        <h5>TEST</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="modal-close waves-effect waves-green btn-flat">Cancel changes</a>
+                        <a href="{{ url_for('delete_checklist_item', checklist_item_id=checklist_item.id) }}"
+                            class="waves-effect waves-green btn-flat">Confirm changes</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <a href="{{ url_for('add_checklist_item') }}" class="col s10 green-row new-green-row">
+                    <p>+ Add new checklist item</p>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
+
+
 
 {% endblock %}

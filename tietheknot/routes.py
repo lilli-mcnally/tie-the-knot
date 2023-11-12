@@ -43,6 +43,13 @@ def edit_checklist_item(checklist_item_id):
         return redirect(url_for("checklist"))
     return render_template("edit_checklist_item.html", checklist_item=checklist_item)
 
+@app.route("/delete_checklist_item/<int:checklist_item_id>")
+def delete_checklist_item(checklist_item_id):
+    checklist_item = Checklist.query.get_or_404(checklist_item_id)
+    db.session.delete(checklist_item)
+    db.session.commit()
+    return redirect(url_for("checklist"))
+
 @app.route("/guests")
 def guests():
     return render_template("guests.html")
@@ -55,4 +62,5 @@ def table_plan():
 
 @app.route("/payments")
 def payments():
-    return render_template("payments.html")
+    checklist_items = list(Checklist.query.order_by(Checklist.checklist_date).all())
+    return render_template("payments.html", checklist_items=checklist_items)
