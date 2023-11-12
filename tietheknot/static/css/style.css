@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Spectral', serif;
-    color: #000
+    color: #000;
 }
 
 footer {
@@ -37,7 +37,7 @@ nav ul a {
     font-size: 20px;
     margin: 13px;
     color: #000;
-    border-radius: 10px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
 }
@@ -74,7 +74,7 @@ nav .sidenav-trigger {
 }
 
 #footer-links li {
-    font-size: 18px;
+    font-size: 16px;
     margin: 0 30px;
     border-bottom: 1px solid #0081BA;
 }
@@ -121,13 +121,13 @@ nav .sidenav-trigger {
 
 .green-row {
     background-color: #dcece7;
-    border-radius: 20px;
+    border-radius: 6px;
     margin-top: 20px;
     margin-left: 0;
 }
 
 .green-row h1 {
-    font-size: 3rem;
+    font-size: 40px;
     margin: 1.5rem 0;
 }
 
@@ -153,6 +153,7 @@ nav .sidenav-trigger {
 #green-three h5,
 #green-four h5 {
     width: 130px;
+    font-size: 24px;
 }
 
 #green-one:hover,
@@ -166,7 +167,7 @@ nav .sidenav-trigger {
 
 .new-green-row {
     background-color: #EFF6F3;
-    font-size: 18px;
+    font-size: 16px;
     color: #000;
 }
 
@@ -183,8 +184,8 @@ nav .sidenav-trigger {
 
 #form-col {
     margin-left: 0;
-    border: 1px solid #dcece7;
-    border-radius: 20px;
+    border: 2px solid #dcece7;
+    border-radius: 4px;
     padding: 30px;
     display: flex;
     justify-content: center;
@@ -192,17 +193,19 @@ nav .sidenav-trigger {
 }
 
 #form-col label {
-    font-size: 18px;
+    font-size: 16px;
     color: #000;
 }
 
 #form-col input {
     padding: 0 10px;
     background-color: #dcece7;
-    border-radius: 10px;
+    border-radius: 4px;
     box-shadow: 2px 3px #888888;
     border-bottom: 0;
     width: auto;
+    font-family: 'Spectral', serif;
+    color: #000
 }
 
 #form-col input:focus {
@@ -225,7 +228,7 @@ nav .sidenav-trigger {
 
 #payment-span:after {
     left: -10px;
-    border-radius: 5px;
+    border-radius: 2px;
     top: 2.5px;
 }
 
@@ -236,7 +239,7 @@ nav .sidenav-trigger {
 
 #payment-span {
     padding-left: 24px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .submit {
@@ -245,7 +248,7 @@ nav .sidenav-trigger {
     width: 50%;
     margin: auto;
     font-family: 'Spectral', serif;
-    font-size: 18px;
+    font-size: 16px;
     text-transform: none;
 }
 

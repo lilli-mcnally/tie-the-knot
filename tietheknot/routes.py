@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from tietheknot import app, db
 from tietheknot.models import Checklist, Table, Guest
 

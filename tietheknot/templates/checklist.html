@@ -9,8 +9,10 @@
         <div>
             {% for checklist_item in checklist_items %}
             <div class="col s12 green-row">
-                <span>{{ checklist_item.checklist_name }}</span>
-                <span>{{ checklist_item.checklist_date }}</span>
+                <div class="col s12">
+                    <p>{{ checklist_item.checklist_name }}</p>
+                    <p>{{ checklist_item.checklist_date }}</p>
+                </div>
             </div>
             {% endfor %}
         </div>
