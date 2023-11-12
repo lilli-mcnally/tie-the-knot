@@ -67,6 +67,19 @@ def delete_checklist_item(checklist_item_id):
 def guests():
     return render_template("guests.html")
 
+@app.route("/add_guests", methods=["GET", "POST"])
+def add_guests():
+    if request.method == "POST":
+        guest = Guest(
+            guest_name=request.form.get("guest_name"),
+            guest_notes=request.form.get("guest_notes"),    
+            table_number=request.form.get("table_number")
+        )
+        db.session.add(guest)
+        db.session.commit()
+        return redirect(url_for("guests"))
+    return render_template("add_guests.html")
+
 
 @app.route("/table_plan")
 def table_plan():
