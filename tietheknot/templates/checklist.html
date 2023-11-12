@@ -21,7 +21,11 @@
                         <p class="checklist-notes">{{ checklist_item.checklist_notes }}</p>
                     </div>
                     <div class="col s3">
-                        <p>X</p>
+                        <p class="checklist-checkbox">
+                            <a href="{{ url_for('edit_checklist_item', checklist_item_id=checklist_item.id) }}">
+                                <i class="fa-solid fa-pencil"></i>
+                            </a>
+                        </p>
                     </div>
                 </div>
                 {% else %}
@@ -39,7 +43,11 @@
                         <p class="checklist-notes">{{ checklist_item.checklist_notes }}</p>
                     </div>
                     <div class="col s3">
-                        <p>X</p>
+                        <p class="checklist-checkbox">
+                            <a href="{{ url_for('edit_checklist_item', checklist_item_id=checklist_item.id) }}">
+                                <i class="fa-solid fa-pencil"></i>
+                            </a>
+                        </p>
                     </div>
                 </div>
                 {% endif %}

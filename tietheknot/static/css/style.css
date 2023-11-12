@@ -175,6 +175,7 @@ nav .sidenav-trigger {
     font-size: 16px;
     color: #000;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .new-green-row p {
@@ -190,6 +191,7 @@ nav .sidenav-trigger {
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
+    text-align: left;
 }
 
 .checklist-item {
@@ -203,13 +205,18 @@ nav .sidenav-trigger {
     overflow-wrap: break-word;
 }
 
-.checklist-notes {
-    text-align: left;
+.checklist-date {
+    margin: 20px 0 5px 10px;
 }
 
-.checklist-date {
-    text-align: left;
-    margin: 20px 0 5px 10px;
+.checklist-notes {
+    border-left: 1px solid #366355;
+    margin-left: 0;
+    padding-left: 20px;
+}
+
+.checklist-checkbox {
+    text-align: right;
 }
 
 /* Add Checklist Item */
@@ -291,4 +298,24 @@ nav .sidenav-trigger {
 
 .submit:hover {
     background-color: #4C8A78;
+}
+
+/* Edit Checklist */
+
+.back-button {
+    padding: 2px 5px;
+    color: #000;
+    border-radius: 2px;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
+.fa-arrow-left-long {
+    margin-right: 4px;
+}
+
+.fa-arrow-right-long {
+    margin-left: 4px;
 }
