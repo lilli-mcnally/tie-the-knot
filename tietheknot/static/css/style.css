@@ -315,6 +315,10 @@ nav .sidenav-trigger {
     background-color: #4C8A78;
 }
 
+.flash-message {
+    background-color: #E8D2CA;
+}
+
 /* Edit Checklist */
 
 .back-button {
@@ -333,6 +337,10 @@ nav .sidenav-trigger {
 
 .fa-arrow-right-long {
     margin-left: 4px;
+}
+
+.btn-flat {
+    font-family: 'Spectral', serif;
 }
 
 /* Payments */

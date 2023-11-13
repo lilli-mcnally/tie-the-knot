@@ -1,12 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
 
+
 <div class="row dash-heading">
     <div class="col s10" id="dash-container">
         <div class="col s12 green-row">
             <h1>Table Plan</h1>
         </div>
-        <!-- Insert for loop for table plan items -->
+        <div>
+            <div class="col s12 green-row green-container">
+                {% for table in tables %}
+                <!-- Iterates through each Table -->
+                <p class="checklist-date"><strong>{{ table.table_name }}</strong></p>
+                <div class="col s10 checklist-item">
+                    <div class="col s3">
+                        <p>GUEST NAME</p>
+                    </div>
+                    <div class="col s6">
+                        <p class="checklist-notes">GUEST NOTES</p>
+                    </div>
+                    <div class="col s3">
+                        <p class="checklist-checkbox">
+                            <a href="">
+                                <i class="fa-solid fa-pencil"></i>
+                            </a>
+                            <a href="" class="modal-trigger">
+                                <i class="fa-solid fa-xmark"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <!-- Modal Structure -->
+                <div id="deleteModal" class="modal">
+                    <div class="modal-content">
+                        <h5>Are you sure you want to delete ""?</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="modal-close waves-effect waves-green btn-flat">Cancel changes</a>
+                        <a href="" class="waves-effect waves-green btn-flat">Confirm changes</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <a href="{{ url_for('add_table') }}" class="col s10 green-row new-green-row">
+                    <p>+ Add new checklist item</p>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 
