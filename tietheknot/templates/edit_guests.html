@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row dash-heading">
+    <div class="col s10" id="dash-container">
+        <div class="col s12 green-row">
+            <h1>Add Guest Item</h1>
+        </div>
+        <div class="col s12 green-row flash-message">
+            {% with messages = get_flashed_messages() %} {% if messages %} {% for
+                    message in messages %}
+            <h5>{{ message }}</h5>
+            {% endfor %} {% endif %} {% endwith %}
+        </div>
+    </div>
+</div>
+<form action="{{ url_for('edit_guests', guest_id=guests.id )}}" method="POST">
+    <div class="row" id="form-row">
+        <div class="col s8" id="form-col">
+            <label for="guest_name">Guest Name</label>
+            <input type="text" id="guest_name" name="guest_name" minlength="3" maxlength="30"
+                value="{{ guests.guest_name }}" required>
+            <label for="guest_notes">Guest Notes</label>
+            <input type="text" id="guest_notes" name="guest_notes" minlength="3" maxlength="100"
+                value="{{ guests.guest_notes }}" required>
+            <label for="guest_notes">Guest Table Number</label>
+            <input type="number" id="table_number" name="table_number" min="1" max="10"
+                value="{{ guests.table_number }}">
+            <br>
+            <a href="#guestModal" class="btn waves-effect waves-light submit modal-trigger">Submit
+                <i class="fa-solid fa-arrow-right-long"></i>
+            </a>
+        </div>
+    </div>
+    <!-- Modal Structure -->
+    <div id="guestModal" class="modal">
+        <div class="modal-content">
+            <h5>Would you like to confirm these changes?</h5>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close waves-effect waves-green btn-flat">Cancel changes</a>
+            <button class="waves-effect waves-green btn-flat" type="submit" name="action">Confirm changes</button>
+        </div>
+    </div>
+</form>
+
+<div class="row dash-heading">
+    <div class="col s10">
+        <a href="{{ url_for('guests') }}" class="green-row back-button">
+            <i class="fa-solid fa-arrow-left-long"></i>Back to
+            Guests</a>
+    </div>
+</div>
+
+{% endblock %}

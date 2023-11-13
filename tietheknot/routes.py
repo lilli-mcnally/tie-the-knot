@@ -75,7 +75,7 @@ def delete_checklist_item(checklist_item_id):
 @app.route("/guests")
 def guests():
     guests = list(Guest.query.order_by(Guest.guest_name).all())
-    return render_template("guests.html", guest=guest)
+    return render_template("guests.html", guests=guests)
 
 @app.route("/add_guests", methods=["GET", "POST"])
 def add_guests():
@@ -89,6 +89,24 @@ def add_guests():
         db.session.commit()
         return redirect(url_for("guests"))
     return render_template("add_guests.html")
+
+@app.route("/edit_guests/<int:guest_id>", methods=["GET", "POST"])
+def edit_guests(guest_id):
+    print("1")
+    guests = Guest.query.get_or_404(guest_id)
+    print("2")
+    if request.method == "POST":
+        print("3")
+        guest = Guest(
+            guest_name=request.form.get("guest_name"),
+            guest_notes=request.form.get("guest_notes"),    
+            table_number=request.form.get("table_number")
+        )
+        print("4")
+        db.session.commit()
+        print("5")
+        return redirect(url_for("guests"))
+    return render_template("edit_guests.html", guests=guests)
 
 # Table Plan Pages
 @app.route("/table_plan")
