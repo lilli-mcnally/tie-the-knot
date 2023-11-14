@@ -45,23 +45,26 @@ def add_checklist_item():
 def edit_checklist_item(checklist_item_id):
     checklist_item = Checklist.query.get_or_404(checklist_item_id)
     if request.method == "POST":
-        # Gets the string from in the checklist name box
         new_checklist_name = request.form.get('checklist_name')
-        # Filters for any matches of this string with any in the database
+        # Gets the string from in the checklist name box
         existing_checklist = Checklist.query.filter_by(checklist_name=new_checklist_name).first()
-        # If Truthy, the message is flashed
+        # Filters for any matches of this string with any in the database
         if existing_checklist:
-            flash("Checklist name already taken")
-            return redirect(url_for('edit_checklist_item', checklist_item_id=checklist_item_id))
-        # If Falsy, the item is committed to the database
-        checklist_item = Checklist(
-            checklist_name=request.form.get("checklist_name"),
-            checklist_notes=request.form.get("checklist_notes"),    
-            checklist_date=request.form.get("checklist_date"),
-            checklist_payment=bool(True if request.form.get("checklist_payment") else False)
-        )
-        db.session.commit()
-        return redirect(url_for("checklist"))
+            # If Truthy, the message is flashed
+            if existing_checklist.id != checklist_item_id:
+                # Checks if the ID is the same, so the name can stay the same
+                print(existing_checklist.id)
+                flash("Checklist name already taken")
+                return redirect(url_for('edit_checklist_item', checklist_item_id=checklist_item_id))
+                # if it's a different ID, the Checklist name taken message is flashed
+            else:
+                # If not, the change is committed to the database
+                checklist_item.checklist_name=request.form.get("checklist_name"),
+                checklist_item.checklist_notes=request.form.get("checklist_notes"),    
+                checklist_item.checklist_date=request.form.get("checklist_date"),
+                checklist_payment=bool(True if request.form.get("checklist_payment") else False)
+                db.session.commit()
+                return redirect(url_for("checklist"))
     return render_template("edit_checklist_item.html", checklist_item=checklist_item)
 
 @app.route("/delete_checklist_item/<int:checklist_item_id>")
@@ -92,21 +95,22 @@ def add_guests():
 
 @app.route("/edit_guests/<int:guest_id>", methods=["GET", "POST"])
 def edit_guests(guest_id):
-    print("1")
-    guests = Guest.query.get_or_404(guest_id)
-    print("2")
+    guest = Guest.query.get_or_404(guest_id)
     if request.method == "POST":
-        print("3")
-        guest = Guest(
-            guest_name=request.form.get("guest_name"),
-            guest_notes=request.form.get("guest_notes"),    
-            table_number=request.form.get("table_number")
-        )
-        print("4")
+        guest.guest_name=request.form.get("guest_name"),
+        guest.guest_notes=request.form.get("guest_notes"),    
+        guest.table_number=request.form.get("table_number")
         db.session.commit()
-        print("5")
         return redirect(url_for("guests"))
-    return render_template("edit_guests.html", guests=guests)
+    return render_template("edit_guests.html", guest=guest)
+
+@app.route("/delete_guest/<int:guest_id>")
+def delete_guest(guest_id):
+    guest = Guest.query.get_or_404(guest_id)
+    db.session.delete(guest)
+    db.session.commit()
+    return redirect(url_for("guests"))
+
 
 # Table Plan Pages
 @app.route("/table_plan")
@@ -124,6 +128,22 @@ def add_table():
         db.session.commit()
         return redirect(url_for("table_plan"))
     return render_template("add_table.html")
+
+@app.route("/edit_table/<int:table_id>", methods=["GET", "POST"])
+def edit_table(table_id):
+    table = Table.query.get_or_404(table_id)
+    if request.method == "POST":
+        table.table_name=request.form.get("table_name"),
+        db.session.commit()
+        return redirect(url_for("table_plan"))
+    return render_template("edit_table.html", table=table)
+
+@app.route("/delete_table/<int:table_id>")
+def delete_table(table_id):
+    table = Table.query.get_or_404(table_id)
+    db.session.delete(table)
+    db.session.commit()
+    return redirect(url_for("table_plan"))
 
 # Payments Pages
 @app.route("/payments")
