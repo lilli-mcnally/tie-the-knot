@@ -15,8 +15,16 @@
             <input type="text" id="guest_name" name="guest_name" minlength="3" maxlength="30" required>
             <label for="guest_notes">Guest Notes</label>
             <input type="text" id="guest_notes" name="guest_notes" minlength="3" maxlength="100" required>
-            <label for="guest_notes">Guest Table Number</label>
-            <input type="number" id="table_number" name="table_number" min="1" max="10">
+            <p>Guest Table Number</p>
+            <div class="col s12 radio-group">
+                {% for table in tables %}
+                <div class="radio-item">
+                    <input type="radio" id="table_name-{{ table }}" name="table_name-{{ table }}"
+                        class="col s1 filled-in table-radio">
+                    <label for="table_name-{{ table }}">{{ table }}</label>
+                </div>
+                {% endfor %}
+            </div>
             <button class="btn waves-effect waves-light submit" type="submit" name="action">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>
             </button>

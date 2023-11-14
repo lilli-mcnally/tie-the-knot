@@ -355,3 +355,26 @@ nav .sidenav-trigger {
 #payment-container {
     padding-bottom: 20px;
 }
+
+/* Add Guest */
+
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.table-radio {
+    box-shadow: none !important;
+    margin: 5px !important;
+}
+
+.radio-group {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.radio-item {
+    margin-right: 10px;
+}

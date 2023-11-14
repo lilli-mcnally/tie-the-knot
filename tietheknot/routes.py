@@ -82,6 +82,7 @@ def guests():
 
 @app.route("/add_guests", methods=["GET", "POST"])
 def add_guests():
+    tables = list(Table.query.order_by(Table.table_name).all())
     if request.method == "POST":
         guest = Guest(
             guest_name=request.form.get("guest_name"),
@@ -91,7 +92,7 @@ def add_guests():
         db.session.add(guest)
         db.session.commit()
         return redirect(url_for("guests"))
-    return render_template("add_guests.html")
+    return render_template("add_guests.html", tables=tables)
 
 @app.route("/edit_guests/<int:guest_id>", methods=["GET", "POST"])
 def edit_guests(guest_id):
