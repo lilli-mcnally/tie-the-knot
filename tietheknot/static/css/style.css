@@ -385,6 +385,12 @@ nav .sidenav-trigger {
     background-color: #92a8a2;
 }
 
+.table-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #create-table {
     padding: 5px;
     border-radius: 2px;

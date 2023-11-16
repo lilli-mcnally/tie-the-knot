@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let guestTable of document.getElementsByClassName("table-dropdown")) {
         guestTable.addEventListener("click", function () {
             document.getElementById("chosen-table").innerHTML = this.innerHTML;
-            document.getElementById("table_number").value = this.innerHTML;
+            document.getElementById("table_number").value = this.innerHTML.trim();
             document.getElementById("chosen-table").style.border = "2px solid #366355";
         })
     }

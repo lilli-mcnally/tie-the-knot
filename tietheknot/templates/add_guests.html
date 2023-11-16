@@ -32,11 +32,13 @@
                     </p>
                     {% else %}
                     <!-- Dropdown Trigger -->
-                    <a class="dropdown-trigger btn" data-target="dropdown1">Choose Table Number</a>
+                    <a class="dropdown-trigger btn" data-target="table-drop">Choose Table Number</a>
                     <!-- Dropdown Structure -->
-                    <ul id="dropdown1" class="dropdown-content">
+                    <ul id="table-drop" class="dropdown-content">
                         {% for table in tables %}
-                        <li class="table-dropdown">{{ table }}</li>
+                        <li class="table-dropdown">
+                            {{ table }}
+                        </li>
                         {% endfor %}
                     </ul>
                     {% endif %}
