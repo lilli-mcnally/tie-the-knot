@@ -6,6 +6,12 @@
         <div class="col s12 green-row">
             <h1>Add Guest</h1>
         </div>
+        <div class="col s12 green-row flash-message">
+            {% with messages = get_flashed_messages() %} {% if messages %} {% for
+                    message in messages %}
+            <h5>{{ message }}</h5>
+            {% endfor %} {% endif %} {% endwith %}
+        </div>
     </div>
 </div>
 <form action="{{ url_for('add_guests')}}" method="POST">
@@ -18,16 +24,24 @@
             <p>Guest Table Number</p>
             <div class="col s12 radio-group">
                 <div>
+                    {% if not tables %}
+                    <p class="col s12 green-row flash-message" id="create-table">
+                        No tables have been created. Click <a href="{{ url_for('add_table') }}"
+                            class="create-table-a">here</a> to create a
+                        table.
+                    </p>
+                    {% else %}
                     <!-- Dropdown Trigger -->
-                    <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Choose Table Number</a>
+                    <a class="dropdown-trigger btn" data-target="dropdown1">Choose Table Number</a>
                     <!-- Dropdown Structure -->
-                    <ul id='dropdown1' class='dropdown-content'>
+                    <ul id="dropdown1" class="dropdown-content">
                         {% for table in tables %}
-                        <li><a href="#!" class="table-dropdown">{{ table }}</a></li>
+                        <li class="table-dropdown">{{ table }}</li>
                         {% endfor %}
                     </ul>
+                    {% endif %}
                 </div>
-                <div>
+                <div id="chosen-table-div">
                     <p id="chosen-table"></p>
                 </div>
                 <input type="text" id="table_number" name="table_number">

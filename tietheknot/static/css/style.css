@@ -361,14 +361,39 @@ nav .sidenav-trigger {
 #chosen-table {
     padding: 2px 20px;
     height: 36px;
-    margin: 0 0 20px 5%;
-    width: fit-content
+    margin: 0;
+}
+
+#chosen-table-div {
+    margin-left: 10px;
+    margin-bottom: 20px;
 }
 
 .radio-group {
-    display: inline-flex;
+    display: flex;
 }
 
 #table_number {
     display: none;
+}
+
+.dropdown-trigger {
+    background-color: #366355;
+}
+
+.dropdown-trigger:hover {
+    background-color: #92a8a2;
+}
+
+#create-table {
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.create-table-a {
+    color: #366355;
+}
+
+.create-table-a:hover {
+    text-decoration: underline;
 }

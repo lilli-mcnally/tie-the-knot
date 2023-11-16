@@ -7,10 +7,17 @@
             <h1>Payments</h1>
         </div>
         <div>
+            {% if not checklist_items.checklist_payment %}
+            <div class="col s12 green-row flash-message">
+                <h5>Whoops! Looks like you don't have any checklist items.</h5>
+                <p>Click <a href="{{ url_for('add_checklist_item') }}" class="create-table-a">here</a> to create a
+                    new checklist item.</p>
+            </div>
+            {% else %}
+            {% for checklist_item in checklist_items %}
+            <!-- Iterates through each Checklist item -->
+            {% if checklist_item.checklist_payment == True %}
             <div class="col s12 green-row green-container" id="payment-container">
-                {% for checklist_item in checklist_items %}
-                <!-- Iterates through each Checklist item -->
-                {% if checklist_item.checklist_payment == True %}
                 {% if loop.first %}
                 <!-- Checks to see if this is the first iteration, meaning it has no previous -->
                 <p class="checklist-date"><strong>{{ checklist_item.checklist_date.strftime("%-d %B %Y") }}</strong></p>
@@ -68,8 +75,6 @@
                         </p>
                     </div>
                 </div>
-                {% endif %}
-                {% endif %}
                 <!-- Modal Structure -->
                 <div id="deleteModal" class="modal">
                     <div class="modal-content">
@@ -81,8 +86,11 @@
                             class="waves-effect waves-green btn-flat">Confirm changes</a>
                     </div>
                 </div>
-                {% endfor %}
+                {% endif %}
             </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
         </div>
     </div>
 </div>

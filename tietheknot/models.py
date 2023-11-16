@@ -28,7 +28,7 @@ class Guest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     guest_name = db.Column(db.String(30), nullable=False)
     guest_notes = db.Column(db.Text)
-    table_number = db.Column(db.Integer, db.ForeignKey("table.id", ondelete="CASCADE"))
+    table_number = db.Column(db.String(30), db.ForeignKey("table.table_name", ondelete="CASCADE"))
 
     def __repr__(self):
         # Represents itself as a string
