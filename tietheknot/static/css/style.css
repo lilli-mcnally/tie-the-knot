@@ -319,7 +319,7 @@ nav .sidenav-trigger {
 }
 
 .submit:hover {
-    background-color: #4C8A78;
+    background-color: #92a8a2;
 }
 
 .flash-message {
@@ -358,23 +358,17 @@ nav .sidenav-trigger {
 
 /* Add Guest */
 
-[type="radio"]:not(:checked),
-[type="radio"]:checked {
-    position: relative;
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.table-radio {
-    box-shadow: none !important;
-    margin: 5px !important;
+#chosen-table {
+    padding: 2px 20px;
+    height: 36px;
+    margin: 0 0 20px 5%;
+    width: fit-content
 }
 
 .radio-group {
-    display: flex;
-    margin-bottom: 20px;
+    display: inline-flex;
 }
 
-.radio-item {
-    margin-right: 10px;
+#table_number {
+    display: none;
 }

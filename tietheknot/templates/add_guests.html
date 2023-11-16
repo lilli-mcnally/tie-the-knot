@@ -17,13 +17,21 @@
             <input type="text" id="guest_notes" name="guest_notes" minlength="3" maxlength="100" required>
             <p>Guest Table Number</p>
             <div class="col s12 radio-group">
-                {% for table in tables %}
-                <div class="radio-item">
-                    <input type="radio" id="table_name-{{ table }}" name="table_name-{{ table }}"
-                        class="col s1 filled-in table-radio">
-                    <label for="table_name-{{ table }}">{{ table }}</label>
+                <div>
+                    <!-- Dropdown Trigger -->
+                    <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Choose Table Number</a>
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown1' class='dropdown-content'>
+                        {% for table in tables %}
+                        <li><a href="#!" class="table-dropdown">{{ table }}</a></li>
+                        {% endfor %}
+                    </ul>
                 </div>
-                {% endfor %}
+                <div>
+                    <p id="chosen-table"></p>
+                </div>
+                <input type="text" id="table_number" name="table_number">
+                <label for="table_number"></label>
             </div>
             <button class="btn waves-effect waves-light submit" type="submit" name="action">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>
