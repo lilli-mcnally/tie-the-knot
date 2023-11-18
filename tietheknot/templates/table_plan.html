@@ -10,16 +10,11 @@
         <div>
             <div class="col s12 green-row green-container">
                 {% for table in tables %}
-                <!-- Iterates through each Table -->
-                <p class="checklist-date"><strong>{{ table.table_name }}</strong></p>
-                <div class="col s10 checklist-item">
-                    <div class="col s3">
-                        <p>GUEST NAME</p>
+                <div class="col s4 checklist-item">
+                    <div class="col s6">
+                        <p class="checklist-date"><strong>{{ table.table_name }}</strong></p>
                     </div>
                     <div class="col s6">
-                        <p class="checklist-notes">GUEST NOTES</p>
-                    </div>
-                    <div class="col s3">
                         <p class="checklist-checkbox">
                             <a href="{{ url_for('edit_table', table_id=table.id) }}">
                                 <i class="fa-solid fa-pencil"></i>
@@ -29,25 +24,47 @@
                             </a>
                         </p>
                     </div>
-                </div>
-                <!-- Modal Structure -->
-                <div id="deleteModal{{ table.id }}" class="modal">
-                    <div class="modal-content">
-                        <h5>Are you sure you want to delete "{{ table.table_name }}"?</h5>
+                    {% for guest in guests %}
+                    {% if guest.table_number == table.id %}
+                    <div class="col s6">
+                        <p>{{ guest.guest_name }}</p>
                     </div>
-                    <div class="modal-footer">
-                        <a class="modal-close waves-effect waves-green btn-flat">Cancel changes</a>
-                        <a href="{{ url_for('delete_table', table_id=table.id) }}"
-                            class="waves-effect waves-green btn-flat">Confirm changes</a>
+                    {% endif %}
+                    {% endfor %}
+                    {% for table in tables %}
+                    {% for guest in guests %}
+                    {% if guest.table_number == 0 %}
+                    <div class="col s4 checklist-item"></div>
+                    <div class="col s6">
+                        <p class="checklist-date"><strong>No table assigned yet</strong></p>
                     </div>
+                    <div class="col s6">
+                        <p>{{ guest.guest_name }}</p>
+                    </div>
+                    {% endif %}
+                    <!-- Modal Structure -->
+                    <div id="deleteModal{{ table.id }}" class="modal">
+                        <div class="modal-content">
+                            <h5>Are you sure you want to delete "{{ table.table_name }}"?</h5>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="modal-close waves-effect waves-green btn-flat">Cancel changes</a>
+                            <a href="{{ url_for('delete_table', table_id=table.id) }}"
+                                class="waves-effect waves-green btn-flat">Confirm changes</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
                 </div>
                 {% endfor %}
-                <a href="{{ url_for('add_table') }}" class="col s10 green-row new-green-row">
-                    <p>+ Add new table</p>
-                </a>
             </div>
         </div>
+        <a href="{{ url_for('add_table') }}" class="col s10 green-row new-green-row">
+            <p>+ Add new table</p>
+        </a>
     </div>
-</div>
 
-{% endblock %}
+
+
+
+    {% endblock %}
