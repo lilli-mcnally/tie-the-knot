@@ -23,7 +23,7 @@
             <label for="checklist_notes">Checklist Item Description</label>
             <input type="text" id="checklist_notes" name="checklist_notes" minlength="3" maxlength="100" required>
             <label for="checklist_date">Checklist Item Due Date</label>
-            <input type="date" id="checklist_date" name="checklist_date" required>
+            <input type="date" id="checklist_date" name="checklist_date" min="2000-01-01" max="2050-12-31" required>
             <label for="checklist_payment" class="form-checkbox">
                 <input type="checkbox" class="filled-in" id="checklist_payment" name="checklist_payment" />
                 <span id="payment-span">Is this a payment?</span>

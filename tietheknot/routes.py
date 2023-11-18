@@ -9,6 +9,7 @@ def home():
 
 @app.route("/dashboard")
 def dashboard():
+
     return render_template("dashboard.html")
 
 
@@ -53,7 +54,6 @@ def edit_checklist_item(checklist_item_id):
             # If Truthy, the message is flashed
             if existing_checklist.id != checklist_item_id:
                 # Checks if the ID is the same, so the name can stay the same
-                print(existing_checklist.id)
                 flash("Checklist name already taken")
                 return redirect(url_for('edit_checklist_item', checklist_item_id=checklist_item_id))
                 # if it's a different ID, the Checklist name taken message is flashed
@@ -62,9 +62,17 @@ def edit_checklist_item(checklist_item_id):
                 checklist_item.checklist_name=request.form.get("checklist_name"),
                 checklist_item.checklist_notes=request.form.get("checklist_notes"),    
                 checklist_item.checklist_date=request.form.get("checklist_date"),
-                checklist_payment=bool(True if request.form.get("checklist_payment") else False)
+                checklist_item.checklist_payment=bool(True if request.form.get("checklist_payment") else False)
                 db.session.commit()
                 return redirect(url_for("checklist"))
+        else:
+            # If not, the change is committed to the database
+            checklist_item.checklist_name=request.form.get("checklist_name"),
+            checklist_item.checklist_notes=request.form.get("checklist_notes"),    
+            checklist_item.checklist_date=request.form.get("checklist_date"),
+            checklist_item.checklist_payment=bool(True if request.form.get("checklist_payment") else False)
+            db.session.commit()
+            return redirect(url_for("checklist"))
     return render_template("edit_checklist_item.html", checklist_item=checklist_item)
 
 @app.route("/delete_checklist_item/<int:checklist_item_id>")
@@ -86,7 +94,7 @@ def add_guests():
     if request.method == "POST":
         guest = Guest(
             guest_name=request.form.get("guest_name"),
-            guest_notes=request.form.get("guest_notes"),    
+            guest_notes=request.form.get("guest_notes"),
             table_number=request.form.get("table_number")
         )
         db.session.add(guest)
@@ -97,13 +105,14 @@ def add_guests():
 @app.route("/edit_guests/<int:guest_id>", methods=["GET", "POST"])
 def edit_guests(guest_id):
     guest = Guest.query.get_or_404(guest_id)
+    tables = list(Table.query.order_by(Table.table_name).all())
     if request.method == "POST":
         guest.guest_name=request.form.get("guest_name"),
         guest.guest_notes=request.form.get("guest_notes"),    
         guest.table_number=request.form.get("table_number")
         db.session.commit()
         return redirect(url_for("guests"))
-    return render_template("edit_guests.html", guest=guest)
+    return render_template("edit_guests.html", guest=guest, tables=tables)
 
 @app.route("/delete_guest/<int:guest_id>")
 def delete_guest(guest_id):

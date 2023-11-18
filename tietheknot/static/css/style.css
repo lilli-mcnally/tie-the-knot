@@ -403,3 +403,9 @@ nav .sidenav-trigger {
 .create-table-a:hover {
     text-decoration: underline;
 }
+
+/* Edit Guest */
+
+.edit-chosen-table {
+    border: 2px solid #366355;
+}

@@ -25,7 +25,7 @@
                 value="{{ checklist_item.checklist_notes }}" required>
             <label for="checklist_date">Checklist Item Due Date</label>
             <input type="date" id="checklist_date" name="checklist_date" value="{{ checklist_item.checklist_date }}"
-                required>
+                min="2000-01-01" max="2050-12-31" required>
             <label for="checklist_payment" class="form-checkbox">
                 {% if checklist_item.checklist_payment == True %}
                 <input type="checkbox" class="filled-in" id="checklist_payment" name="checklist_payment"
@@ -36,9 +36,9 @@
                 <span id="payment-span">Is this a payment?</span>
             </label>
             <br>
-            <a href="#editModal" class="btn waves-effect waves-light submit modal-trigger">Submit
+            <button class="btn waves-effect waves-light submit modal-trigger" type="submit" name="action">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>
-            </a>
+            </button>
         </div>
     </div>
     <!-- Modal Structure -->

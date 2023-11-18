@@ -16,7 +16,7 @@ class Checklist(db.Model):
 class Table(db.Model):
     # Schema for the Payments model
     id = db.Column(db.Integer, primary_key=True)
-    table_name = db.Column(db.String(30), unique=True, nullable=False)
+    table_name = db.Column(db.String(30), unique=True, nullable=True)
     guest_rel = db.relationship("Guest", backref="table", cascade="all, delete", lazy=True)
 
     def __repr__(self):

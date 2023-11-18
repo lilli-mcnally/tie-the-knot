@@ -23,23 +23,37 @@
             <label for="guest_notes">Guest Notes</label>
             <input type="text" id="guest_notes" name="guest_notes" minlength="3" maxlength="100"
                 value="{{ guest.guest_notes }}" required>
-            <label for="guest_notes">Guest Table Number</label>
-            <input type="number" id="table_number" name="table_number" min="1" max="10"
-                value="{{ guest.table_number }}">
-            <br>
-            <a href="#guestModal" class="btn waves-effect waves-light submit modal-trigger">Submit
+            <p>Guest Table Number</p>
+            <div class="col s12 radio-group">
+                <div>
+                    {% if not tables %}
+                    <p class="col s12 green-row flash-message" id="create-table">
+                        No tables have been created. Click <a href="{{ url_for('add_table') }}"
+                            class="create-table-a">here</a> to create a
+                        table.
+                    </p>
+                    {% else %}
+                    <!-- Dropdown Trigger -->
+                    <a class="dropdown-trigger btn" data-target="table-drop">Choose Table Number</a>
+                    <!-- Dropdown Structure -->
+                    <ul id="table-drop" class="dropdown-content">
+                        {% for table in tables %}
+                        <li class="table-dropdown">
+                            {{ table }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                <div id="chosen-table-div">
+                    <p id="chosen-table" class="edit-chosen-table">{{ guest.table_number }}</p>
+                </div>
+                <input type="text" id="table_number" name="table_number" value="{{ guest.table_number }}">
+                <label for="table_number"></label>
+            </div>
+            <button class="btn waves-effect waves-light submit" type="submit" name="action">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>
-            </a>
-        </div>
-    </div>
-    <!-- Modal Structure -->
-    <div id="guestModal" class="modal">
-        <div class="modal-content">
-            <h5>Would you like to confirm these changes?</h5>
-        </div>
-        <div class="modal-footer">
-            <a class="modal-close waves-effect waves-green btn-flat">Cancel changes</a>
-            <button class="waves-effect waves-green btn-flat" type="submit" name="action">Confirm changes</button>
+            </button>
         </div>
     </div>
 </form>
