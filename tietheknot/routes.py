@@ -95,10 +95,10 @@ def add_guests():
             guest_name=request.form.get("guest_name"),
             guest_notes=request.form.get("guest_notes"),
         )
-        if request.form.get("table_name") != "None":
+        if request.form.get("table_name") != 'None':
             guest.table_number=Table.query.filter_by(table_name=request.form.get("table_name")).first().id
         else:
-            guest.table_number=None
+            guest.table_number=0
         db.session.add(guest)
         db.session.commit()
         return redirect(url_for("guests"))

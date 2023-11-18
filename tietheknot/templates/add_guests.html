@@ -35,6 +35,7 @@
                     <a class="dropdown-trigger btn" data-target="table-drop">Choose Table Number</a>
                     <!-- Dropdown Structure -->
                     <ul id="table-drop" class="dropdown-content">
+                        <li class="table-dropdown">None</li>
                         {% for table in tables %}
                         <li class="table-dropdown">
                             {{ table }}
@@ -46,8 +47,8 @@
                 <div id="chosen-table-div">
                     <p id="chosen-table"></p>
                 </div>
-                <input type="text" id="table_number" name="table_number" value="null">
-                <label for="table_number"></label>
+                <input type="text" id="table_name" name="table_name" value="None">
+                <label for="table_name"></label>
             </div>
             <button class="btn waves-effect waves-light submit" type="submit" name="action">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>
