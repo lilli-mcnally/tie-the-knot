@@ -9,7 +9,6 @@ def home():
 
 @app.route("/dashboard")
 def dashboard():
-
     return render_template("dashboard.html")
 
 
@@ -95,8 +94,11 @@ def add_guests():
         guest = Guest(
             guest_name=request.form.get("guest_name"),
             guest_notes=request.form.get("guest_notes"),
-            table_number=request.form.get("table_number")
         )
+        if request.form.get("table_name") != "None":
+            guest.table_number=Table.query.filter_by(table_name=request.form.get("table_name")).first().id
+        else:
+            guest.table_number=None
         db.session.add(guest)
         db.session.commit()
         return redirect(url_for("guests"))
@@ -108,8 +110,11 @@ def edit_guests(guest_id):
     tables = list(Table.query.order_by(Table.table_name).all())
     if request.method == "POST":
         guest.guest_name=request.form.get("guest_name"),
-        guest.guest_notes=request.form.get("guest_notes"),    
-        guest.table_number=request.form.get("table_number")
+        guest.guest_notes=request.form.get("guest_notes"),
+        if request.form.get("table_name") != 'None':
+            guest.table_number=Table.query.filter_by(table_name=request.form.get("table_name")).first().id
+        else:
+            guest.table_number=0
         db.session.commit()
         return redirect(url_for("guests"))
     return render_template("edit_guests.html", guest=guest, tables=tables)
@@ -132,7 +137,7 @@ def table_plan():
 def add_table():
     if request.method == "POST":
         table = Table(
-            table_name=request.form.get("table_name"),
+            table_name=request.form.get("new_table"),
         )
         db.session.add(table)
         db.session.commit()

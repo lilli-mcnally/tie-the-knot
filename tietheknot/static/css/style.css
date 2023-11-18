@@ -373,7 +373,8 @@ nav .sidenav-trigger {
     display: flex;
 }
 
-#table_number {
+
+#table_name {
     display: none;
 }
 
@@ -408,4 +409,8 @@ nav .sidenav-trigger {
 
 .edit-chosen-table {
     border: 2px solid #366355;
+}
+
+.btn {
+    text-transform: none;
 }

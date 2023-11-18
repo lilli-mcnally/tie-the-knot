@@ -37,6 +37,7 @@
                     <a class="dropdown-trigger btn" data-target="table-drop">Choose Table Number</a>
                     <!-- Dropdown Structure -->
                     <ul id="table-drop" class="dropdown-content">
+                        <li class="table-dropdown">None</li>
                         {% for table in tables %}
                         <li class="table-dropdown">
                             {{ table }}
@@ -46,9 +47,24 @@
                     {% endif %}
                 </div>
                 <div id="chosen-table-div">
-                    <p id="chosen-table" class="edit-chosen-table">{{ guest.table_number }}</p>
+                    {% if guest.table_number == 0 %}
+                    <p id="chosen-table" class="edit-chosen-table">None</p>
+                    {% endif %}
+                    {% for table in tables %}
+                    {% if guest.table_number == table.id %}
+                    <p id="chosen-table" class="edit-chosen-table">{{ table.table_name }}</p>
+                    {% endif %}
+                    {% endfor %}
+
                 </div>
-                <input type="text" id="table_number" name="table_number" value="{{ guest.table_number }}">
+                {% if guest.table_number == 0 %}
+                <input type="text" id="table_name" name="table_name" value="None">
+                {% endif %}
+                {% for table in tables %}
+                {% if guest.table_number == table.id %}
+                <input type="text" id="table_name" name="table_name" value="{{ table.table_name }}">
+                {% endif %}
+                {% endfor %}
                 <label for="table_number"></label>
             </div>
             <button class="btn waves-effect waves-light submit" type="submit" name="action">Submit

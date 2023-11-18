@@ -21,19 +21,9 @@
             <input type="text" id="table_name" name="table_name" minlength="1" maxlength="30"
                 value="{{ table.table_name }}" required>
             <br>
-            <a href="#editModal" class="btn waves-effect waves-light submit modal-trigger">Submit
+            <button class="btn waves-effect waves-light submit" type="submit" name="action">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>
-            </a>
-        </div>
-    </div>
-    <!-- Modal Structure -->
-    <div id="editModal" class="modal">
-        <div class="modal-content">
-            <h5>Would you like to confirm these changes?</h5>
-        </div>
-        <div class="modal-footer">
-            <a class="modal-close waves-effect waves-green btn-flat">Cancel changes</a>
-            <button class="waves-effect waves-green btn-flat" type="submit" name="action">Confirm changes</button>
+            </button>
         </div>
     </div>
 </form>
