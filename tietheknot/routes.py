@@ -130,7 +130,7 @@ def delete_guest(guest_id):
 # Table Plan Pages
 @app.route("/table_plan")
 def table_plan():
-    tables = list(Table.query.order_by(Table.table_name).all())
+    tables = list(Table.query.order_by(Table.id).all())
     guests = list(Guest.query.order_by(Guest.guest_name).all())
     return render_template("table_plan.html", tables=tables, guests=guests)
 
