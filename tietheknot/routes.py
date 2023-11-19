@@ -149,7 +149,7 @@ def add_table():
 def edit_table(table_id):
     table = Table.query.get_or_404(table_id)
     if request.method == "POST":
-        table.table_name=request.form.get("table_name"),
+        table.table_name=request.form.get("new_table"),
         db.session.commit()
         return redirect(url_for("table_plan"))
     return render_template("edit_table.html", table=table)

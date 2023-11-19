@@ -226,7 +226,7 @@ nav .sidenav-trigger {
     text-align: right;
 }
 
-.checklist-checkbox i {
+.edit-buttons {
     font-size: 14px;
     color: #000;
     border: 2px solid #eef6f3;
@@ -236,7 +236,7 @@ nav .sidenav-trigger {
     text-align: center;
 }
 
-.checklist-checkbox i:hover {
+.edit-buttons:hover {
     border: 2px solid #366355;
     border-radius: 50px;
 }
@@ -413,4 +413,37 @@ nav .sidenav-trigger {
 
 .btn {
     text-transform: none;
+}
+
+/* Table Plan */
+
+.table-container {
+    flex-direction: unset;
+    justify-content: center;
+}
+
+.table-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-left: 0 !important;
+    margin: 30px !important;
+    padding: 0 20px !important;
+}
+
+.table-box p {
+    margin: 10px 0;
+}
+
+.table-pencil {
+    margin-right: 40px;
+}
+
+.table-x {
+    margin-left: 40px;
+}
+
+#new-table-row {
+    margin-left: unset;
 }
