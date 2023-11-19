@@ -356,6 +356,16 @@ nav .sidenav-trigger {
     padding-bottom: 20px;
 }
 
+#no-payments {
+    display: none;
+}
+
+/* Guests Page */
+
+#guests-container {
+    padding-top: 20px;
+}
+
 /* Add Guest */
 
 #chosen-table {
@@ -430,7 +440,7 @@ nav .sidenav-trigger {
     text-align: center;
     align-items: center;
     margin-left: 0 !important;
-    margin: 30px !important;
+    margin: 20px 30px !important;
     padding: 0 20px !important;
     height: 400px;
     overflow: scroll;

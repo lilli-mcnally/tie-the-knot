@@ -84,6 +84,12 @@
                 {% endif %}
                 {% endfor %}
             </div>
+            <div class="col s12 green-row flash-message" id="no-payments">
+                <h5>Whoops! It looks like you don't have any payments yet. Click <a
+                        href="{{ url_for('add_checklist_item') }}" class="create-table-a">here</a> to add a new payment
+                    to the
+                    checklist</h5>
+            </div>
         </div>
     </div>
 </div>
