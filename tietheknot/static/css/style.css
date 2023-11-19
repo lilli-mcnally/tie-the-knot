@@ -392,10 +392,12 @@ nav .sidenav-trigger {
     align-items: center;
 }
 
-#create-table {
+.create-table {
     padding: 5px;
     border-radius: 2px;
 }
+
+
 
 .create-table-a {
     color: #366355;
@@ -430,6 +432,8 @@ nav .sidenav-trigger {
     margin-left: 0 !important;
     margin: 30px !important;
     padding: 0 20px !important;
+    height: 400px;
+    overflow: scroll;
 }
 
 .table-box p {
@@ -437,13 +441,47 @@ nav .sidenav-trigger {
 }
 
 .table-pencil {
-    margin-right: 40px;
+    margin-right: 10%;
 }
 
 .table-x {
-    margin-left: 40px;
+    margin-left: 10%;
 }
 
 #new-table-row {
     margin-left: unset;
+}
+
+.unassigned-guest {
+    display: flex;
+    flex-direction: column;
+}
+
+.unassigned-guest-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 !important;
+}
+
+.guest-name-box {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+.assign-button {
+    background-color: #E8D2CA;
+    border-radius: 2px;
+}
+
+.assign-button a {
+    text-decoration: none;
+    color: #000;
+    padding: 0 5px;
+}
+
+.assign-button a:hover {
+    text-decoration: underline;
 }
