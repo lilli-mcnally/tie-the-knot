@@ -33,9 +33,9 @@
                         <h5>Are you sure you want to delete "{{ table.table_name }}"?</h5>
                     </div>
                     <div class="modal-footer">
-                        <a class="modal-close waves-effect waves-green btn-flat">Cancel changes</a>
+                        <a class="modal-close waves-effect waves-light flash-message btn-flat">Cancel changes</a>
                         <a href="{{ url_for('delete_table', table_id=table.id) }}"
-                            class="waves-effect waves-green btn-flat">Confirm changes</a>
+                            class="waves-effect waves-light flash-message btn-flat">Confirm changes</a>
                     </div>
                 </div>
                 {% endfor %}
