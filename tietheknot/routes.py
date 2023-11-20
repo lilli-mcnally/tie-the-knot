@@ -137,6 +137,15 @@ def table_plan():
 @app.route("/add_table", methods=["GET", "POST"])
 def add_table():
     if request.method == "POST":
+        # Gets the string from in the table name box
+        new_table_name = request.form.get('new_table')
+        # Filters for any matches of this string with any in the database
+        existing_table = Table.query.filter_by(table_name=new_table_name).first()
+        # If Truthy, the message is flashed
+        if existing_table:
+            flash("Table name already taken")
+            return redirect(url_for('add_table'))
+        # If Falsy, the table is committed to the database
         table = Table(
             table_name=request.form.get("new_table"),
         )
@@ -144,6 +153,7 @@ def add_table():
         db.session.commit()
         return redirect(url_for("table_plan"))
     return render_template("add_table.html")
+
 
 @app.route("/edit_table/<int:table_id>", methods=["GET", "POST"])
 def edit_table(table_id):

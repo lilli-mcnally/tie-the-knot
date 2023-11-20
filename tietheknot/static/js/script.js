@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', function () {
     M.Modal.init(elems);
 });
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     var elems = document.querySelectorAll('.dropdown-trigger');
-//     var instances = M.Dropdown.init(elems);
-//     chosenTable = document.getElementById("chosen-table").innerHTML;
-//     if (chosenTable == "None") {
-//         document.getElementById("chosen-table").style.display = "none";
-//     }
-// });
+document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems);
+    chosenTable = document.getElementById("chosen-table").innerHTML;
+    if (chosenTable == "None") {
+        document.getElementById("chosen-table").style.display = "none";
+    }
+});
 
 document.addEventListener('DOMContentLoaded', function () {
     for (let guestTable of document.getElementsByClassName("table-dropdown")) {
@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             chosenTable = document.getElementById("chosen-table").innerHTML;
             if (chosenTable == "None") {
                 document.getElementById("chosen-table").style.display = "none";
+                document.getElementById("table_name").value = this.innerHTML.trim();
             } else {
                 document.getElementById("table_name").value = this.innerHTML.trim();
                 document.getElementById("chosen-table").style.border = "2px solid #366355";
