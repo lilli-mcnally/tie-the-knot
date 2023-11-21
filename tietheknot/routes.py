@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash
 from tietheknot import app, db
-from tietheknot.models import Checklist, Table, Guest
+from tietheknot.models import User, Checklist, Table, Guest
 from werkzeug.security import generate_password_hash, check_password_hash
 
 # Main pages
@@ -8,8 +8,30 @@ from werkzeug.security import generate_password_hash, check_password_hash
 def home():
     return render_template("base.html")
 
-@app.route("/sign_up")
+@app.route("/sign_up", methods=["GET", "POST"])
 def sign_up():
+    if request.method == "POST":
+        new_username = request.form.get("username")
+        existing_user = User.query.filter_by(username=new_username).first()
+        if existing_user:
+            flash("Username is already taken")
+            return redirect(url_for('sign_up'))
+
+        new_password = request.form.get("password")
+        conf_password = request.form.get("conf_password")
+        if new_password != conf_password:
+            flash("Whoops! It looks like your passwords don't match")
+            return redirect(url_for('sign_up'))
+
+        sign_up = User(
+            username=request.form.get("username"),
+            password=generate_password_hash(request.form.get("password"), )
+        )
+        db.session.add(sign_up)
+        db.session.commit()
+        # session["user"] = request.form.get("username")
+        flash("Sucessfully Signed Up!")
+        return redirect(url_for('sign_up'))
     return render_template("sign_up.html")
 
 @app.route("/dashboard")

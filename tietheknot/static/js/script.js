@@ -9,15 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems);
-    chosenTable = document.getElementById("chosen-table").innerHTML;
-    if (chosenTable == "None") {
-        document.getElementById("chosen-table").style.display = "none";
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function () {
     for (let guestTable of document.getElementsByClassName("table-dropdown")) {
         guestTable.addEventListener("click", function () {
             document.getElementById("chosen-table").innerHTML = this.innerHTML;
@@ -35,10 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    if (window.location.href.indexOf("payments") > -1) {
-        if (document.getElementById("payment-container").textContent.trim() === "") {
-            document.getElementById("payment-container").style.display = "none";
-            document.getElementById("no-payments").style.display = "block";
-        };
-    };
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems);
+    chosenTable = document.getElementById("chosen-table").innerHTML;
+    if (chosenTable == "None") {
+        document.getElementById("chosen-table").style.display = "none";
+    }
 });

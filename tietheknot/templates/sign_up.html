@@ -18,11 +18,12 @@
     <div class="row" id="form-row">
         <div class="col s8" id="form-col">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" minlength="1" maxlength="30" required>
+            <input type="text" id="username" name="username" minlength="5" maxlength="30" pattern="^[a-zA-Z0-9]{8,20}$"
+                required>
             <label for="password">Password</label>
-            <input type="text" id="password" name="password" minlength="1" maxlength="30" required>
+            <input type="password" id="password" name="password" id="show-pass" pattern="^[a-zA-Z0-9]{8,20}$" required>
             <label for="conf_password">Confirm Password</label>
-            <input type="text" id="conf_password" name="conf_password" minlength="1" maxlength="30" required>
+            <input type="password" id="conf_password" name="conf_password" pattern="^[a-zA-Z0-9]{8,20}$" required>
             <button class="btn waves-effect waves-light submit" type="submit" name="action">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>
             </button>
