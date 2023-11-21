@@ -200,6 +200,7 @@ nav .sidenav-trigger {
     align-content: center;
     flex-wrap: wrap;
     text-align: left;
+    padding: 20px !important;
 }
 
 .checklist-item {
@@ -214,7 +215,7 @@ nav .sidenav-trigger {
 }
 
 .checklist-date {
-    margin: 20px 0 5px 10px;
+    margin: 0 0 5px 10px;
 }
 
 .checklist-notes {
@@ -359,7 +360,7 @@ nav .sidenav-trigger {
 /* Payments */
 
 #payment-container {
-    padding-bottom: 20px;
+    padding-bottom: 40px !important;
 }
 
 #no-payments {

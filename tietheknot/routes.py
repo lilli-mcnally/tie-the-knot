@@ -1,11 +1,16 @@
 from flask import render_template, request, redirect, url_for, flash
 from tietheknot import app, db
 from tietheknot.models import Checklist, Table, Guest
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # Main pages
 @app.route("/")
 def home():
     return render_template("base.html")
+
+@app.route("/sign_up")
+def sign_up():
+    return render_template("sign_up.html")
 
 @app.route("/dashboard")
 def dashboard():
