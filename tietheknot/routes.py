@@ -34,6 +34,23 @@ def sign_up():
         return redirect(url_for('sign_up'))
     return render_template("sign_up.html")
 
+@app.route("/log_in")
+def log_in():
+    if request.method == "POST":
+        username_input = request.form.get("username")
+        existing_user = User.query.filter_by(username=username_input).first()
+        if existing_user:
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username")
+            else:
+                flash("Username or Password was incorrect")
+                return render_template("log_in.html")
+        else:
+            flash("Username or Password was incorrect")
+            return render_template("log_in.html")
+    return render_template("log_in.html")
+
 @app.route("/dashboard")
 def dashboard():
     return render_template("dashboard.html")
