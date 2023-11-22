@@ -54,10 +54,6 @@ nav ul a {
     justify-content: center;
 }
 
-nav ul a:hover {
-    background-color: #E8D2CA;
-}
-
 nav .sidenav-trigger {
     float: right;
 }
@@ -76,6 +72,12 @@ nav .sidenav-trigger {
 
 .sidenav li>a {
     font-size: 18px;
+}
+
+.drop-option {
+    margin: 0;
+    padding: 20px !important;
+    text-align: center;
 }
 
 #footer-links,
@@ -116,6 +118,24 @@ nav .sidenav-trigger {
 }
 
 /* Dashboard */
+
+#edit-profile {
+    position: absolute;
+    top: 230px;
+    right: 130px;
+}
+
+#edit-profile a {
+    color: #000;
+    border: 2px solid #dcece7;
+    border-radius: 5px;
+    padding: 1px 3px;
+}
+
+#edit-profile a:hover {
+    border: 2px solid #366355;
+}
+
 .dash-heading {
     display: flex;
     justify-content: center;
@@ -511,3 +531,15 @@ input:-internal-autofill-selected {
 }
 
 /* Sign Up Page */
+
+
+
+
+
+.nav-trigger {
+    background-color: unset;
+}
+
+.nav-trigger:hover {
+    background-color: #E8D2CA;
+}

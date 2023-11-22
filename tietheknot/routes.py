@@ -53,7 +53,8 @@ def log_in():
 
 @app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html")
+    checklist_items = list(Checklist.query.order_by(Checklist.checklist_date).all())
+    return render_template("dashboard.html", checklist_items=checklist_items)
 
 
 # Checklist Pages
