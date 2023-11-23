@@ -32,32 +32,38 @@
                     <li class="divider"></li>
                     <li><a class="drop-option" href="{{ url_for('table_plan') }}">Table Plan</a></li>
                 </ul>
-                <!-- Dropdown Structure -->
-                <ul id="username-dropdown" class="dropdown-content">
-                    <li><a class="drop-option" href="{{ url_for('dashboard') }}">Dashboard</a></li>
-                    <li class="divider"></li>
-                    <li><a class="drop-option" href="{{ url_for('edit_profile', username=session['user']) }}">Edit
-                            profile</a></li>
-                </ul>
                 <!-- Navbar at top of page --->
                 <ul class="right hide-on-med-and-down nav-links">
+                    {% if session.user %}
                     <li><a class="dropdown-trigger nav-trigger" href="#!" data-target="checklist-dropdown">Things to
                             Do</a></li>
                     <li><a class="dropdown-trigger nav-trigger" href="#!" data-target="guest-dropdown">Guest List</a>
                     </li>
-                    <li><a class="dropdown-trigger nav-trigger" href="#!" data-target="username-dropdown">USERNAME</a>
+                    <li><a class="nav-trigger" href="{{ url_for('dashboard') }}">USERNAME</a>
                     </li>
+                    {% else %}
+                    <li><a class="nav-trigger" href="{{ url_for('log_in') }}">Log In</a>
+                    </li>
+                    <li><a class="nav-trigger" href="{{ url_for('sign_up') }}">Sign Up</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
 
         <ul class="sidenav" id="mobile-demo">
+            {% if session.user %}
             <li><a href="{{ url_for('dashboard') }}" class="side-nav">Dashboard</a></li>
             <li><a href="{{ url_for('checklist') }}">Checklist</a></li>
             <li><a href="{{ url_for('payments') }}">Payments</a></li>
             <li><a href="{{ url_for('guests') }}">Guests</a></li>
             <li><a href="{{ url_for('table_plan') }}">Table Plan</a></li>
-            <li><a href="{{ url_for('edit_profile', username=session['user']) }}">Edit profile</a></li>
+            {% else %}
+            <li><a class="side-nav" href="{{ url_for('log_in') }}">Log In</a>
+            </li>
+            <li><a href="{{ url_for('sign_up') }}">Sign Up</a>
+            </li>
+            {% endif %}
         </ul>
     </header>
 
@@ -71,12 +77,18 @@
         <div class="row">
             <div class="col s12">
                 <ul id="footer-links">
+                    {% if session.user %}
                     <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
                     <li><a href="{{ url_for('checklist') }}">Checklist</a></li>
                     <li><a href="{{ url_for('guests') }}">Guests</a></li>
                     <li><a href="{{ url_for('table_plan') }}">Table Plan</a></li>
                     <li><a href="{{ url_for('payments') }}">Payments</a></li>
-                    <li><a href="{{ url_for('edit_profile', username=session['user']) }}">Edit profile</a></li>
+                    {% else %}
+                    <li><a class="side-nav" href="{{ url_for('log_in') }}">Log In</a>
+                    </li>
+                    <li><a href="{{ url_for('sign_up') }}">Sign Up</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="col s12">
