@@ -29,7 +29,7 @@ def sign_up():
         )
         db.session.add(sign_up)
         db.session.commit()
-        # session["user"] = request.form.get("username")
+        session["user"] = request.form.get("username")
         flash("Sucessfully Signed Up!")
         return redirect(url_for('sign_up'))
     return render_template("sign_up.html")

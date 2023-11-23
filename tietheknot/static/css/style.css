@@ -119,23 +119,6 @@ nav .sidenav-trigger {
 
 /* Dashboard */
 
-#edit-profile {
-    position: absolute;
-    top: 230px;
-    right: 130px;
-}
-
-#edit-profile a {
-    color: #000;
-    border: 2px solid #dcece7;
-    border-radius: 5px;
-    padding: 1px 3px;
-}
-
-#edit-profile a:hover {
-    border: 2px solid #366355;
-}
-
 .dash-heading {
     display: flex;
     justify-content: center;
@@ -178,6 +161,12 @@ nav .sidenav-trigger {
     display: flex;
     justify-content: center;
     border: 1.5px solid #dcece7;
+}
+
+#green-one,
+#green-two,
+#green-three {
+    margin-right: 20px;
 }
 
 #green-one h5,
@@ -246,6 +235,10 @@ nav .sidenav-trigger {
 
 .checklist-checkbox {
     text-align: right;
+}
+
+.date-after-first {
+    margin-top: 20px;
 }
 
 .edit-buttons {
