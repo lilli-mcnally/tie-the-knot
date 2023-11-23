@@ -15,10 +15,17 @@
     <header>
         <nav class="row" id="nav-container">
             <div class="col s10" id="nav-main">
+                {% if session.user %}
                 <a href="{{ url_for('dashboard') }}">
                     <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}"
                         alt="Tie the Knot Wedding Planning Logo">
                 </a>
+                {% else %}
+                <a href="{{ url_for('home') }}">
+                    <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}"
+                        alt="Tie the Knot Wedding Planning Logo">
+                </a>
+                {% endif %}
                 <a data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-bars"></i></a>
                 <!-- Dropdown Structure -->
                 <ul id="checklist-dropdown" class="dropdown-content">

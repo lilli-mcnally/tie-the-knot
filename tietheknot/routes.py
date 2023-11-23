@@ -5,9 +5,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 # Main pages
 @app.route("/")
+def base():
+    return render_template("base.html")
+
+@app.route("/home")
 def home():
-    username = User.query.filter_by(username=session["user"]).first()
-    return render_template("base.html", username=username)
+    return render_template("home.html")
+
 
 @app.route("/sign_up", methods=["GET", "POST"])
 def sign_up():
@@ -65,10 +69,8 @@ def logout():
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile(username):
     username = username = User.query.filter_by(username=session["user"]).first()
-
     if session["user"]:
         return render_template("edit_profile.html", username=username)
-    
     return redirect(url_for("login"))
 
 @app.route("/dashboard")
@@ -81,8 +83,9 @@ def dashboard():
 # Checklist Pages
 @app.route("/checklist")
 def checklist():
+    username = User.query.filter_by(username=session["user"]).first()
     checklist_items = list(Checklist.query.order_by(Checklist.checklist_date).all())
-    return render_template("checklist.html", checklist_items=checklist_items)
+    return render_template("checklist.html", checklist_items=checklist_items, username=username)
 
 @app.route("/add_checklist_item", methods=["GET", "POST"])
 def add_checklist_item():
