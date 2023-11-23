@@ -6,7 +6,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 # Main pages
 @app.route("/")
 def home():
-    return render_template("base.html")
+    username = User.query.filter_by(username=session["user"]).first()
+    return render_template("base.html", username=username)
 
 @app.route("/sign_up", methods=["GET", "POST"])
 def sign_up():

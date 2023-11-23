@@ -15,9 +15,13 @@
             <h1>{{ username.name_one }} & {{ username.name_two }}</h1>
             <h5>Only NUMBER days until the big day!</h5>
         </div>
-        <div class="col s12 green-row green-container">
+        <div class="col s12 green-row" id="whats-next">
             <h5>What's next?</h5>
-            <br>
+            <p id="no-checklist">It looks like you don't have any checklist items yet. Click <a
+                    href="{{ url_for('add_checklist_item') }}" class="create-table-a">here</a> to get started!</p>
+        </div>
+
+        <div class="col s12 green-row green-container" id="dash-checklist">
             {% for checklist_item in checklist_items %}
             <!-- Iterates through each Checklist item -->
             {% if loop.first %}

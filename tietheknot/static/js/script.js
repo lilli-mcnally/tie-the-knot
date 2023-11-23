@@ -35,6 +35,17 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    if (window.location.toString().includes("dashboard")) {
+        if (document.getElementById("dash-checklist").textContent.trim() === "") {
+            document.getElementById("dash-checklist").style.display = "none";
+            document.getElementById("whats-next").style.borderBottomLeftRadius = "6px";
+            document.getElementById("whats-next").style.borderBottomRightRadius = "6px";
+            document.getElementById("no-checklist").style.display = "block";
+        };
+    };
+});
+
+document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.dropdown-trigger');
     var instances = M.Dropdown.init(elems);
     if (window.location.href.indexOf("add_guests") != -1) {

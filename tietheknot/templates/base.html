@@ -19,7 +19,7 @@
                     <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}"
                         alt="Tie the Knot Wedding Planning Logo">
                 </a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-bars"></i></a>
+                <a data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-bars"></i></a>
                 <!-- Dropdown Structure -->
                 <ul id="checklist-dropdown" class="dropdown-content">
                     <li><a class="drop-option" href="{{ url_for('checklist') }}">Checklist</a></li>
@@ -35,11 +35,11 @@
                 <!-- Navbar at top of page --->
                 <ul class="right hide-on-med-and-down nav-links">
                     {% if session.user %}
-                    <li><a class="dropdown-trigger nav-trigger" href="#!" data-target="checklist-dropdown">Things to
+                    <li><a class="dropdown-trigger nav-trigger" data-target="checklist-dropdown">Things to
                             Do</a></li>
-                    <li><a class="dropdown-trigger nav-trigger" href="#!" data-target="guest-dropdown">Guest List</a>
+                    <li><a class="dropdown-trigger nav-trigger" data-target="guest-dropdown">Guest List</a>
                     </li>
-                    <li><a class="nav-trigger" href="{{ url_for('dashboard') }}">USERNAME</a>
+                    <li><a class="nav-trigger" href="{{ url_for('dashboard') }}">{{ username.name_one }}</a>
                     </li>
                     {% else %}
                     <li><a class="nav-trigger" href="{{ url_for('log_in') }}">Log In</a>

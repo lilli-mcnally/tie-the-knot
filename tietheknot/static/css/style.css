@@ -130,6 +130,21 @@ nav .sidenav-trigger {
     padding: 0;
 }
 
+#dash-checklist {
+    margin-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+#whats-next {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#no-checklist {
+    font-size: 20px;
+}
+
 .row .col {
     padding: 0;
 }
@@ -367,6 +382,11 @@ nav .sidenav-trigger {
 
 .flash-message {
     background-color: #E8D2CA;
+    border: 1.5px solid #E8D2CA;
+}
+
+.flash-message:hover {
+    border: 1.5px solid #C48C78;
 }
 
 /* Edit Checklist */
@@ -399,7 +419,8 @@ nav .sidenav-trigger {
     padding-bottom: 40px !important;
 }
 
-#no-payments {
+#no-payments,
+#no-checklist {
     display: none;
 }
 
@@ -577,6 +598,12 @@ input:-internal-autofill-selected {
     font-weight: 200;
     font-style: italic;
 }
+
+/* Edit Profile */
+input#input-disabled {
+    background-color: #E8E8E8;
+}
+
 
 
 
