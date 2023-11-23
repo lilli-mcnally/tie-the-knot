@@ -4,14 +4,16 @@
 <div class="row dash-heading">
     <div class="col s10" id="dash-container">
         <div class="col s12 green-row">
-            <h1>Create an Account</h1>
+            <h1>Edit Table</h1>
         </div>
         {% with messages = get_flashed_messages() %} {% if messages %} {% for
-            message in messages %}
+                    message in messages %}
         <div class="col s12 green-row flash-message">
             <h5>{{ message }}</h5>
         </div>
-        {% endfor %} {% endif %} {% endwith %}
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
     </div>
 </div>
 <form action="" method="POST">
@@ -19,9 +21,10 @@
         <div class="col s8" id="form-col">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" minlength="5" maxlength="30" pattern="^[a-zA-Z0-9]{8,20}$"
-                required>
+                value="{{  }}" required>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" id="show-pass" pattern="^[a-zA-Z0-9]{8,20}$" required>
+            <input type="password" id="password" name="password" id="show-pass" pattern="^[a-zA-Z0-9]{8,20}$"
+                value="{{  }}" required>
             <label for="conf_password">Confirm Password</label>
             <input type="password" id="conf_password" name="conf_password" pattern="^[a-zA-Z0-9]{8,20}$" required>
             <p>The happy couple:</p>
@@ -51,8 +54,9 @@
 
 <div class="row dash-heading">
     <div class="col s10">
-        <a href="{{ url_for('log_in') }}" class="green-row back-button">
-            <i class="fa-solid fa-arrow-left-long"></i>Already got an account? Click here to Log In</a>
+        <a href="" class="green-row back-button">
+            <i class="fa-solid fa-arrow-left-long"></i>Back to
+            Table Plan</a>
     </div>
 </div>
 

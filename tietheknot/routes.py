@@ -51,6 +51,10 @@ def log_in():
             return render_template("log_in.html")
     return render_template("log_in.html")
 
+@app.route("/edit_profile")
+def edit_profile():
+    return render_template("edit_profile.html")
+
 @app.route("/dashboard")
 def dashboard():
     checklist_items = list(Checklist.query.order_by(Checklist.checklist_date).all())

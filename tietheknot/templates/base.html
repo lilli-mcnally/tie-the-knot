@@ -36,7 +36,7 @@
                 <ul id="username-dropdown" class="dropdown-content">
                     <li><a class="drop-option" href="{{ url_for('dashboard') }}">Dashboard</a></li>
                     <li class="divider"></li>
-                    <li><a class="drop-option" href="">Edit profile</a></li>
+                    <li><a class="drop-option" href="{{ url_for('edit_profile') }}">Edit profile</a></li>
                 </ul>
                 <!-- Navbar at top of page --->
                 <ul class="right hide-on-med-and-down nav-links">
@@ -56,7 +56,7 @@
             <li><a href="{{ url_for('payments') }}">Payments</a></li>
             <li><a href="{{ url_for('guests') }}">Guests</a></li>
             <li><a href="{{ url_for('table_plan') }}">Table Plan</a></li>
-            <li><a href="">Edit profile</a></li>
+            <li><a href="{{ url_for('edit_profile') }}">Edit profile</a></li>
         </ul>
     </header>
 
@@ -75,7 +75,7 @@
                     <li><a href="{{ url_for('guests') }}">Guests</a></li>
                     <li><a href="{{ url_for('table_plan') }}">Table Plan</a></li>
                     <li><a href="{{ url_for('payments') }}">Payments</a></li>
-                    <li><a href="">Edit profile</a></li>
+                    <li><a href="{{ url_for('edit_profile') }}">Edit profile</a></li>
                 </ul>
             </div>
             <div class="col s12">

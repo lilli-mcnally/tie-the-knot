@@ -5,6 +5,13 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(30), unique=True, nullable=False)
     password = db.Column(db.String(), nullable=False)
+    name_one = db.Column(db.String(), nullable=False)
+    name_two = db.Column(db.String(), nullable=False)
+    wedding_date = db.Column(db.Date, nullable=False)
+
+    def __repr__(self):
+        #Represents itself as a string
+        return self.username
 
 class Checklist(db.Model):
     # Schema for the Checklist model

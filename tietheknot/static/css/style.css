@@ -525,7 +525,28 @@ input:-internal-autofill-selected {
 
 /* Sign Up Page */
 
+.signup-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 55%;
+    margin-bottom: 20px;
+}
 
+.signup-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+.signup-and p {
+    font-size: 24px;
+}
+
+.signup-input-container p {
+    margin: 0 10px;
+}
 
 
 
