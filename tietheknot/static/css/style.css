@@ -161,20 +161,21 @@ nav .sidenav-trigger {
     display: flex;
     justify-content: center;
     border: 1.5px solid #dcece7;
+    font-size: 20px;
 }
 
-#green-one,
+#green-one {
+    margin-right: 10px;
+}
+
 #green-two,
 #green-three {
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-#green-one h5,
-#green-two h5,
-#green-three h5,
-#green-four h5 {
-    width: 130px;
-    font-size: 24px;
+#green-four {
+    margin-left: 10px;
 }
 
 #green-one:hover,
@@ -182,6 +183,28 @@ nav .sidenav-trigger {
 #green-three:hover,
 #green-four:hover {
     border: 1.5px solid #366355;
+}
+
+.dash-button-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.dash-buttons {
+    padding: 10px 30px;
+    width: 40%;
+    background-color: #E8D2CA;
+    border-radius: 3px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #000;
+    border: 1.5px solid #E8D2CA;
+}
+
+.dash-buttons:hover {
+    border: 1.5px solid #C48C78;
 }
 
 /* Checklist */
@@ -463,7 +486,7 @@ nav .sidenav-trigger {
     margin: 20px 30px !important;
     padding: 0 20px !important;
     height: 400px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .table-box p {

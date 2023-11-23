@@ -14,7 +14,7 @@
         {% endfor %} {% endif %} {% endwith %}
     </div>
 </div>
-<form action="" method="POST">
+<form action="{{ url_for('sign_up') }}" method="POST">
     <div class="row" id="form-row">
         <div class="col s8" id="form-col">
             <label for="username">Username</label>
@@ -25,23 +25,23 @@
             <label for="conf_password">Confirm Password</label>
             <input type="password" id="conf_password" name="conf_password" pattern="^[a-zA-Z0-9]{8,20}$" required>
             <p>The happy couple:</p>
-            <div class="signup-details">
-                <div class="signup-input-container">
-                    <label for="name_one">Name one</label>
-                    <input type="text" id="name_one" name="name_one" required>
-                </div>
-                <div class="signup-and">
-                    <p>&</p>
-                </div>
-                <div class="signup-input-container">
-                    <label for="name_two">Name two</label>
-                    <input type="text" id="name_two" name="name_two" required>
-                </div>
-                <div class="signup-input-container">
-                    <label for="wedding_date">Wedding Date</label>
-                    <input type="date" id="wedding_date" name="wedding_date" required>
-                </div>
-            </div>
+            <!-- <div class="signup-details"> -->
+            <!-- <div class="signup-input-container"> -->
+            <label for="name_one">Name one</label>
+            <input type="text" id="name_one" name="name_one" required>
+            <!-- </div> -->
+            <!-- <div class="signup-and"> -->
+            <p>&</p>
+            <!-- </div> -->
+            <!-- <div class="signup-input-container"> -->
+            <label for="name_two">Name two</label>
+            <input type="text" id="name_two" name="name_two" required>
+            <!-- </div> -->
+            <!-- <div class="signup-input-container"> -->
+            <label for="wedding_date">Wedding Date</label>
+            <input type="date" id="wedding_date" name="wedding_date" required>
+            <!-- </div> -->
+            <!-- </div> -->
             <button class="btn waves-effect waves-light submit" type="submit" name="action">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>
             </button>

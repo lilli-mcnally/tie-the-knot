@@ -4,7 +4,7 @@
 <div class="row dash-heading">
     <div class="col s10" id="dash-container">
         <div class="col s12 green-row">
-            <h1>Edit Table</h1>
+            <h1>Edit Profile</h1>
         </div>
         {% with messages = get_flashed_messages() %} {% if messages %} {% for
                     message in messages %}
@@ -21,10 +21,9 @@
         <div class="col s8" id="form-col">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" minlength="5" maxlength="30" pattern="^[a-zA-Z0-9]{8,20}$"
-                value="{{  }}" required>
+                required>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" id="show-pass" pattern="^[a-zA-Z0-9]{8,20}$"
-                value="{{  }}" required>
+            <input type="password" id="password" name="password" id="show-pass" pattern="^[a-zA-Z0-9]{8,20}$" required>
             <label for="conf_password">Confirm Password</label>
             <input type="password" id="conf_password" name="conf_password" pattern="^[a-zA-Z0-9]{8,20}$" required>
             <p>The happy couple:</p>
@@ -54,9 +53,10 @@
 
 <div class="row dash-heading">
     <div class="col s10">
-        <a href="" class="green-row back-button">
+        <a href="{{ url_for('dashboard', checklist_items=checklist_items, username=username) }}"
+            class="green-row back-button">
             <i class="fa-solid fa-arrow-left-long"></i>Back to
-            Table Plan</a>
+            Dashboard</a>
     </div>
 </div>
 

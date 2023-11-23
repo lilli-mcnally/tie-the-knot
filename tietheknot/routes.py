@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, session
 from tietheknot import app, db
 from tietheknot.models import User, Checklist, Table, Guest
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -25,24 +25,28 @@ def sign_up():
 
         sign_up = User(
             username=request.form.get("username"),
-            password=generate_password_hash(request.form.get("password"), )
+            password=generate_password_hash(request.form.get("password")),
+            name_one=request.form.get("name_one"),
+            name_two=request.form.get("name_two"),
+            wedding_date=request.form.get("wedding_date"),
         )
         db.session.add(sign_up)
         db.session.commit()
         session["user"] = request.form.get("username")
         flash("Sucessfully Signed Up!")
-        return redirect(url_for('sign_up'))
+        return redirect(url_for('dashboard', username=session["user"]))
     return render_template("sign_up.html")
 
-@app.route("/log_in")
+@app.route("/log_in", methods=["GET", "POST"])
 def log_in():
     if request.method == "POST":
         username_input = request.form.get("username")
         existing_user = User.query.filter_by(username=username_input).first()
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                existing_user.password, request.form.get("password")):
                 session["user"] = request.form.get("username")
+                return redirect(url_for('dashboard', username=session["user"]))
             else:
                 flash("Username or Password was incorrect")
                 return render_template("log_in.html")
@@ -51,14 +55,26 @@ def log_in():
             return render_template("log_in.html")
     return render_template("log_in.html")
 
-@app.route("/edit_profile")
-def edit_profile():
-    return render_template("edit_profile.html")
+@app.route("/logout")
+def logout():
+    session.pop("user")
+    flash("Successfully logged out")
+    return redirect(url_for("log_in"))
+
+@app.route("/edit_profile/<username>", methods=["GET", "POST"])
+def edit_profile(username):
+    username = username = User.query.filter_by(username=session["user"]).first()
+
+    if session["user"]:
+        return render_template("edit_profile.html", username=username)
+    
+    return redirect(url_for("login"))
 
 @app.route("/dashboard")
 def dashboard():
+    username = User.query.filter_by(username=session["user"]).first()
     checklist_items = list(Checklist.query.order_by(Checklist.checklist_date).all())
-    return render_template("dashboard.html", checklist_items=checklist_items)
+    return render_template("dashboard.html", checklist_items=checklist_items, username=username)
 
 
 # Checklist Pages
