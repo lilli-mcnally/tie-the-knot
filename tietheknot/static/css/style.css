@@ -215,11 +215,6 @@ nav .sidenav-trigger {
     font-size: 16px;
     text-decoration: none;
     color: #000;
-    border: 1.5px solid #E8D2CA;
-}
-
-.dash-buttons:hover {
-    border: 1.5px solid #C48C78;
 }
 
 /* Checklist */
@@ -382,10 +377,13 @@ nav .sidenav-trigger {
 
 .flash-message {
     background-color: #E8D2CA;
+}
+
+.pink-button {
     border: 1.5px solid #E8D2CA;
 }
 
-.flash-message:hover {
+.pink-button:hover {
     border: 1.5px solid #C48C78;
 }
 

@@ -46,7 +46,7 @@
                             Do</a></li>
                     <li><a class="dropdown-trigger nav-trigger" data-target="guest-dropdown">Guest List</a>
                     </li>
-                    <li><a class="nav-trigger" href="{{ url_for('dashboard') }}">{{ username.name_one }}</a>
+                    <li><a class="nav-trigger" href="{{ url_for('dashboard') }}">{{ username.name_one }}'s Dashboard</a>
                     </li>
                     {% else %}
                     <li><a class="nav-trigger" href="{{ url_for('log_in') }}">Log In</a>

@@ -37,9 +37,10 @@
                         <h5>Are you sure you want to delete "{{ checklist_item.checklist_name }}"?</h5>
                     </div>
                     <div class="modal-footer">
-                        <a class="modal-close waves-effect btn-flat waves-light flash-message">Cancel changes</a>
+                        <a class="modal-close waves-effect btn-flat waves-light flash-message pink-button">Cancel
+                            changes</a>
                         <a href="{{ url_for('delete_checklist_item', checklist_item_id=checklist_item.id) }}"
-                            class="waves-effect btn-flat waves-light flash-message">Confirm changes</a>
+                            class="waves-effect btn-flat waves-light flash-message pink-button">Confirm changes</a>
                     </div>
                 </div>
                 {% else %}
@@ -74,9 +75,10 @@
                         <h5>Are you sure you want to delete "{{ checklist_item.checklist_name }}"?</h5>
                     </div>
                     <div class="modal-footer">
-                        <a class="modal-close waves-effect btn-flat waves-light flash-message">Cancel changes</a>
+                        <a class="modal-close waves-effect btn-flat waves-light flash-message pink-button">Cancel
+                            changes</a>
                         <a href="{{ url_for('delete_checklist_item', checklist_item_id=checklist_item.id) }}"
-                            class="waves-effect btn-flat waves-light flash-message">Confirm changes</a>
+                            class="waves-effect btn-flat waves-light flash-message pink-button">Confirm changes</a>
                     </div>
                 </div>
                 {% endif %}

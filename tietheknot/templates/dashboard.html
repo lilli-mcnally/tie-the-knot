@@ -2,15 +2,15 @@
 {% block content %}
 
 <div class="row dash-heading">
-    {% with messages = get_flashed_messages() %} {% if messages %} {% for
-        message in messages %}
-    <div class="col s12 green-row flash-message">
-        <h5>{{ message }}</h5>
-    </div>
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
     <div class="col s10" id="dash-container">
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for
+            message in messages %}
+        <div class="col s12 green-row flash-message">
+            <h5>{{ message }}</h5>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
         <div class="col s12 green-row">
             <h1>{{ username.name_one }} & {{ username.name_two }}</h1>
             <h5>Only NUMBER days until the big day!</h5>
@@ -57,8 +57,9 @@
             <a href="{{ url_for('table_plan') }}" class="col s5 green-row" id="green-four">Table Plan</a>
         </div>
         <div class="col s12 dash-button-container">
-            <a href="{{ url_for('edit_profile', username=session['user']) }}" class="dash-buttons">Edit Profile</a>
-            <a href="{{ url_for('logout') }}" class="dash-buttons">Log out</a>
+            <a href="{{ url_for('edit_profile', username=session['user']) }}" class="dash-buttons pink-button">Edit
+                Profile</a>
+            <a href="{{ url_for('logout') }}" class="dash-buttons pink-button">Log out</a>
         </div>
     </div>
 </div>
