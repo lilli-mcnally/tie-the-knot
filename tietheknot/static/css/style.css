@@ -572,7 +572,7 @@ input:-internal-autofill-selected {
     flex-direction: row;
     justify-content: space-between;
     width: 55%;
-    margin-bottom: 20px;
+    height: 75px;
 }
 
 .signup-input-container {
