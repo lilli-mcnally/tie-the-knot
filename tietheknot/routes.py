@@ -2,6 +2,7 @@ from flask import render_template, request, redirect, url_for, flash, session
 from tietheknot import app, db
 from tietheknot.models import User, Checklist, Table, Guest
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import date
 
 """ 
 Home Page
@@ -73,7 +74,8 @@ def dashboard():
         username = User.query.filter_by(id=session["user"]).first()
         filter_checklist = Checklist.query.filter_by(created_by=username.id)
         checklist_items = list(filter_checklist.order_by(Checklist.checklist_date).all())
-        return render_template("dashboard.html", checklist_items=checklist_items, username=username)
+        days_until = (username.wedding_date - date.today()).days
+        return render_template("dashboard.html", checklist_items=checklist_items, username=username, days_until=days_until)
     return redirect(url_for("log_in"))
 
 # If user is logged in
