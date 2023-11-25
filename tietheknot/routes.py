@@ -40,7 +40,7 @@ def sign_up():
         db.session.commit()
         session["user"] = sign_up.id
         flash("Sucessfully Signed Up!")
-        return redirect(url_for('dashboard', username=session["user"]))
+        return redirect(url_for('dashboard'))
     return render_template("sign_up.html")
 
 @app.route("/log_in", methods=["GET", "POST"])
@@ -54,7 +54,7 @@ def log_in():
             if check_password_hash(
                 existing_user.password, request.form.get("password")):
                 session["user"] = existing_user.id
-                return redirect(url_for('dashboard', username=session["user"]))
+                return redirect(url_for('dashboard'))
             else:
                 flash("Username or Password was incorrect")
                 return render_template("log_in.html")
@@ -71,12 +71,8 @@ If user is logged in
 def dashboard():
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
-        filter_checklist = Checklist.query.filter_by(created_by=session["user"])
+        filter_checklist = Checklist.query.filter_by(created_by=username.id)
         checklist_items = list(filter_checklist.order_by(Checklist.checklist_date).all())
-        print(session["user"])
-        print(type(session["user"]))
-        # for x in checklist_items:
-        #     print(type(checklist_items.created_by))
         return render_template("dashboard.html", checklist_items=checklist_items, username=username)
     return redirect(url_for("log_in"))
 
@@ -84,6 +80,7 @@ def dashboard():
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile(username):
     if "user" in session:
+        print(username)
         username = User.query.filter_by(id=session["user"]).first()
         return render_template("edit_profile.html", username=username)
     return redirect(url_for("log_in"))
@@ -104,7 +101,7 @@ Checklist Pages
 def checklist():
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
-        filter_checklist = Checklist.query.filter_by(created_by=session["user"])
+        filter_checklist = Checklist.query.filter_by(created_by=username.id)
         checklist_items = list(filter_checklist.order_by(Checklist.checklist_date).all())
         return render_template("checklist.html", checklist_items=checklist_items, username=username)
     return redirect(url_for("log_in"))
@@ -141,7 +138,7 @@ def edit_checklist_item(checklist_item_id):
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
         checklist_item = Checklist.query.get_or_404(checklist_item_id)
-        if username == checklist_item.created_by:
+        if username.id == checklist_item.created_by:
             if request.method == "POST":
                 new_checklist_name = request.form.get('checklist_name')
                 # Gets the string from in the checklist name box
@@ -177,11 +174,14 @@ def edit_checklist_item(checklist_item_id):
 @app.route("/delete_checklist_item/<int:checklist_item_id>")
 def delete_checklist_item(checklist_item_id):
     if "user" in session:
-        username = User.query.filter_by(username=session["user"]).first()
+        username = User.query.filter_by(id=session["user"]).first()
         checklist_item = Checklist.query.get_or_404(checklist_item_id)
-        db.session.delete(checklist_item)
-        db.session.commit()
-        return redirect(url_for("checklist"))
+        if username.id == checklist_item.created_by:
+            checklist_item = Checklist.query.get_or_404(checklist_item_id)
+            db.session.delete(checklist_item)
+            db.session.commit()
+            return redirect(url_for("checklist"))
+        return redirect(url_for("log_in"))
     return redirect(url_for("log_in"))
 
 
@@ -192,7 +192,8 @@ Guest Pages
 def guests():
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
-        guests = list(Guest.query.order_by(Guest.guest_name).all())
+        filter_guest = Guest.query.filter_by(created_by=username.id)
+        guests = list(filter_guest.order_by(Guest.guest_name).all())
         return render_template("guests.html", guests=guests, username=username)
     return redirect(url_for("log_in"))
 
@@ -223,16 +224,18 @@ def edit_guests(guest_id):
         username = User.query.filter_by(id=session["user"]).first()
         guest = Guest.query.get_or_404(guest_id)
         tables = list(Table.query.order_by(Table.table_name).all())
-        if request.method == "POST":
-            guest.guest_name=request.form.get("guest_name"),
-            guest.guest_notes=request.form.get("guest_notes"),
-            if request.form.get("table_name") != 'None':
-                guest.table_number=Table.query.filter_by(table_name=request.form.get("table_name")).first().id
-            else:
-                guest.table_number=None
-            db.session.commit()
-            return redirect(url_for("guests"))
-        return render_template("edit_guests.html", guest=guest, tables=tables, username=username)
+        if username.id == checklist_item.created_by:
+            if request.method == "POST":
+                guest.guest_name=request.form.get("guest_name"),
+                guest.guest_notes=request.form.get("guest_notes"),
+                if request.form.get("table_name") != 'None':
+                    guest.table_number=Table.query.filter_by(table_name=request.form.get("table_name")).first().id
+                else:
+                    guest.table_number=None
+                db.session.commit()
+                return redirect(url_for("guests"))
+            return render_template("edit_guests.html", guest=guest, tables=tables, username=username)
+        return redirect(url_for("log_in"))
     return redirect(url_for("log_in"))
 
 @app.route("/delete_guest/<int:guest_id>")
@@ -240,9 +243,11 @@ def delete_guest(guest_id):
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
         guest = Guest.query.get_or_404(guest_id)
-        db.session.delete(guest)
-        db.session.commit()
-        return redirect(url_for("guests"), username=username)
+        if username.id == checklist_item.created_by:
+            db.session.delete(guest)
+            db.session.commit()
+            return redirect(url_for("guests"), username=username)
+        return redirect(url_for("log_in"))
     return redirect(url_for("log_in"))
 
 
@@ -253,8 +258,10 @@ Table Plan Pages
 def table_plan():
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
-        tables = list(Table.query.order_by(Table.id).all())
-        guests = list(Guest.query.order_by(Guest.guest_name).all())
+        filter_table = Table.query.filter_by(created_by=username.id)
+        tables = list(filter_table.order_by(Table.id).all())
+        filter_guest = Guest.query.filter_by(created_by=username.id)
+        guests = list(filter_guest.order_by(Guest.guest_name).all())
         return render_template("table_plan.html", tables=tables, guests=guests, username=username)
     return redirect(url_for("log_in"))
 
@@ -287,11 +294,13 @@ def edit_table(table_id):
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
         table = Table.query.get_or_404(table_id)
-        if request.method == "POST":
-            table.table_name=request.form.get("new_table"),
-            db.session.commit()
-            return redirect(url_for("table_plan"))
-        return render_template("edit_table.html", table=table, username=username)
+        if username.id == checklist_item.created_by:
+            if request.method == "POST":
+                table.table_name=request.form.get("new_table"),
+                db.session.commit()
+                return redirect(url_for("table_plan"))
+            return render_template("edit_table.html", table=table, username=username)
+        return redirect(url_for("log_in"))
     return redirect(url_for("log_in"))
 
 @app.route("/delete_table/<int:table_id>")
@@ -299,9 +308,11 @@ def delete_table(table_id):
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
         table = Table.query.get_or_404(table_id)
-        db.session.delete(table)
-        db.session.commit()
-        return redirect(url_for("table_plan"), username=username)
+        if username.id == checklist_item.created_by:
+            db.session.delete(table)
+            db.session.commit()
+            return redirect(url_for("table_plan"), username=username)
+        return redirect(url_for("log_in"))
     return redirect(url_for("log_in"))
 
 
@@ -312,6 +323,7 @@ Payments Page
 def payments():
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
-        checklist_items = list(Checklist.query.order_by(Checklist.checklist_date).all())
+        filter_checklist = Checklist.query.filter_by(created_by=username.id)
+        checklist_items = list(filter_checklist.order_by(Checklist.checklist_date).all())
         return render_template("payments.html", checklist_items=checklist_items, username=username)
     return redirect(url_for("log_in"))
