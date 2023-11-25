@@ -36,6 +36,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     if (window.location.toString().includes("dashboard")) {
+        document.getElementById("click-confetti").addEventListener("click", function () {
+            confetti({
+                particleCount: 150,
+                spread: 150,
+                origin: {
+                    y: 0.7
+                }
+            });
+        })
         if (document.getElementById("dash-checklist").textContent.trim() === "") {
             document.getElementById("dash-checklist").style.display = "none";
             document.getElementById("whats-next").style.borderBottomLeftRadius = "6px";
