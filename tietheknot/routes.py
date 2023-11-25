@@ -93,10 +93,8 @@ def dashboard():
 def checklist():
     if "user" in session:
         username = User.query.filter_by(username=session["user"]).first()
-        print(session["user"])
-        print(username)
         all_checklist_items = list(Checklist.query.order_by(Checklist.checklist_date).all())
-        checklist_items = Checklist.query.filter_by(created_by=session["user"]).all()
+        # checklist_items = Checklist.query.filter_by(created_by=session["user"]).all()
         return render_template("checklist.html", checklist_items=checklist_items, username=username)
     return redirect(url_for("log_in"))
 
@@ -120,7 +118,7 @@ def add_checklist_item():
                 checklist_notes=request.form.get("checklist_notes"),    
                 checklist_date=request.form.get("checklist_date"),
                 checklist_payment=bool(True if request.form.get("checklist_payment") else False),
-                created_by = session["user"]
+                created_by = username.id
             )
             db.session.add(checklist_item)
             db.session.commit()
@@ -194,12 +192,12 @@ def add_guests():
             guest = Guest(
                 guest_name=request.form.get("guest_name"),
                 guest_notes=request.form.get("guest_notes"),
-                created_by = session["user"]
+                created_by = username.id
             )
             if request.form.get("table_name") != 'None':
                 guest.table_number=Table.query.filter_by(table_name=request.form.get("table_name")).first().id
             else:
-                guest.table_number=0
+                guest.table_number=None
             db.session.add(guest)
             db.session.commit()
             return redirect(url_for("guests"))
@@ -218,7 +216,7 @@ def edit_guests(guest_id):
             if request.form.get("table_name") != 'None':
                 guest.table_number=Table.query.filter_by(table_name=request.form.get("table_name")).first().id
             else:
-                guest.table_number=0
+                guest.table_number=None
             db.session.commit()
             return redirect(url_for("guests"))
         return render_template("edit_guests.html", guest=guest, tables=tables, username=username)
@@ -260,7 +258,7 @@ def add_table():
             # If Falsy, the table is committed to the database
             table = Table(
                 table_name=request.form.get("new_table"),
-                created_by = session["user"]
+                created_by = username.id
             )
             db.session.add(table)
             db.session.commit()

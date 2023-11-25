@@ -44,7 +44,7 @@
                 <div class="col s3 checklist-item table-box unassigned-guest">
                     <p class="col s12"><strong>No table assigned yet</strong></p>
                     {% for guest in guests %}
-                    {% if guest.table_number == 0 %}
+                    {% if guest.table_number == None %}
                     <div class="col s10 unassigned-guest-row">
                         <div class="guest-name-box">
                             <p>{{ guest.guest_name }}</p>

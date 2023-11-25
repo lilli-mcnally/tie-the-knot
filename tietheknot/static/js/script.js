@@ -54,5 +54,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (chosenTable == "None") {
             document.getElementById("chosen-table").style.display = "none";
         }
-    }
+    } else if (window.location.href.indexOf("edit_guests") != -1) {
+        console.log(document.getElementById("chosen-table"))
+        chosenTable = document.getElementById("chosen-table").innerHTML;
+        if (chosenTable == "None") {
+            document.getElementById("chosen-table").style.display = "none";
+        }
+    };
 });

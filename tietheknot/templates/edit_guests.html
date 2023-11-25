@@ -41,7 +41,7 @@
                     {% endif %}
                 </div>
                 <div id="chosen-table-div">
-                    {% if guest.table_number == 0 %}
+                    {% if guest.table_number == None %}
                     <p id="chosen-table" class="edit-chosen-table">None</p>
                     {% endif %}
                     {% for table in tables %}
@@ -51,7 +51,7 @@
                     {% endfor %}
 
                 </div>
-                {% if guest.table_number == 0 %}
+                {% if guest.table_number == None %}
                 <input type="text" id="table_name" name="table_name" value="None">
                 {% endif %}
                 {% for table in tables %}

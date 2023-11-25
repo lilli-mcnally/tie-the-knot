@@ -8,6 +8,9 @@ class User(db.Model):
     name_one = db.Column(db.String(15), nullable=False)
     name_two = db.Column(db.String(15), nullable=False)
     wedding_date = db.Column(db.Date, nullable=False)
+    checklist_rel = db.relationship("Checklist", backref="user", lazy=True)
+    guest_rel = db.relationship("Guest", backref="user", lazy=True)
+    table_rel = db.relationship("Table", backref="user", lazy=True)
 
     def __repr__(self):
         #Represents itself as a string
@@ -20,7 +23,7 @@ class Checklist(db.Model):
     checklist_notes = db.Column(db.Text)
     checklist_date = db.Column(db.Date, nullable=False)
     checklist_payment = db.Column(db.Boolean)
-    created_by = db.Column(db.String(30), nullable=False)
+    created_by = db.Column(db.Integer, db.ForeignKey("user.id"))
     
     def __repr__(self):
         # Represents itself as a string
@@ -31,9 +34,8 @@ class Guest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     guest_name = db.Column(db.String(30), nullable=False)
     guest_notes = db.Column(db.Text)
-    table_number = db.Column(db.Integer)
-    table_rel = db.relationship("Table", backref="guest", lazy=True)
-    created_by = db.Column(db.String(30), nullable=False)
+    table_number = db.Column(db.Integer, db.ForeignKey("table.id"))
+    created_by = db.Column(db.Integer, db.ForeignKey("user.id"))
 
     def __repr__(self):
         # Represents itself as a string
@@ -43,8 +45,8 @@ class Table(db.Model):
     # Schema for the Payments model
     id = db.Column(db.Integer, primary_key=True)
     table_name = db.Column(db.String(30), unique=True, nullable=True)
-    guest_rel = db.Column(db.Integer, db.ForeignKey("guest.id"))
-    created_by = db.Column(db.String(30), nullable=False)
+    guests = db.relationship("Guest", backref="table", lazy=True)
+    created_by = db.Column(db.Integer, db.ForeignKey("user.id"))
 
     def __repr__(self):
         # Represents itself as a string
