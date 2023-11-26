@@ -287,9 +287,9 @@ nav .sidenav-trigger {
 }
 
 .checklist-notes {
-    border-left: 1px solid #366355;
-    margin-left: 0;
-    padding-left: 20px;
+    border-right: 1px solid #366355;
+    margin-right: 0 !important;
+    padding-right: 20px;
 }
 
 .checklist-checkbox {
@@ -628,7 +628,11 @@ input#input-disabled {
 
 #edit-profile-submit {
     margin-top: 20px;
+    color: #366355;
+    color: #C48C78
 }
+
+
 
 
 .nav-trigger {

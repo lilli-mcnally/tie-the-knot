@@ -8,6 +8,7 @@
         type="text/css">
     <script src="https://kit.fontawesome.com/1c3a2196db.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/tie-the-knot.ico') }}">
     <title>Tie the Knot</title>
 </head>
 
@@ -17,7 +18,7 @@
             <div class="col s10" id="nav-main">
                 {% if session.user %}
                 <a href="{{ url_for('home') }}">
-                    <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}"
+                    <img class="logo" src="{{ url_for('static', filename='images/logo1.png') }}"
                         alt="Tie the Knot Wedding Planning Logo">
                 </a>
                 {% else %}

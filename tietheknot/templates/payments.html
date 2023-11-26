@@ -16,10 +16,10 @@
                 </p>
                 <div class="col s10 checklist-item">
                     <div class="col s3">
-                        <p>{{ checklist_item.checklist_name }}</p>
+                        <p class="checklist-notes">{{ checklist_item.checklist_name }}</p>
                     </div>
                     <div class="col s6">
-                        <p class="checklist-notes">{{ checklist_item.checklist_notes }}</p>
+                        <p>{{ checklist_item.checklist_notes }}</p>
                     </div>
                     <div class="col s3">
                         <p class="checklist-checkbox">
@@ -48,16 +48,17 @@
                 <!-- For all other iterations after the first one -->
                 {% if checklist_item.checklist_date != loop.previtem.checklist_date %}
                 <!-- If this item date is different to the previous iteration's item date is added -->
-                <p class="checklist-date"><strong>{{ checklist_item.checklist_date.strftime("%-d %B %Y") }}</strong>
+                <p class="checklist-date date-after-first">
+                    <strong>{{ checklist_item.checklist_date.strftime("%-d %B %Y") }}</strong>
                 </p>
                 <!-- If the item date is the same as the previous iteration, the p element is not added to the page -->
                 {% endif %}
                 <div class="col s10 checklist-item">
                     <div class="col s3">
-                        <p>{{ checklist_item.checklist_name }}</p>
+                        <p class="checklist-notes">{{ checklist_item.checklist_name }}</p>
                     </div>
                     <div class="col s6">
-                        <p class="checklist-notes">{{ checklist_item.checklist_notes }}</p>
+                        <p>{{ checklist_item.checklist_notes }}</p>
                     </div>
                     <div class="col s3">
                         <p class="checklist-checkbox">
