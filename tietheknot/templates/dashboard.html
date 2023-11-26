@@ -13,9 +13,15 @@
         {% endwith %}
         <div class="col s12 green-row">
             <h1>{{ username.name_one }} & {{ username.name_two }}</h1>
+            {% if days_until > 0 %}
             <h5>Only {{ days_until }} days until the big day!</h5>
+            {% elif days_until == 0 %}
+            <h5>Today is the big day!</h5>
+            {% elif days_until < 0 %}
+            <h5>Congratulations! You've been married for {{ days_since }} days!</h5>
+            {% endif %}
             <div id="confetti-container">
-                <p id="click-confetti">Click me!</p>
+                <p id="click-confetti">&#127882;Click me!&#127882;</p>
             </div>
         </div>
         <div class="col s12 green-row" id="whats-next">

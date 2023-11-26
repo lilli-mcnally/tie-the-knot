@@ -75,7 +75,8 @@ def dashboard():
         filter_checklist = Checklist.query.filter_by(created_by=username.id)
         checklist_items = list(filter_checklist.order_by(Checklist.checklist_date).all())
         days_until = (username.wedding_date - date.today()).days
-        return render_template("dashboard.html", checklist_items=checklist_items, username=username, days_until=days_until)
+        days_since = (date.today() - username.wedding_date).days
+        return render_template("dashboard.html", checklist_items=checklist_items, username=username, days_until=days_until, days_since=days_since)
     return redirect(url_for("log_in"))
 
 # If user is logged in
