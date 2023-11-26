@@ -83,8 +83,34 @@ def dashboard():
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile(username):
     if "user" in session:
-        print(username)
         username = User.query.filter_by(id=session["user"]).first()
+        if request.method == "POST":
+            old_password = request.form.get("old_password")
+            new_password = request.form.get("password")
+            conf_password = request.form.get("conf_password")
+            if old_password != "" or new_password != "" or conf_password != "":
+                if check_password_hash(username.password, request.form.get("old_password")):
+                    if new_password != old_password:
+                        if new_password == conf_password:
+                            username.password=generate_password_hash(request.form.get("password"))
+                            username.name_one=request.form.get("name_one"),
+                            username.name_two=request.form.get("name_two"),
+                            username.wedding_date=request.form.get("wedding_date")
+                            flash("Profile successfully changed")
+                            db.session.commit()
+                            return redirect(url_for('dashboard'))
+                        flash("Passwords did not match")
+                        return redirect(url_for('edit_profile', username=username))
+                    flash("New password cannot match a previous password")
+                    return redirect(url_for('edit_profile', username=username))
+                flash("Old password entered was incorrect")
+                return redirect(url_for('edit_profile', username=username))
+            username.name_one=request.form.get("name_one")
+            username.name_two=request.form.get("name_two")
+            username.wedding_date=request.form.get("wedding_date")
+            db.session.commit()
+            flash("Profile successfully updated")
+            return redirect(url_for('dashboard'))
         return render_template("edit_profile.html", username=username)
     return redirect(url_for("log_in"))
 
