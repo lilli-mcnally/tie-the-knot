@@ -30,7 +30,7 @@
                 <!-- Modal Structure -->
                 <div id="deleteModal{{ table.id }}" class="modal">
                     <div class="modal-content">
-                        <h5>Are you sure you want to delete "{{ table.table_name }}"?</h5>
+                        <h5>Are you sure you want to permanently delete "{{ table.table_name }}"?</h5>
                     </div>
                     <div class="modal-footer">
                         <a class="modal-close waves-effect waves-light flash-message pink-button btn-flat">Cancel
@@ -41,11 +41,11 @@
                 </div>
                 {% endfor %}
                 <!-- Unassigned guests -->
-                <div class="col s3 checklist-item table-box unassigned-guest">
+                <div class="col s3 checklist-item table-box unassigned-guest" id="no-guest-container">
                     <p class="col s12"><strong>No table assigned yet</strong></p>
                     {% for guest in guests %}
                     {% if guest.table_number == None %}
-                    <div class="col s10 unassigned-guest-row">
+                    <div class="col s10 unassigned-guest-row" id="no-guest">
                         <div class="guest-name-box">
                             <p>{{ guest.guest_name }}</p>
                         </div>

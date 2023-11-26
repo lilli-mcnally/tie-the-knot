@@ -230,7 +230,8 @@ def guests():
 def add_guests():
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
-        tables = list(Table.query.order_by(Table.table_name).all())
+        filter_table = Table.query.filter_by(created_by=username.id)
+        tables = list(filter_table.order_by(Table.id).all())
         if request.method == "POST":
             guest = Guest(
                 guest_name=request.form.get("guest_name"),
@@ -252,8 +253,9 @@ def edit_guests(guest_id):
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
         guest = Guest.query.get_or_404(guest_id)
-        tables = list(Table.query.order_by(Table.table_name).all())
-        if username.id == checklist_item.created_by:
+        filter_table = Table.query.filter_by(created_by=username.id)
+        tables = list(filter_table.order_by(Table.id).all())
+        if username.id == guest.created_by:
             if request.method == "POST":
                 guest.guest_name=request.form.get("guest_name"),
                 guest.guest_notes=request.form.get("guest_notes"),
@@ -272,10 +274,10 @@ def delete_guest(guest_id):
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
         guest = Guest.query.get_or_404(guest_id)
-        if username.id == checklist_item.created_by:
+        if username.id == guest.created_by:
             db.session.delete(guest)
             db.session.commit()
-            return redirect(url_for("guests"), username=username)
+            return redirect(url_for("guests"))
         return redirect(url_for("log_in"))
     return redirect(url_for("log_in"))
 
@@ -323,7 +325,7 @@ def edit_table(table_id):
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
         table = Table.query.get_or_404(table_id)
-        if username.id == checklist_item.created_by:
+        if username.id == table.created_by:
             if request.method == "POST":
                 table.table_name=request.form.get("new_table"),
                 db.session.commit()
@@ -337,10 +339,10 @@ def delete_table(table_id):
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
         table = Table.query.get_or_404(table_id)
-        if username.id == checklist_item.created_by:
+        if username.id == table.created_by:
             db.session.delete(table)
             db.session.commit()
-            return redirect(url_for("table_plan"), username=username)
+            return redirect(url_for("table_plan"))
         return redirect(url_for("log_in"))
     return redirect(url_for("log_in"))
 

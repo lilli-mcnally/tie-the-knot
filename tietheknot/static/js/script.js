@@ -55,6 +55,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    if (window.location.toString().includes("table_plan")) {
+        if (document.getElementById("no-guest") == null) {
+            document.getElementById("no-guest-container").style.display = "none";
+        };
+    };
+});
+
+document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.dropdown-trigger');
     var instances = M.Dropdown.init(elems);
     if (window.location.href.indexOf("add_guests") != -1) {
