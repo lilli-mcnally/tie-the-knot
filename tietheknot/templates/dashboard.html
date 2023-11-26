@@ -38,10 +38,10 @@
             <p class="checklist-date"><strong>{{ checklist_item.checklist_date.strftime("%-d %B %Y") }}</strong></p>
             <div class="col s10 checklist-item">
                 <div class="col s3">
-                    <p>{{ checklist_item.checklist_name }}</p>
+                    <p class="checklist-notes">{{ checklist_item.checklist_name }}</p>
                 </div>
                 <div class="col s6">
-                    <p class="checklist-notes">{{ checklist_item.checklist_notes }}</p>
+                    <p>{{ checklist_item.checklist_notes }}</p>
                 </div>
             </div>
             {% else %}
@@ -49,10 +49,10 @@
             {% if checklist_item.checklist_date == loop.previtem.checklist_date %}
             <div class="col s10 checklist-item">
                 <div class="col s3">
-                    <p>{{ checklist_item.checklist_name }}</p>
+                    <p class="checklist-notes">{{ checklist_item.checklist_name }}</p>
                 </div>
                 <div class="col s6">
-                    <p class="checklist-notes">{{ checklist_item.checklist_notes }}</p>
+                    <p>{{ checklist_item.checklist_notes }}</p>
                 </div>
             </div>
             {% endif %}

@@ -19,7 +19,6 @@ p {
 
 footer {
     background-color: #366355;
-    height: 200px;
 }
 
 
@@ -98,12 +97,12 @@ nav .sidenav-trigger {
 #footer-socials {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 #footer-links li {
     font-size: 16px;
-    margin: 0 30px;
+    margin: 0 20px;
     border-bottom: 1px solid #366355;
 }
 
@@ -129,6 +128,15 @@ nav .sidenav-trigger {
 
 #footer-socials a:hover {
     color: #E8D2CA;
+}
+
+#contact {
+    color: #fff;
+    text-align: center;
+}
+
+#contact p {
+    margin: 20px 0;
 }
 
 /* Dashboard */
@@ -529,7 +537,7 @@ nav .sidenav-trigger {
     margin-left: 0 !important;
     margin: 20px 30px !important;
     padding: 0 20px !important;
-    height: 400px;
+    height: 300px;
     overflow-y: scroll;
 }
 
@@ -564,8 +572,10 @@ nav .sidenav-trigger {
 
 .guest-name-box {
     display: flex;
-    justify-content: flex-end;
-    width: 50%;
+    justify-content: flex-start;
+    width: 80%;
+    max-width: 80%;
+
 }
 
 .assign-button {
@@ -632,7 +642,44 @@ input#input-disabled {
     color: #C48C78
 }
 
+#home-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    float: none;
+    margin: 0;
+}
 
+.home-container {
+    background-color: #E8D2CA;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.home-image {
+    width: 30%;
+    border-radius: 8px;
+}
+
+.home-text {
+    background-color: rgb(255, 255, 255, 0.4);
+    border-radius: 8px;
+    margin: 100px;
+    width: 70%;
+    padding: 30px;
+}
+
+.home-text p {
+    margin: 0;
+
+}
+
+.home-text ul {
+    line-height: 2;
+}
 
 
 .nav-trigger {

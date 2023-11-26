@@ -18,7 +18,7 @@
             <div class="col s10" id="nav-main">
                 {% if session.user %}
                 <a href="{{ url_for('home') }}">
-                    <img class="logo" src="{{ url_for('static', filename='images/logo1.png') }}"
+                    <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}"
                         alt="Tie the Knot Wedding Planning Logo">
                 </a>
                 {% else %}
@@ -110,6 +110,9 @@
                     <li><a href="https://www.youtube.com/" target="_blank"><i
                                 class="fa-brands fa-square-youtube"></i></a></li>
                 </ul>
+            </div>
+            <div class="col s12" id="contact">
+                <p>Have we missed something? Get in touch at enquiries@tie-the-knot.com</p>
             </div>
         </div>
     </footer>
