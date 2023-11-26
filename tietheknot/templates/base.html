@@ -29,15 +29,15 @@
                 <a data-target="mobile-demo" class="sidenav-trigger"><i class="fa-solid fa-bars"></i></a>
                 <!-- Dropdown Structure -->
                 <ul id="checklist-dropdown" class="dropdown-content">
-                    <li><a class="drop-option" href="{{ url_for('checklist') }}">Checklist</a></li>
+                    <li><a class="drop-option drop-top" href="{{ url_for('checklist') }}">Checklist</a></li>
                     <li class="divider"></li>
-                    <li><a class="drop-option" href="{{ url_for('payments') }}">Payments</a></li>
+                    <li><a class="drop-option drop-bottom" href="{{ url_for('payments') }}">Payments</a></li>
                 </ul>
                 <!-- Dropdown Structure -->
                 <ul id="guest-dropdown" class="dropdown-content">
-                    <li><a class="drop-option" href="{{ url_for('guests') }}">Guests</a></li>
+                    <li><a class="drop-option drop-top" href="{{ url_for('guests') }}">Guests</a></li>
                     <li class="divider"></li>
-                    <li><a class="drop-option" href="{{ url_for('table_plan') }}">Table Plan</a></li>
+                    <li><a class="drop-option drop-bottom" href="{{ url_for('table_plan') }}">Table Plan</a></li>
                 </ul>
                 <!-- Navbar at top of page --->
                 <ul class="right hide-on-med-and-down nav-links">

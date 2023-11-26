@@ -80,6 +80,20 @@ nav .sidenav-trigger {
     text-align: center;
 }
 
+.dropdown-content {
+    border-radius: 5px;
+}
+
+.drop-top {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.drop-bottom {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
 #footer-links,
 #footer-socials {
     display: flex;
@@ -457,7 +471,6 @@ nav .sidenav-trigger {
     display: flex;
 }
 
-
 #table_name {
     display: none;
 }
@@ -590,7 +603,6 @@ input:-internal-autofill-selected {
 .signup-input-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 30%;
 }
 
