@@ -125,11 +125,13 @@ nav .sidenav-trigger {
 }
 
 #footer-links a,
-#footer-socials a {
+#footer-socials a,
+.contact-link {
     color: #fff;
 }
 
-#footer-links a:hover {
+#footer-links a:hover,
+.contact-link:hover {
     color: #E8D2CA;
     border-bottom: 1px solid #E8D2CA;
 }

@@ -8,7 +8,8 @@
         </div>
     </div>
 </div>
-<form action="{{ url_for('edit_guests', guest_id=guest.id )}}" method="POST">
+
+<form action="{{ url_for('edit_guests', guest_id=guest.id)}}" method="POST">
     <div class="row" id="form-row">
         <div class="col s8" id="form-col">
             <label for="guest_name">Guest Name</label>
