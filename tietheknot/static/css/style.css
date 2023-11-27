@@ -57,6 +57,14 @@ nav .sidenav-trigger {
     float: right;
 }
 
+.nav-trigger {
+    background-color: unset !important;
+}
+
+.nav-trigger:hover {
+    background-color: #E8D2CA !important;
+}
+
 .sidenav {
     background-color: #E8D2CA;
 }
@@ -136,7 +144,7 @@ nav .sidenav-trigger {
 }
 
 #contact p {
-    margin: 20px 0;
+    margin: 20px;
 }
 
 /* Dashboard */
@@ -610,10 +618,22 @@ input:-internal-autofill-selected {
     height: 75px;
 }
 
+.signup-left {
+    margin-right: 10px;
+}
+
+.signup-middle {
+    margin: 0 10px;
+}
+
+.signup-right {
+    margin-left: 10px;
+}
+
 .signup-input-container {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    /* width: 30%; */
 }
 
 .signup-and p {
@@ -679,13 +699,4 @@ input#input-disabled {
 
 .home-text ul {
     line-height: 2;
-}
-
-
-.nav-trigger {
-    background-color: unset;
-}
-
-.nav-trigger:hover {
-    background-color: #E8D2CA;
 }
