@@ -336,6 +336,10 @@ nav .sidenav-trigger {
     text-align: center;
 }
 
+.back-dash {
+    margin-left: 0 !important;
+}
+
 /* Add Checklist Item */
 
 #form-row {
