@@ -149,6 +149,10 @@ nav .sidenav-trigger {
 
 /* Dashboard */
 
+#no-checklist {
+    display: none;
+}
+
 .dash-heading {
     display: flex;
     justify-content: center;
@@ -457,16 +461,6 @@ nav .sidenav-trigger {
     font-family: 'Spectral', serif;
 }
 
-/* Payments */
-
-#payment-container {
-    padding-bottom: 40px !important;
-}
-
-#no-payments,
-#no-checklist {
-    display: none;
-}
 
 /* Guests Page */
 
@@ -662,8 +656,6 @@ input#input-disabled {
 
 #edit-profile-submit {
     margin-top: 20px;
-    color: #366355;
-    color: #C48C78
 }
 
 #home-wrapper {

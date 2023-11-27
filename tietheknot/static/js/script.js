@@ -26,15 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    if (window.location.href.indexOf("payments") > -1) {
-        if (document.getElementById("payment-container").textContent.trim() === "") {
-            document.getElementById("payment-container").style.display = "none";
-            document.getElementById("no-payments").style.display = "block";
-        };
-    };
-});
-
-document.addEventListener('DOMContentLoaded', function () {
     if (window.location.toString().includes("dashboard")) {
         document.getElementById("click-confetti").addEventListener("click", function () {
             confetti({

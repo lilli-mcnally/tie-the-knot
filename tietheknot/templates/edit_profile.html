@@ -32,14 +32,16 @@
             <div class="signup-details">
                 <div class="signup-input-container">
                     <label for="name_one">Name one</label>
-                    <input type="text" id="name_one" name="name_one" value="{{ username.name_one }}">
+                    <input type="text" id="name_one" name="name_one" value="{{ username.name_one }}"
+                        pattern="^[a-zA-Z][a-zA-Z\s']{1,15}$" required>
                 </div>
                 <div class="signup-and">
                     <p>&</p>
                 </div>
                 <div class="signup-input-container">
                     <label for="name_two">Name two</label>
-                    <input type="text" id="name_two" name="name_two" value="{{ username.name_two }}">
+                    <input type="text" id="name_two" name="name_two" value="{{ username.name_two }}"
+                        pattern="^[a-zA-Z][a-zA-Z\s']{1,15}$" required>
                 </div>
                 <div class="signup-input-container">
                     <label for="wedding_date">Wedding Date</label>

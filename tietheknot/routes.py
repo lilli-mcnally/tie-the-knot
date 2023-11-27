@@ -139,6 +139,7 @@ def checklist():
 def add_checklist_item():
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
+        item_type = "Checklist"
         if request.method == "POST":
             # Gets the string from in the checklist name box
             new_checklist_name = request.form.get('checklist_name')
@@ -159,7 +160,7 @@ def add_checklist_item():
             db.session.add(checklist_item)
             db.session.commit()
             return redirect(url_for("checklist"))
-        return render_template("add_checklist_item.html", username=username)
+        return render_template("add_checklist_item.html", username=username, item_type=item_type)
     return redirect(url_for("log_in"))
 
 @app.route("/edit_checklist_item/<int:checklist_item_id>", methods=["GET", "POST"])
@@ -167,6 +168,7 @@ def edit_checklist_item(checklist_item_id):
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
         checklist_item = Checklist.query.get_or_404(checklist_item_id)
+        item_type = "Checklist"
         if username.id == checklist_item.created_by:
             if request.method == "POST":
                 new_checklist_name = request.form.get('checklist_name')
@@ -196,7 +198,7 @@ def edit_checklist_item(checklist_item_id):
                     checklist_item.checklist_payment=bool(True if request.form.get("checklist_payment") else False)
                     db.session.commit()
                     return redirect(url_for("checklist"))
-            return render_template("edit_checklist_item.html", checklist_item=checklist_item, username=username)
+            return render_template("edit_checklist_item.html", checklist_item=checklist_item, username=username, item_type=item_type)
         return redirect(url_for("log_in"))
     return redirect(url_for("log_in"))
 
@@ -357,4 +359,84 @@ def payments():
         filter_checklist = Checklist.query.filter_by(created_by=username.id)
         checklist_items = list(filter_checklist.order_by(Checklist.checklist_date).all())
         return render_template("payments.html", checklist_items=checklist_items, username=username)
+    return redirect(url_for("log_in"))
+
+@app.route("/add_payment_item", methods=["GET", "POST"])
+def add_payment_item():
+    if "user" in session:
+        username = User.query.filter_by(id=session["user"]).first()
+        item_type = "Payment"
+        if request.method == "POST":
+            # Gets the string from in the checklist name box
+            new_checklist_name = request.form.get('checklist_name')
+            # Filters for any matches of this string with any in the database
+            existing_checklist = Checklist.query.filter_by(checklist_name=new_checklist_name).first()
+            # If Truthy, the message is flashed
+            if existing_checklist:
+                flash("Checklist name already taken")
+                return redirect(url_for('add_checklist_item'))
+            # If Falsy, the item is committed to the database
+            checklist_item = Checklist(
+                checklist_name=request.form.get("checklist_name"),
+                checklist_notes=request.form.get("checklist_notes"),    
+                checklist_date=request.form.get("checklist_date"),
+                checklist_payment=bool(True if request.form.get("checklist_payment") else False),
+                created_by = username.id
+            )
+            db.session.add(checklist_item)
+            db.session.commit()
+            return redirect(url_for("payments"))
+        return render_template("add_checklist_item.html", username=username, item_type=item_type)
+    return redirect(url_for("log_in"))
+
+@app.route("/edit_payment_item/<int:checklist_item_id>", methods=["GET", "POST"])
+def edit_payment_item(checklist_item_id):
+    if "user" in session:
+        username = User.query.filter_by(id=session["user"]).first()
+        checklist_item = Checklist.query.get_or_404(checklist_item_id)
+        item_type = "Payment"
+        if username.id == checklist_item.created_by:
+            if request.method == "POST":
+                new_checklist_name = request.form.get('checklist_name')
+                # Gets the string from in the checklist name box
+                existing_checklist = Checklist.query.filter_by(checklist_name=new_checklist_name).first()
+                # Filters for any matches of this string with any in the database
+                if existing_checklist:
+                    # If Truthy, the message is flashed
+                    if existing_checklist.id != checklist_item_id:
+                        # Checks if the ID is the same, so the name can stay the same
+                        flash("Checklist name already taken")
+                        return redirect(url_for('edit_checklist_item', checklist_item_id=checklist_item_id))
+                        # if it's a different ID, the Checklist name taken message is flashed
+                    else:
+                        # If not, the change is committed to the database
+                        checklist_item.checklist_name=request.form.get("checklist_name"),
+                        checklist_item.checklist_notes=request.form.get("checklist_notes"),    
+                        checklist_item.checklist_date=request.form.get("checklist_date"),
+                        checklist_item.checklist_payment=bool(True if request.form.get("checklist_payment") else False)
+                        db.session.commit()
+                        return redirect(url_for("payments"))
+                else:
+                    # If not, the change is committed to the database
+                    checklist_item.checklist_name=request.form.get("checklist_name"),
+                    checklist_item.checklist_notes=request.form.get("checklist_notes"),    
+                    checklist_item.checklist_date=request.form.get("checklist_date"),
+                    checklist_item.checklist_payment=bool(True if request.form.get("checklist_payment") else False)
+                    db.session.commit()
+                    return redirect(url_for("payments"))
+            return render_template("edit_checklist_item.html", checklist_item=checklist_item, username=username, item_type=item_type)
+        return redirect(url_for("log_in"))
+    return redirect(url_for("log_in"))
+
+@app.route("/delete_payment_item/<int:checklist_item_id>")
+def delete_payment_item(checklist_item_id):
+    if "user" in session:
+        username = User.query.filter_by(id=session["user"]).first()
+        checklist_item = Checklist.query.get_or_404(checklist_item_id)
+        if username.id == checklist_item.created_by:
+            checklist_item = Checklist.query.get_or_404(checklist_item_id)
+            db.session.delete(checklist_item)
+            db.session.commit()
+            return redirect(url_for("payments"))
+        return redirect(url_for("log_in"))
     return redirect(url_for("log_in"))
