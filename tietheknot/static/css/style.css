@@ -162,7 +162,7 @@ nav .sidenav-trigger {
 }
 
 #contact p {
-    margin: 20px;
+    margin: 30px;
 }
 
 /* Dashboard */
@@ -725,6 +725,13 @@ input#input-disabled {
     a {
         font-size: 18px;
     }
+
+    .fa-square-facebook,
+    .fa-square-instagram,
+    .fa-square-twitter,
+    .fa-square-youtube {
+        font-size: 24px;
+    }
 }
 
 @media (min-width: 2100px) {
@@ -733,6 +740,13 @@ input#input-disabled {
     li,
     a {
         font-size: 20px;
+    }
+
+    .fa-square-facebook,
+    .fa-square-instagram,
+    .fa-square-twitter,
+    .fa-square-youtube {
+        font-size: 28px;
     }
 }
 
@@ -753,6 +767,18 @@ input#input-disabled {
         margin-bottom: 25px;
     }
 
+}
+
+@media (max-width: 650px) {
+    #footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #footer-socials li {
+        margin: 0 8%;
+
+    }
 }
 
 @media (min-width: 1900px) {
