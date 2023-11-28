@@ -358,6 +358,13 @@ nav .sidenav-trigger {
     text-align: center;
 }
 
+.modal-footer #cancel-btn,
+.modal-footer #confirm-btn {
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 104px;
+}
+
 .back-dash {
     margin-left: 0 !important;
 }
@@ -721,36 +728,27 @@ input#input-disabled {
 @media (min-width: 1900px) {
 
     p,
-    li,
+    /* li, */
     a {
         font-size: 18px;
     }
 
-    .fa-square-facebook,
-    .fa-square-instagram,
-    .fa-square-twitter,
-    .fa-square-youtube {
-        font-size: 24px;
-    }
 }
 
 @media (min-width: 2100px) {
 
     p,
-    li,
+    /* li, */
     a {
         font-size: 20px;
     }
 
-    .fa-square-facebook,
-    .fa-square-instagram,
-    .fa-square-twitter,
-    .fa-square-youtube {
-        font-size: 28px;
+    h5 {
+        font-size: 26px
     }
 }
 
-/* Base.html */
+/* Nav */
 
 @media (max-width: 450px) {
     nav {
@@ -814,6 +812,47 @@ input#input-disabled {
     }
 
     nav ul a {
-        padding: 15px 35px
+        padding: 10px 25px;
+        margin: 18px;
+    }
+}
+
+/* Footer */
+
+@media (min-width: 1900px) {
+
+    .fa-square-facebook,
+    .fa-square-instagram,
+    .fa-square-twitter,
+    .fa-square-youtube {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 2100px) {
+
+    .fa-square-facebook,
+    .fa-square-instagram,
+    .fa-square-twitter,
+    .fa-square-youtube {
+        font-size: 28px;
+    }
+}
+
+/* Modals */
+
+@media (min-width: 1900px) {
+
+    .modal-footer #cancel-btn,
+    .modal-footer #confirm-btn {
+        width: 114px;
+        font-size: 16px;
+    }
+
+}
+
+@media (max-width: 650px) {
+    .modal-content h5 {
+        font-size: 20px;
     }
 }

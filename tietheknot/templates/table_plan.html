@@ -40,10 +40,11 @@
                         <h5>Are you sure you want to permanently delete "{{ table.table_name }}"?</h5>
                     </div>
                     <div class="modal-footer">
-                        <a class="modal-close waves-effect waves-light flash-message pink-button btn-flat">Cancel
-                            changes</a>
+                        <a class="modal-close waves-effect waves-light flash-message pink-button btn-flat"
+                            id="cancel-btn">Cancel</a>
                         <a href="{{ url_for('delete_table', table_id=table.id) }}"
-                            class="waves-effect waves-light flash-message pink-button btn-flat">Confirm changes</a>
+                            class="waves-effect waves-light flash-message pink-button btn-flat"
+                            id="confirm-btn">Confirm</a>
                     </div>
                 </div>
                 {% endfor %}
