@@ -512,6 +512,7 @@ nav .sidenav-trigger {
     padding: 2px 20px;
     min-height: 36px;
     margin: 0;
+    text-align: center;
 }
 
 #chosen-table-div {
