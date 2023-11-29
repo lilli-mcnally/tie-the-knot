@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="row dash-heading">
-    <div class="col s10" id="dash-container">
+    <div class="col s10 xl8" id="dash-container">
         <div class="col s12 green-row">
             <h1>Add Guest</h1>
         </div>
@@ -10,12 +10,12 @@
 </div>
 <form action="{{ url_for('add_guests')}}" method="POST">
     <div class="row" id="form-row">
-        <div class="col s8" id="form-col">
+        <div class="col s10 xl6" id="form-col">
             <label for="guest_name">Guest Name</label>
             <input type="text" id="guest_name" name="guest_name" minlength="3" maxlength="30" required>
             <label for="guest_notes">Guest Notes</label>
             <input type="text" id="guest_notes" name="guest_notes" minlength="3" maxlength="100">
-            <p>Guest Table Number</p>
+            <p id="table-label">Guest Table Number</p>
             <div class="col s12 radio-group">
                 <div>
                     {% if not tables %}
@@ -44,7 +44,7 @@
                 <input type="text" id="table_name" name="table_name" value="None">
                 <label for="table_name"></label>
             </div>
-            <button class="btn waves-effect waves-light submit" type="submit" name="action">Submit
+            <button class="btn waves-effect waves-light submit" type="submit" name="action" id="submit-button">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>
             </button>
         </div>
@@ -52,7 +52,7 @@
 </form>
 
 <div class="row dash-heading">
-    <div class="col s10">
+    <div class="col s10 xl9" id="back-div">
         <a href="{{ url_for('guests') }}" class="green-row back-button">
             <i class="fa-solid fa-arrow-left-long"></i>Back to
             Guests</a>

@@ -28,7 +28,7 @@
             <input type="password" id="password" name="password" pattern="^[a-zA-Z0-9]{8,20}$">
             <label for="conf_password">Confirm New Password</label>
             <input type="password" id="conf_password" name="conf_password" pattern="^[a-zA-Z0-9]{8,20}$">
-            <p>The happy couple:</p>
+            <p id="edit-p">The happy couple:</p>
             <div class="signup-details">
                 <div class="signup-input-container">
                     <label for="name_one">Name one</label>
@@ -48,8 +48,7 @@
                     <input type="date" id="wedding_date" name="wedding_date" value="{{ username.wedding_date }}">
                 </div>
             </div>
-            <button class="btn waves-effect waves-light submit" type="submit" name="action"
-                id="edit-profile-submit">Submit
+            <button class="btn waves-effect waves-light submit" type="submit" name="action" id="submit-button">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>
             </button>
         </div>

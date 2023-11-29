@@ -417,7 +417,6 @@ nav .sidenav-trigger {
 #payment-span:before {
     left: -8px;
     top: 2px;
-
 }
 
 #payment-span:after {
@@ -463,6 +462,10 @@ nav .sidenav-trigger {
     border: 1.5px solid #C48C78;
 }
 
+#submit-button {
+    margin-top: 30px;
+}
+
 /* Edit Checklist */
 
 .back-button {
@@ -498,7 +501,7 @@ nav .sidenav-trigger {
 
 #chosen-table {
     padding: 2px 20px;
-    height: 36px;
+    min-height: 36px;
     margin: 0;
 }
 
@@ -527,6 +530,12 @@ nav .sidenav-trigger {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
+    text-align: center !important;
+}
+
+#table-drop {
+    max-height: 300px;
 }
 
 .create-table {
@@ -534,7 +543,9 @@ nav .sidenav-trigger {
     border-radius: 2px;
 }
 
-
+#table-label {
+    margin: 0;
+}
 
 .create-table-a {
     color: #366355;
@@ -680,10 +691,6 @@ input#input-disabled {
     background-color: #E8E8E8;
 }
 
-#edit-profile-submit {
-    margin-top: 20px;
-}
-
 #home-wrapper {
     display: flex;
     justify-content: center;
@@ -721,6 +728,10 @@ input#input-disabled {
 
 .home-text ul {
     line-height: 2;
+}
+
+#edit-p {
+    margin: 5px 0;
 }
 
 /* ------------------------------------------------------------------------ Responsive Design */
@@ -901,6 +912,7 @@ input#input-disabled {
 
     #form-col {
         width: 66%;
+        padding: 30px 5%;
     }
 }
 
@@ -912,10 +924,47 @@ input#input-disabled {
     .green-row h1 {
         font-size: 35px;
     }
+
+    #form-col {
+        padding: 30px 5%;
+    }
 }
 
 @media (max-width: 425px) {
     .green-row h1 {
         font-size: 28px
+    }
+}
+
+/* Add Guest */
+@media (min-width: 1900px) {
+
+    .radio-group li,
+    .radio-group a {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 2100px) {
+
+    .radio-group li,
+    .radio-group a {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    #chosen-table-div {
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+
+    #chosen-table {
+        width: fit-content;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        /* align-items: center; */
     }
 }
