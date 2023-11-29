@@ -485,10 +485,13 @@ nav .sidenav-trigger {
     padding: 2px 5px;
     color: #000;
     border-radius: 2px;
+    text-decoration: underline;
+    border: 1px solid #dcece7;
 }
 
 .back-button:hover {
     text-decoration: underline;
+    border: 1px solid #366355;
 }
 
 .fa-arrow-left-long {
@@ -935,7 +938,9 @@ input#input-disabled {
 }
 
 @media (max-width: 849px) {
-    #back-div {
+
+    #back-div,
+    #back-logged-out {
         width: 91.5%;
     }
 
