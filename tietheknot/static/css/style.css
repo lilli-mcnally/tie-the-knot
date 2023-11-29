@@ -152,6 +152,10 @@ nav .sidenav-trigger {
     border-bottom: 1px solid #E8D2CA;
 }
 
+.contact-link {
+    white-space: nowrap;
+}
+
 #footer-socials a:hover {
     color: #E8D2CA;
 }
@@ -161,8 +165,13 @@ nav .sidenav-trigger {
     text-align: center;
 }
 
-#contact p {
-    margin: 30px;
+#contact-p {
+    margin: 20px;
+}
+
+#copyright {
+    font-size: 12px;
+    margin: 5px;
 }
 
 /* Dashboard */
@@ -861,6 +870,10 @@ input#input-disabled {
     .fa-square-twitter,
     .fa-square-youtube {
         font-size: 28px;
+    }
+
+    #copyright {
+        font-size: 14px;
     }
 }
 
