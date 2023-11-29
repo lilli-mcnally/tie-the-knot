@@ -463,6 +463,10 @@ nav .sidenav-trigger {
     background-color: #E8D2CA;
 }
 
+.flash-message h5 {
+    padding: 0 10px;
+}
+
 .pink-button {
     border: 1.5px solid #E8D2CA;
 }
@@ -741,7 +745,7 @@ input#input-disabled {
 }
 
 #edit-p {
-    margin: 5px 0;
+    margin: 10px 0 5px 0;
 }
 
 /* ------------------------------------------------------------------------ Responsive Design */
@@ -979,6 +983,25 @@ input#input-disabled {
 
     .radio-group {
         flex-direction: column;
-        /* align-items: center; */
+    }
+}
+
+/* Edit Profile */
+
+@media (max-width: 1100px) {
+    .signup-details {
+        flex-direction: column;
+        height: auto;
+        width: auto;
+    }
+
+    .signup-and p {
+        display: none;
+    }
+
+    .signup-left,
+    .signup-middle,
+    .signup-right {
+        margin: 0;
     }
 }

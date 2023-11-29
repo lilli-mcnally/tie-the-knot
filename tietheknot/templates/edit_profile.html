@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="row dash-heading">
-    <div class="col s10" id="dash-container">
+    <div class="col s10 xl8" id="dash-container">
         <div class="col s12 green-row">
             <h1>Edit Profile</h1>
         </div>
@@ -18,7 +18,7 @@
 </div>
 <form action="" method="POST">
     <div class="row" id="form-row">
-        <div class="col s8" id="form-col">
+        <div class="col s10 xl6" id="form-col">
             <label for="username">Username</label>
             <input id="input-disabled" value="{{ username }}" disabled>
             <p class="signup-note">Usernames cannot be changed</p>
@@ -26,26 +26,28 @@
             <input type="password" id="old_password" name="old_password" pattern="^[a-zA-Z0-9]{8,20}$">
             <label for="password">New Password</label>
             <input type="password" id="password" name="password" pattern="^[a-zA-Z0-9]{8,20}$">
+            <p class="signup-note">Passwords must be 5-20 characters, and only contain letters and numbers </p>
             <label for="conf_password">Confirm New Password</label>
             <input type="password" id="conf_password" name="conf_password" pattern="^[a-zA-Z0-9]{8,20}$">
             <p id="edit-p">The happy couple:</p>
             <div class="signup-details">
-                <div class="signup-input-container">
-                    <label for="name_one">Name one</label>
-                    <input type="text" id="name_one" name="name_one" value="{{ username.name_one }}"
-                        pattern="^[a-zA-Z][a-zA-Z\s']{1,15}$" required>
+                <div class="signup-input-container signup-left">
+                    <label for="name_one">Your Name</label>
+                    <input type="text" id="name_one" name="name_one" pattern="^[a-zA-Z][a-zA-Z\s']{1,15}$"
+                        value="{{ username.name_one }}" required>
                 </div>
-                <div class="signup-and">
+                <div class=" signup-and signup-middle">
                     <p>&</p>
                 </div>
-                <div class="signup-input-container">
-                    <label for="name_two">Name two</label>
-                    <input type="text" id="name_two" name="name_two" value="{{ username.name_two }}"
-                        pattern="^[a-zA-Z][a-zA-Z\s']{1,15}$" required>
+                <div class="signup-input-container signup-middle">
+                    <label for="name_two">Your Partners Name</label>
+                    <input type="text" id="name_two" name="name_two" min="1" max="15"
+                        pattern="^[a-zA-Z][a-zA-Z\s']{1,15}$" value="{{ username.name_two }}" required>
                 </div>
-                <div class="signup-input-container">
+                <div class="signup-input-container signup-right">
                     <label for="wedding_date">Wedding Date</label>
-                    <input type="date" id="wedding_date" name="wedding_date" value="{{ username.wedding_date }}">
+                    <input type="date" id="wedding_date" name="wedding_date" value="{{ username.wedding_date }}"
+                        required>
                 </div>
             </div>
             <button class="btn waves-effect waves-light submit" type="submit" name="action" id="submit-button">Submit
@@ -56,7 +58,7 @@
 </form>
 
 <div class="row dash-heading">
-    <div class="col s10">
+    <div class="col s10 xl9" id="back-div">
         <a href="{{ url_for('dashboard', checklist_items=checklist_items, username=username) }}"
             class="green-row back-button">
             <i class="fa-solid fa-arrow-left-long"></i>Back to
