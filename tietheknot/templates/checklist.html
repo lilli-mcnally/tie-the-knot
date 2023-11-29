@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="row dash-heading">
-    <div class="col s10" id="dash-container">
+    <div class="col s10 xl8" id="dash-container">
         <div class="col s12 green-row">
             <h1>Checklist</h1>
         </div>
@@ -14,13 +14,13 @@
                 <!-- Checks to see if this is the first iteration, meaning it has no previous -->
                 <p class="checklist-date"><strong>{{ checklist_item.checklist_date.strftime("%-d %B %Y") }}</strong></p>
                 <div class="col s10 checklist-item">
-                    <div class="col s3">
+                    <div class="col s12 l4">
                         <p class="checklist-notes">{{ checklist_item.checklist_name }}</p>
                     </div>
-                    <div class="col s6">
+                    <div class="col s12 l6">
                         <p>{{ checklist_item.checklist_notes }}</p>
                     </div>
-                    <div class="col s3">
+                    <div class="col s12 l2">
                         <p class="checklist-checkbox">
                             <a href="{{ url_for('edit_checklist_item', checklist_item_id=checklist_item.id) }}">
                                 <i class="fa-solid fa-pencil edit-buttons"></i>
@@ -53,13 +53,13 @@
                 <!-- If the item date is the same as the previous iteration, the p element is not added to the page -->
                 {% endif %}
                 <div class="col s10 checklist-item">
-                    <div class="col s3">
+                    <div class="col s12 l4">
                         <p class="checklist-notes">{{ checklist_item.checklist_name }}</p>
                     </div>
-                    <div class="col s6">
+                    <div class="col s12 l6">
                         <p>{{ checklist_item.checklist_notes }}</p>
                     </div>
-                    <div class="col s3">
+                    <div class="col s12 l2">
                         <p class="checklist-checkbox">
                             <a href="{{ url_for('edit_checklist_item', checklist_item_id=checklist_item.id) }}">
                                 <i class="fa-solid fa-pencil edit-buttons"></i>
@@ -93,7 +93,7 @@
     </div>
 </div>
 <div class="row dash-heading">
-    <div class="col s10 back-dash">
+    <div class="col s10 xl8 back-dash" id="back-div-checklist">
         <a href="{{ url_for('dashboard') }}" class="green-row back-button">
             <i class="fa-solid fa-arrow-left-long"></i>Back to Dashboard</a>
     </div>
