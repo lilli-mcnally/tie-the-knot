@@ -3,7 +3,7 @@
 
 
 <div class="row dash-heading">
-    <div class="col s10" id="dash-container">
+    <div class="col s10 xl8" id="dash-container">
         <div class="col s12 green-row">
             <h1>Table Plan</h1>
         </div>
@@ -11,12 +11,14 @@
             <div class="col s12 green-row green-container table-container">
                 {% for table in tables %}
                 <!-- Loop of assigned guests -->
-                <div class="col s3 checklist-item table-box">
+                <div class="col s12 m5 xl3 checklist-item table-box">
                     <p>
+                        <strong>{{ table.table_name }}</strong>
+                    </p>
+                    <p class="checklist-checkbox">
                         <a href="{{ url_for('edit_table', table_id=table.id) }}" class="table-pencil">
                             <i class="fa-solid fa-pencil edit-buttons"></i>
                         </a>
-                        <strong>{{ table.table_name }}</strong>
                         <a href="#deleteModal{{ table.id }}" class="modal-trigger table-x">
                             <i class="fa-solid fa-xmark edit-buttons"></i>
                         </a>
@@ -27,12 +29,20 @@
                         <div class="guest-name-box">
                             <p>{{ guest.guest_name }}</p>
                         </div>
-                        <p class="assign-button">
-                            <a href="{{ url_for('edit_guests', guest_id=guest.id) }}">Edit</a>
-                        </p>
+                        <div>
+                            <p class="assign-button">
+                                <a href="{{ url_for('edit_guests', guest_id=guest.id) }}">Edit</a>
+                            </p>
+                        </div>
                     </div>
+
                     {% endif %}
                     {% endfor %}
+
+
+
+
+
                 </div>
                 <!-- Modal Structure -->
                 <div id="deleteModal{{ table.id }}" class="modal">
@@ -72,7 +82,7 @@
     </div>
 </div>
 <div class="row dash-heading">
-    <div class="col s10 back-dash">
+    <div class="col s10 xl8 back-dash" id="back-div-checklist">
         <a href="{{ url_for('dashboard') }}" class="green-row back-button">
             <i class="fa-solid fa-arrow-left-long"></i>Back to Dashboard</a>
     </div>

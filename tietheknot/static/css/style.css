@@ -647,7 +647,10 @@ nav .sidenav-trigger {
     justify-content: flex-start;
     width: 80%;
     max-width: 80%;
-
+    word-break: break-word;
+    hyphens: auto;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .assign-button {
@@ -1043,4 +1046,14 @@ input#input-disabled {
         text-align: center;
     }
 
+}
+
+/* Table Plan */
+
+
+@media (max-width: 450px) {
+    .table-box {
+        margin: 20px 10px !important;
+        padding: 0 0 !important;
+    }
 }
