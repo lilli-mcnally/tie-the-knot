@@ -315,7 +315,8 @@ nav .sidenav-trigger {
     align-content: center;
     flex-wrap: wrap;
     text-align: left;
-    padding: 20px !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
 }
 
 .checklist-item {
@@ -339,10 +340,21 @@ nav .sidenav-trigger {
     border-right: 1px solid #366355;
     margin-right: 0 !important;
     padding-right: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.checklist-checkbox a {
+    min-width: 30px;
+    text-align: center;
+    background-color: #366355;
+    border-radius: 5px;
+    color: #fff;
 }
 
 .checklist-checkbox {
-    text-align: right;
+    display: flex;
+    justify-content: space-around;
 }
 
 .date-after-first {
@@ -351,17 +363,16 @@ nav .sidenav-trigger {
 
 .edit-buttons {
     font-size: 14px;
-    color: #000;
-    border: 2px solid #eef6f3;
-    border-radius: 50px;
     padding: 3px;
-    height: 24px;
-    width: 24px;
     text-align: center;
 }
 
-.edit-buttons:hover {
-    border: 2px solid #366355;
+.checklist-checkbox a:hover {
+    color: #E8D2CA;
+}
+
+.edit-buttons {
+    color: inherit;
 }
 
 .modal-content,
@@ -486,7 +497,7 @@ nav .sidenav-trigger {
 .back-button {
     padding: 2px 5px;
     color: #000;
-    border-radius: 2px;
+    border-radius: 4px;
     text-decoration: underline;
     border: 1px solid #dcece7;
 }
@@ -1016,29 +1027,17 @@ input#input-disabled {
 
 /* Checklist */
 
-@media (max-width: 1000px) {
+@media (max-width: 992px) {
     .checklist-item {
         flex-direction: column;
         position: relative;
     }
 
-    .checklist-checkbox {
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
-
     .checklist-notes {
-        font-weight: 600;
         border-right: unset;
-        margin-right: 100px !important;
         padding-right: 0;
-    }
-}
-
-@media (max-width: 1000px) {
-    .checklist-notes {
-        margin-top: 40px !important;
         margin-right: 20px !important;
+        text-align: center;
     }
+
 }
