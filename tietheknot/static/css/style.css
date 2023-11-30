@@ -341,7 +341,6 @@ nav .sidenav-trigger {
     margin-right: 0 !important;
     padding-right: 20px;
     font-weight: 600;
-    text-align: center;
 }
 
 .checklist-checkbox a {
@@ -1037,6 +1036,10 @@ input#input-disabled {
         border-right: unset;
         padding-right: 0;
         margin-right: 20px !important;
+        text-align: center;
+    }
+
+    .green-container {
         text-align: center;
     }
 
