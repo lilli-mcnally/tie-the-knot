@@ -3,7 +3,7 @@
 
 
 <div class="row dash-heading">
-    <div class="col s10 xl8" id="dash-container">
+    <div class="col s11 xl8" id="dash-container">
         <div class="col s12 green-row">
             <h1>Table Plan</h1>
         </div>
@@ -11,7 +11,7 @@
             <div class="col s12 green-row green-container table-container">
                 {% for table in tables %}
                 <!-- Loop of assigned guests -->
-                <div class="col s12 m5 xl3 checklist-item table-box">
+                <div class="col s12 l5 checklist-item table-box">
                     <p>
                         <strong>{{ table.table_name }}</strong>
                     </p>
@@ -25,23 +25,18 @@
                     </p>
                     {% for guest in guests %}
                     {% if guest.table_number == table.id %}
-                    <div class="col s10 unassigned-guest-row" id="no-guest">
+                    <div class="col s12 unassigned-guest-row" id="no-guest">
                         <div class="guest-name-box">
                             <p>{{ guest.guest_name }}</p>
                         </div>
-                        <div>
+                        <div class="guest-edit-box">
                             <p class="assign-button">
                                 <a href="{{ url_for('edit_guests', guest_id=guest.id) }}">Edit</a>
                             </p>
                         </div>
                     </div>
-
                     {% endif %}
                     {% endfor %}
-
-
-
-
 
                 </div>
                 <!-- Modal Structure -->
@@ -59,22 +54,24 @@
                 </div>
                 {% endfor %}
                 <!-- Unassigned guests -->
-                <div class="col s3 checklist-item table-box unassigned-guest" id="no-guest-container">
-                    <p class="col s12"><strong>No table assigned yet</strong></p>
+                <div class="col s12 l5 checklist-item table-box unassigned-guest" id="no-guest-container">
+                    <p><strong>No table assigned yet</strong></p>
                     {% for guest in guests %}
                     {% if guest.table_number == None %}
-                    <div class="col s10 unassigned-guest-row" id="no-guest">
+                    <div class="col s12 unassigned-guest-row" id="no-guest">
                         <div class="guest-name-box">
                             <p>{{ guest.guest_name }}</p>
                         </div>
-                        <p class="assign-button">
-                            <a href="{{ url_for('edit_guests', guest_id=guest.id) }}">Edit</a>
-                        </p>
+                        <div class="guest-edit-box">
+                            <p class="assign-button">
+                                <a href="{{ url_for('edit_guests', guest_id=guest.id) }}">Edit</a>
+                            </p>
+                        </div>
                     </div>
                     {% endif %}
                     {% endfor %}
                 </div>
-                <a href="{{ url_for('add_table') }}" class="col s10 green-row new-green-row" id="new-table-row">
+                <a href="{{ url_for('add_table') }}" class="col s6 m4 green-row new-green-row" id="new-table-row">
                     <p>+ Add new table</p>
                 </a>
             </div>
@@ -82,7 +79,7 @@
     </div>
 </div>
 <div class="row dash-heading">
-    <div class="col s10 xl8 back-dash" id="back-div-checklist">
+    <div class="col s11 xl8 back-dash" id="back-div-checklist">
         <a href="{{ url_for('dashboard') }}" class="green-row back-button">
             <i class="fa-solid fa-arrow-left-long"></i>Back to Dashboard</a>
     </div>

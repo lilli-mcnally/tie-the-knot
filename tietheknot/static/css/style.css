@@ -604,13 +604,14 @@ nav .sidenav-trigger {
 .table-box {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     align-items: center;
     margin-left: 0 !important;
-    margin: 20px 30px !important;
-    padding: 0 20px !important;
+    margin: 20px 10px !important;
+    padding: 0 5px !important;
     height: 300px;
     overflow-y: scroll;
+    max-width: 550px;
 }
 
 .table-box p {
@@ -649,6 +650,11 @@ nav .sidenav-trigger {
     max-width: 80%;
     word-break: break-word;
     hyphens: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.guest-edit-box {
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -1051,9 +1057,8 @@ input#input-disabled {
 /* Table Plan */
 
 
-@media (max-width: 450px) {
+@media (min-width: 1650px) {
     .table-box {
-        margin: 20px 10px !important;
-        padding: 0 0 !important;
+        width: 30% !important;
     }
 }
