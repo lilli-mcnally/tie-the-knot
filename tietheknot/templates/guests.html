@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="row dash-heading">
-    <div class="col s10 xl8" id="dash-container">
+    <div class="col s11 xl8" id="dash-container">
         <div class="col s12 green-row">
             <h1>Guests</h1>
         </div>
@@ -10,7 +10,7 @@
             <div class="col s12 green-row green-container" id="guests-container">
                 {% for guest in guests %}
                 <!-- Iterates through each Guests -->
-                <div class="col s10 checklist-item">
+                <div class="col s11 checklist-item">
                     <div class="col s12 l4">
                         <p class="checklist-notes">{{ guest.guest_name }}</p>
                     </div>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 {% endfor %}
-                <a href="{{ url_for('add_guests') }}" class="col s10 green-row new-green-row">
+                <a href="{{ url_for('add_guests') }}" class="col s11 green-row new-green-row">
                     <p>+ Add new guest</p>
                 </a>
             </div>
@@ -50,7 +50,7 @@
     </div>
 </div>
 <div class="row dash-heading">
-    <div class="col s10 xl8 back-dash" id="back-div-checklist">
+    <div class="col s11 xl8 back-dash" id="back-div-checklist">
         <a href="{{ url_for('dashboard') }}" class="green-row back-button">
             <i class="fa-solid fa-arrow-left-long"></i>Back to Dashboard</a>
     </div>

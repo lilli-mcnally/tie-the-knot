@@ -317,6 +317,7 @@ nav .sidenav-trigger {
     text-align: left;
     padding-top: 20px !important;
     padding-bottom: 20px !important;
+    hyphens: auto;
 }
 
 .checklist-item {
@@ -518,6 +519,10 @@ nav .sidenav-trigger {
     font-family: 'Spectral', serif;
 }
 
+#back-div,
+#back-div-checklist {
+    margin-left: unset;
+}
 
 /* Guests Page */
 
@@ -649,7 +654,6 @@ nav .sidenav-trigger {
     width: 80%;
     max-width: 80%;
     word-break: break-word;
-    hyphens: auto;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -810,13 +814,6 @@ input#input-disabled {
 
     .sidenav {
         width: 250px;
-    }
-}
-
-@media (max-width: 1400px) {
-
-    #nav-main {
-        width: 83%;
     }
 }
 
