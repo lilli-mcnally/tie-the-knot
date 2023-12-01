@@ -191,6 +191,10 @@ nav .sidenav-trigger {
     padding: 0;
 }
 
+#dash-title {
+    padding: 10px;
+}
+
 #dash-checklist {
     margin-top: 0;
     border-top-right-radius: 0;
@@ -223,8 +227,8 @@ nav .sidenav-trigger {
 }
 
 .dash-content {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 #green-one,
@@ -572,7 +576,7 @@ nav .sidenav-trigger {
     max-height: 300px;
 }
 
-.create-table {
+#create-table {
     padding: 5px;
     border-radius: 2px;
 }
@@ -582,11 +586,12 @@ nav .sidenav-trigger {
 }
 
 .create-table-a {
-    color: #366355;
+    color: #000;
+    text-decoration: underline;
 }
 
 .create-table-a:hover {
-    text-decoration: underline;
+    color: #366355;
 }
 
 /* Edit Guest */
@@ -607,10 +612,8 @@ nav .sidenav-trigger {
 }
 
 .table-box {
-    display: flex;
     flex-direction: column;
     text-align: left;
-    align-items: center;
     margin-left: 0 !important;
     margin: 20px 10px !important;
     padding: 0 5px !important;
@@ -636,7 +639,6 @@ nav .sidenav-trigger {
 }
 
 .unassigned-guest {
-    display: flex;
     flex-direction: column;
 }
 
@@ -683,6 +685,17 @@ input:-internal-autofill-selected {
     background-image: none !important;
     background-color: -internal-light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
     color: fieldtext !important;
+}
+
+#add-new-table {
+    color: #000;
+    overflow: hidden;
+    border: 1px solid #eef6f3;
+    font-weight: 500;
+}
+
+#add-new-table:hover {
+    border: 1px solid #366355;
 }
 
 /* Sign Up Page */
@@ -1057,5 +1070,32 @@ input#input-disabled {
 @media (min-width: 1650px) {
     .table-box {
         width: 30% !important;
+    }
+}
+
+/* Dashboard */
+
+@media (max-width: 800px) {
+    .dash-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #green-one,
+    #green-two,
+    #green-three,
+    #green-four {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 400px) {
+    .dash-content {
+        grid-template-columns: 1fr;
+        column-gap: 10px;
+    }
+
+    .dash-buttons {
+        padding: 10px 10px;
     }
 }

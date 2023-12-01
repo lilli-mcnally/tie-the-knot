@@ -28,13 +28,43 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     if (window.location.toString().includes("dashboard")) {
         document.getElementById("click-confetti").addEventListener("click", function () {
-            confetti({
-                particleCount: 150,
-                spread: 150,
-                origin: {
-                    y: 0.7
-                }
-            });
+            if (window.innerWidth < 400) {
+                confetti({
+                    particleCount: 200,
+                    spread: 50,
+                    origin: {
+                        y: 0.8
+                    },
+                    scalar: 0.8
+                });
+            } else if (window.innerWidth < 800) {
+                confetti({
+                    particleCount: 200,
+                    spread: 100,
+                    origin: {
+                        y: 0.7
+                    },
+                    scalar: 1
+                });
+            } else if (window.innerWidth < 1500) {
+                confetti({
+                    particleCount: 300,
+                    spread: 125,
+                    origin: {
+                        y: 0.7
+                    },
+                    scalar: 1
+                });
+            } else {
+                confetti({
+                    particleCount: 350,
+                    spread: 150,
+                    origin: {
+                        y: 0.5
+                    },
+                    scalar: 1.3,
+                });
+            }
         })
         if (document.getElementById("dash-checklist").textContent.trim() === "") {
             document.getElementById("dash-checklist").style.display = "none";

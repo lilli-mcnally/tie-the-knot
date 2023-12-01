@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="row dash-heading">
-    <div class="col s10" id="dash-container">
+    <div class="col s11 xl8" id="dash-container">
         {% with messages = get_flashed_messages() %} {% if messages %} {% for
             message in messages %}
         <div class="col s12 green-row flash-message">
@@ -11,7 +11,7 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
-        <div class="col s12 green-row">
+        <div class="col s12 green-row" id="dash-title">
             <h1>{{ username.name_one }} & {{ username.name_two }}</h1>
             {% if days_until > 0 %}
             <h5>Only {{ days_until }} days until the big day!</h5>
@@ -36,22 +36,22 @@
             {% if loop.first %}
             <!-- Checks to see if this is the first iteration, meaning it has no previous -->
             <p class="checklist-date"><strong>{{ checklist_item.checklist_date.strftime("%-d %B %Y") }}</strong></p>
-            <div class="col s10 checklist-item">
-                <div class="col s3">
+            <div class="col s11 checklist-item">
+                <div class="col s12 l4">
                     <p class="checklist-notes">{{ checklist_item.checklist_name }}</p>
                 </div>
-                <div class="col s6">
+                <div class="col s12 l6">
                     <p>{{ checklist_item.checklist_notes }}</p>
                 </div>
             </div>
             {% else %}
             <!-- For all other iterations after the first one -->
             {% if checklist_item.checklist_date == loop.previtem.checklist_date %}
-            <div class="col s10 checklist-item">
-                <div class="col s3">
+            <div class="col s11 checklist-item">
+                <div class="col s12 l4">
                     <p class="checklist-notes">{{ checklist_item.checklist_name }}</p>
                 </div>
-                <div class="col s6">
+                <div class="col s12 l6">
                     <p>{{ checklist_item.checklist_notes }}</p>
                 </div>
             </div>
@@ -60,10 +60,10 @@
             {% endfor %}
         </div>
         <div class="col s12 dash-content">
-            <a href="{{ url_for('checklist') }}" class="col s5 green-row" id="green-one">Checklist</a>
-            <a href="{{ url_for('payments') }}" class="col s5 green-row" id="green-two">Payments</a>
-            <a href="{{ url_for('guests') }}" class="col s5 green-row" id="green-three">Guests</a>
-            <a href="{{ url_for('table_plan') }}" class="col s5 green-row" id="green-four">Table Plan</a>
+            <a href="{{ url_for('checklist') }}" class="green-row" id="green-one">Checklist</a>
+            <a href="{{ url_for('payments') }}" class="green-row" id="green-two">Payments</a>
+            <a href="{{ url_for('guests') }}" class="green-row" id="green-three">Guests</a>
+            <a href="{{ url_for('table_plan') }}" class="green-row" id="green-four">Table Plan</a>
         </div>
         <div class="col s12 dash-button-container">
             <a href="{{ url_for('edit_profile', username=session['user']) }}" class="dash-buttons pink-button">Edit
