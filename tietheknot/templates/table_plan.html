@@ -8,7 +8,7 @@
         <div>
             <div class="col s12 green-row green-container table-container">
                 {% for table in tables %}
-                <!-- Loop of assigned guests -->
+                <!-- Loop of each table name -->
                 <div class="col s12 l5 checklist-item table-box">
                     <p>
                         <strong>{{ table.table_name }}</strong>
@@ -23,7 +23,8 @@
                     </p>
                     {% for guest in guests %}
                     {% if guest.table_number == table.id %}
-                    <div class="col s12 unassigned-guest-row" id="no-guest">
+                    <!-- Loop of assigned guests -->
+                    <div class="col s12 unassigned-guest-row">
                         <div class="guest-name-box">
                             <p>{{ guest.guest_name }}</p>
                         </div>
@@ -37,7 +38,7 @@
                     {% endfor %}
 
                 </div>
-                <!-- Modal Structure -->
+                <!-- Modal Structure to delete a table -->
                 <div id="deleteModal{{ table.id }}" class="modal">
                     <div class="modal-content">
                         <h5>Are you sure you want to permanently delete "{{ table.table_name }}"?</h5>
@@ -56,6 +57,7 @@
                     <p><strong>No table assigned yet</strong></p>
                     {% for guest in guests %}
                     {% if guest.table_number == None %}
+                    <!-- Loops through all unassigned guests -->
                     <div class="col s12 unassigned-guest-row" id="no-guest">
                         <div class="guest-name-box">
                             <p>{{ guest.guest_name }}</p>
@@ -77,6 +79,7 @@
         </div>
     </div>
 </div>
+<!-- Back button -->
 <div class="row dash-heading">
     <div class="col s11 xl8 back-dash" id="back-div-checklist">
         <a href="{{ url_for('dashboard') }}" class="green-row back-button">

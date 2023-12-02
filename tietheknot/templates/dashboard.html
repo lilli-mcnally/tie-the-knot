@@ -3,6 +3,7 @@
 
 <div class="row dash-heading">
     <div class="col s11 xl8" id="dash-container">
+        <!-- Flash Message -->
         {% with messages = get_flashed_messages() %} {% if messages %} {% for
             message in messages %}
         <div class="col s12 green-row flash-message">
@@ -12,7 +13,9 @@
         {% endif %}
         {% endwith %}
         <div class="col s12 green-row" id="dash-title">
+            <!-- Shows the user's and user's partners' names -->
             <h1>{{ username.name_one }} & {{ username.name_two }}</h1>
+            <!-- How many days until or since wedding day -->
             {% if days_until > 0 %}
             <h5>Only {{ days_until }} days until the big day!</h5>
             {% elif days_until == 0 %}
@@ -20,6 +23,7 @@
             {% elif days_until < 0 %}
             <h5>Congratulations! You've been married for {{ days_since }} days!</h5>
             {% endif %}
+            <!-- Confetti button -->
             <div id="confetti-container">
                 <p id="click-confetti">&#127882;Click me!&#127882;</p>
             </div>
@@ -60,6 +64,7 @@
             {% endfor %}
         </div>
         <div class="col s12 dash-content">
+            <!-- Internal links to different website sections -->
             <a href="{{ url_for('checklist') }}" class="green-row" id="green-one">Checklist</a>
             <a href="{{ url_for('payments') }}" class="green-row" id="green-two">Payments</a>
             <a href="{{ url_for('guests') }}" class="green-row" id="green-three">Guests</a>

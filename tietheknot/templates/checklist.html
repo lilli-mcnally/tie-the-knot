@@ -31,10 +31,11 @@
                         </p>
                     </div>
                 </div>
-                <!-- Modal Structure -->
+                <!-- Modal Structure for deleting checklist items -->
                 <div id="deleteModal{{ checklist_item.id }}" class="modal">
                     <div class="modal-content">
-                        <h5>Are you sure you want to permanently delete "{{ checklist_item.checklist_name }}"?</h5>
+                        <h5>Are you sure you want to permanently delete "{{ checklist_item.checklist_name }}"? This
+                            will also be deleted from your Payments</h5>
                     </div>
                     <div class="modal-footer">
                         <a class="modal-close waves-effect btn-flat waves-light flash-message pink-button"
@@ -50,7 +51,7 @@
                 <!-- If this item date is different to the previous iteration's item date is added -->
                 <p class="checklist-date date-after-first">
                     <strong>{{ checklist_item.checklist_date.strftime("%-d %B %Y") }}</strong></p>
-                <!-- If the item date is the same as the previous iteration, the p element is not added to the page -->
+                <!-- If the item date is the same as the previous iteration, the item's date is not added to the page -->
                 {% endif %}
                 <div class="col s11 checklist-item">
                     <div class="col s12 l4">
@@ -70,10 +71,11 @@
                         </p>
                     </div>
                 </div>
-                <!-- Modal Structure -->
+                <!-- Modal Structure for deleting checklist items -->
                 <div id="deleteModal{{ checklist_item.id }}" class="modal">
                     <div class="modal-content">
-                        <h5>Are you sure you want to permanently delete "{{ checklist_item.checklist_name }}"?</h5>
+                        <h5>Are you sure you want to permanently delete "{{ checklist_item.checklist_name }}"? This
+                            will also be deleted from your Payments</h5>
                     </div>
                     <div class="modal-footer">
                         <a class="modal-close waves-effect btn-flat waves-light flash-message pink-button"
@@ -92,6 +94,7 @@
         </div>
     </div>
 </div>
+<!-- Back button -->
 <div class="row dash-heading">
     <div class="col s11 xl8 back-dash" id="back-div-checklist">
         <a href="{{ url_for('dashboard') }}" class="green-row back-button">

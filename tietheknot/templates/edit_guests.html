@@ -22,12 +22,14 @@
             <div class="col s12 radio-group">
                 <div>
                     {% if not tables %}
+                    <!-- Show a message if no tables have been created -->
                     <p class="col s12 green-row flash-message" id="create-table">
                         No tables have been created. Click <a href="{{ url_for('add_table') }}"
                             class="create-table-a">here</a> to create a
                         table.
                     </p>
                     {% else %}
+                    <!-- Show a dropdown of all tables if there have been some created -->
                     <!-- Dropdown Trigger -->
                     <a class="dropdown-trigger btn" data-target="table-drop">Choose Table</a>
                     <!-- Dropdown Structure -->
@@ -42,6 +44,7 @@
                     {% endif %}
                 </div>
                 <div id="chosen-table-div">
+                    <!-- Show the user which table they've selected -->
                     {% if guest.table_number == None %}
                     <p id="chosen-table" class="edit-chosen-table">None</p>
                     {% endif %}
@@ -52,6 +55,7 @@
                     {% endfor %}
 
                 </div>
+                <!-- Invisible input for chosen table so user can't overtype -->
                 {% if guest.table_number == None %}
                 <input type="text" id="table_name" name="table_name" value="None">
                 {% endif %}
@@ -68,7 +72,7 @@
         </div>
     </div>
 </form>
-
+<!-- Back button -->
 <div class="row dash-heading">
     <div class="col s11 xl6" id="back-div">
         <a href="{{ url_for('guests') }}" class="green-row back-button">

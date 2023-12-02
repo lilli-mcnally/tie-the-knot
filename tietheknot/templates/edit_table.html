@@ -6,6 +6,7 @@
         <div class="col s12 green-row">
             <h1>Edit Table</h1>
         </div>
+        <!-- Flash Message -->
         {% with messages = get_flashed_messages() %} {% if messages %} {% for
                     message in messages %}
         <div class="col s12 green-row flash-message">
@@ -27,7 +28,7 @@
         </div>
     </div>
 </form>
-
+<!-- Back button -->
 <div class="row dash-heading">
     <div class="col s11 xl6" id="back-div">
         <a href="{{ url_for('table_plan') }}" class="green-row back-button">

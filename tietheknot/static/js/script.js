@@ -1,18 +1,23 @@
+// Opens the side navigation for mobile and tablet devices
 document.addEventListener('DOMContentLoaded', function () {
     var sideNavbar = document.querySelectorAll('.sidenav');
     M.Sidenav.init(sideNavbar);
 });
 
+// To open all modals
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.modal');
     M.Modal.init(elems);
 });
 
+// For the table name input box on Add and Edit Guest pages
 document.addEventListener('DOMContentLoaded', function () {
     for (let guestTable of document.getElementsByClassName("table-dropdown")) {
         guestTable.addEventListener("click", function () {
+            // Grabs the text on the clicked button as a string
             document.getElementById("chosen-table").innerHTML = this.innerHTML;
             chosenTable = document.getElementById("chosen-table").innerHTML;
+            // Changes the input to either None or the text on the button
             if (chosenTable == "None") {
                 document.getElementById("chosen-table").style.display = "none";
                 document.getElementById("table_name").value = this.innerHTML.trim();
@@ -25,9 +30,11 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 });
 
+// Display for the Dashboard
 document.addEventListener('DOMContentLoaded', function () {
     if (window.location.toString().includes("dashboard")) {
         document.getElementById("click-confetti").addEventListener("click", function () {
+            // Set the display for the confetti dependent on screen size
             if (window.innerWidth < 400) {
                 confetti({
                     particleCount: 200,
@@ -66,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
         })
+        // Changes the checklist items css dependent on if there's anything in the checklist table
         if (document.getElementById("dash-checklist").textContent.trim() === "") {
             document.getElementById("dash-checklist").style.display = "none";
             document.getElementById("whats-next").style.borderBottomLeftRadius = "6px";
@@ -75,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 });
 
+// Removes the Unassigned Guests div if no guests in this catagory
 document.addEventListener('DOMContentLoaded', function () {
     if (window.location.toString().includes("table_plan")) {
         if (document.getElementById("no-guest") == null) {
@@ -83,9 +92,10 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 });
 
+// Either shows table dropdown or no tables message on Guest pages
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems);
+    M.Dropdown.init(elems);
     if (window.location.href.indexOf("add_guests") != -1) {
         console.log(document.getElementById("chosen-table"))
         chosenTable = document.getElementById("chosen-table").innerHTML;

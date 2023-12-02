@@ -9,27 +9,34 @@ Home Page
 """
 @app.route("/")
 def home():
+    # Directs user to Dashboard or Home page, dependant on if logged in
     if "user" in session:
         return redirect(url_for('dashboard'))
     return render_template("home.html")
 
 @app.route("/sign_up", methods=["GET", "POST"])
 def sign_up():
+    # Directs user to Dashboard if logged in
     if "user" in session:
         return redirect(url_for("dashboard"))
+
+    # If user tried to create a new account
     if request.method == "POST":
+        # Checks if the username exists yet
         new_username = request.form.get("username")
         existing_user = User.query.filter_by(username=new_username).first()
         if existing_user:
             flash("Username is already taken")
             return redirect(url_for('sign_up'))
 
+        # Checks if the two password fields match
         new_password = request.form.get("password")
         conf_password = request.form.get("conf_password")
         if new_password != conf_password:
             flash("Whoops! It looks like your passwords don't match")
             return redirect(url_for('sign_up'))
 
+        # Creates a new User
         sign_up = User(
             username=request.form.get("username"),
             password=generate_password_hash(request.form.get("password")),
@@ -37,6 +44,7 @@ def sign_up():
             name_two=request.form.get("name_two"),
             wedding_date=request.form.get("wedding_date"),
         )
+        # Commits, adds user to session and redirects to Dashboard
         db.session.add(sign_up)
         db.session.commit()
         session["user"] = sign_up.id
@@ -46,12 +54,17 @@ def sign_up():
 
 @app.route("/log_in", methods=["GET", "POST"])
 def log_in():
+    # Directs user to Dashboard if logged in
     if "user" in session:
         return redirect(url_for("dashboard"))
+
+    # If the user tries to log in
     if request.method == "POST":
+        # Checks if the username exists
         username_input = request.form.get("username")
         existing_user = User.query.filter_by(username=username_input).first()
         if existing_user:
+            # Checks if the password matches that of the existing username
             if check_password_hash(
                 existing_user.password, request.form.get("password")):
                 session["user"] = existing_user.id
@@ -71,12 +84,20 @@ If user is logged in
 @app.route("/dashboard")
 def dashboard():
     if "user" in session:
+        # Passes the Dashboard template all the information to 
+        # render correctly
         username = User.query.filter_by(id=session["user"]).first()
         filter_checklist = Checklist.query.filter_by(created_by=username.id)
         checklist_items = list(filter_checklist.order_by(Checklist.checklist_date).all())
         days_until = (username.wedding_date - date.today()).days
         days_since = (date.today() - username.wedding_date).days
-        return render_template("dashboard.html", checklist_items=checklist_items, username=username, days_until=days_until, days_since=days_since)
+        return render_template(
+            "dashboard.html", 
+            checklist_items=checklist_items, 
+            username=username, 
+            days_until=days_until, 
+            days_since=days_since
+            )
     return redirect(url_for("log_in"))
 
 # If user is logged in
@@ -89,9 +110,14 @@ def edit_profile(username):
             new_password = request.form.get("password")
             conf_password = request.form.get("conf_password")
             if old_password != "" or new_password != "" or conf_password != "":
+                # Checks if it needs to save the new password
                 if check_password_hash(username.password, request.form.get("old_password")):
+                    #  Checks if Old password field matches the current password
                     if new_password != old_password:
+                        # Checks if the new password is different to the old password
                         if new_password == conf_password:
+                            # Checks if the password and confirm password fields match
+                            # Then commits changes to the database
                             username.password=generate_password_hash(request.form.get("password"))
                             username.name_one=request.form.get("name_one"),
                             username.name_two=request.form.get("name_two"),
@@ -105,6 +131,7 @@ def edit_profile(username):
                     return redirect(url_for('edit_profile', username=username))
                 flash("Old password entered was incorrect")
                 return redirect(url_for('edit_profile', username=username))
+            # User not changing password, so two names and wedding date is saved
             username.name_one=request.form.get("name_one")
             username.name_two=request.form.get("name_two")
             username.wedding_date=request.form.get("wedding_date")
@@ -116,6 +143,7 @@ def edit_profile(username):
 
 @app.route("/logout")
 def logout():
+    # Logs the user out by removing user from session
     if "user" in session:
         session.pop("user")
         flash("Successfully logged out")
@@ -129,6 +157,7 @@ Checklist Pages
 @app.route("/checklist")
 def checklist():
     if "user" in session:
+        # Passes the information needed to render the Checklist page
         username = User.query.filter_by(id=session["user"]).first()
         filter_checklist = Checklist.query.filter_by(created_by=username.id)
         checklist_items = list(filter_checklist.order_by(Checklist.checklist_date).all())
@@ -168,6 +197,7 @@ def edit_checklist_item(checklist_item_id):
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
         checklist_item = Checklist.query.get_or_404(checklist_item_id)
+        # Passes the item type to the template to render correct page name
         item_type = "Checklist"
         if username.id == checklist_item.created_by:
             if request.method == "POST":
@@ -208,7 +238,8 @@ def delete_checklist_item(checklist_item_id):
         username = User.query.filter_by(id=session["user"]).first()
         checklist_item = Checklist.query.get_or_404(checklist_item_id)
         if username.id == checklist_item.created_by:
-            checklist_item = Checklist.query.get_or_404(checklist_item_id)
+            # Checks if the person trying to delete the checklist
+            # item is the same person who created it
             db.session.delete(checklist_item)
             db.session.commit()
             return redirect(url_for("checklist"))
@@ -222,6 +253,7 @@ Guest Pages
 @app.route("/guests")
 def guests():
     if "user" in session:
+        # Passes the information needed to render the Guests page
         username = User.query.filter_by(id=session["user"]).first()
         filter_guest = Guest.query.filter_by(created_by=username.id)
         guests = list(filter_guest.order_by(Guest.guest_name).all())
@@ -235,13 +267,16 @@ def add_guests():
         filter_table = Table.query.filter_by(created_by=username.id)
         tables = list(filter_table.order_by(Table.id).all())
         if request.method == "POST":
+            # If user submits the form, save Guest to database
             guest = Guest(
                 guest_name=request.form.get("guest_name"),
                 guest_notes=request.form.get("guest_notes"),
                 created_by = username.id
             )
+            # Saves against the table select, or as table name "None"
             if request.form.get("table_name") != 'None':
-                guest.table_number=Table.query.filter_by(table_name=request.form.get("table_name")).first().id
+                guest.table_number=Table.query.filter_by(
+                    table_name=request.form.get("table_name")).first().id
             else:
                 guest.table_number=None
             db.session.add(guest)
@@ -257,17 +292,25 @@ def edit_guests(guest_id):
         guest = Guest.query.get_or_404(guest_id)
         filter_table = Table.query.filter_by(created_by=username.id)
         tables = list(filter_table.order_by(Table.id).all())
+        # Checks the user editing is the person that created the guest
         if username.id == guest.created_by:
             if request.method == "POST":
+                # Saves the new name, notes and table number
                 guest.guest_name=request.form.get("guest_name"),
                 guest.guest_notes=request.form.get("guest_notes"),
                 if request.form.get("table_name") != 'None':
-                    guest.table_number=Table.query.filter_by(table_name=request.form.get("table_name")).first().id
+                    guest.table_number=Table.query.filter_by(
+                        table_name=request.form.get("table_name")).first().id
                 else:
                     guest.table_number=None
                 db.session.commit()
                 return redirect(url_for("guests"))
-            return render_template("edit_guests.html", guest=guest, tables=tables, username=username)
+            return render_template(
+                "edit_guests.html", 
+                guest=guest, 
+                tables=tables, 
+                username=username
+                )
         return redirect(url_for("log_in"))
     return redirect(url_for("log_in"))
 
@@ -277,6 +320,8 @@ def delete_guest(guest_id):
         username = User.query.filter_by(id=session["user"]).first()
         guest = Guest.query.get_or_404(guest_id)
         if username.id == guest.created_by:
+            # Checks if the person trying to delete the guest
+            # is the same person who created it
             db.session.delete(guest)
             db.session.commit()
             return redirect(url_for("guests"))
@@ -290,6 +335,7 @@ Table Plan Pages
 @app.route("/table_plan")
 def table_plan():
     if "user" in session:
+        # Passes the information needed to render the Table Plan page
         username = User.query.filter_by(id=session["user"]).first()
         filter_table = Table.query.filter_by(created_by=username.id)
         tables = list(filter_table.order_by(Table.id).all())
@@ -328,7 +374,9 @@ def edit_table(table_id):
         username = User.query.filter_by(id=session["user"]).first()
         table = Table.query.get_or_404(table_id)
         if username.id == table.created_by:
+            # Checks the user editing is the person that created the table
             if request.method == "POST":
+                # Saves the new table name
                 table.table_name=request.form.get("new_table"),
                 db.session.commit()
                 return redirect(url_for("table_plan"))
@@ -342,6 +390,8 @@ def delete_table(table_id):
         username = User.query.filter_by(id=session["user"]).first()
         table = Table.query.get_or_404(table_id)
         if username.id == table.created_by:
+            # Checks if the person trying to delete the table
+            # is the same person who created it
             db.session.delete(table)
             db.session.commit()
             return redirect(url_for("table_plan"))
@@ -355,6 +405,7 @@ Payments Page
 @app.route("/payments")
 def payments():
     if "user" in session:
+        # Passes the information needed to render the Payments page
         username = User.query.filter_by(id=session["user"]).first()
         filter_checklist = Checklist.query.filter_by(created_by=username.id)
         checklist_items = list(filter_checklist.order_by(Checklist.checklist_date).all())
@@ -394,6 +445,7 @@ def edit_payment_item(checklist_item_id):
     if "user" in session:
         username = User.query.filter_by(id=session["user"]).first()
         checklist_item = Checklist.query.get_or_404(checklist_item_id)
+        # Passes the item type to the template to render correct page name
         item_type = "Payment"
         if username.id == checklist_item.created_by:
             if request.method == "POST":
@@ -434,6 +486,8 @@ def delete_payment_item(checklist_item_id):
         username = User.query.filter_by(id=session["user"]).first()
         checklist_item = Checklist.query.get_or_404(checklist_item_id)
         if username.id == checklist_item.created_by:
+            # Checks if the person trying to delete the payment
+            # is the same person who created it
             checklist_item = Checklist.query.get_or_404(checklist_item_id)
             db.session.delete(checklist_item)
             db.session.commit()

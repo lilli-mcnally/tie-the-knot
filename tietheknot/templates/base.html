@@ -16,32 +16,27 @@
     <header>
         <nav class="row" id="nav-container">
             <div class="col s11 xl8" id="nav-main">
-                {% if session.user %}
+                <!-- Logo -->
                 <a href="{{ url_for('home') }}">
                     <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}"
                         alt="Tie the Knot Wedding Planning Logo">
                 </a>
-                {% else %}
-                <a href="{{ url_for('home') }}">
-                    <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}"
-                        alt="Tie the Knot Wedding Planning Logo">
-                </a>
-                {% endif %}
+                <!-- Tablet and mobile hamburger menu -->
                 <a data-target="mobile-demo" class="sidenav-trigger" id="three-bars"><i
                         class="fa-solid fa-bars"></i></a>
-                <!-- Dropdown Structure -->
+                <!-- Things to do Dropdown Structure -->
                 <ul id="checklist-dropdown" class="dropdown-content">
                     <li><a class="drop-option drop-top" href="{{ url_for('checklist') }}">Checklist</a></li>
                     <li class="divider"></li>
                     <li><a class="drop-option drop-bottom" href="{{ url_for('payments') }}">Payments</a></li>
                 </ul>
-                <!-- Dropdown Structure -->
+                <!-- Guest List Dropdown Structure -->
                 <ul id="guest-dropdown" class="dropdown-content">
                     <li><a class="drop-option drop-top" href="{{ url_for('guests') }}">Guests</a></li>
                     <li class="divider"></li>
                     <li><a class="drop-option drop-bottom" href="{{ url_for('table_plan') }}">Table Plan</a></li>
                 </ul>
-                <!-- Dropdown Structure -->
+                <!-- Username Dropdown Structure -->
                 <ul id="dash-dropdown" class="dropdown-content">
                     <li><a class="drop-option drop-top" href="{{ url_for('dashboard') }}">Dashboard</a>
                     </li>
@@ -57,8 +52,7 @@
                     </li>
                     <li><a class="dropdown-trigger nav-trigger" data-target="dash-dropdown">{{ username.name_one }}</a>
                     </li>
-
-
+                    <!-- Nav elements if logged out -->
                     {% else %}
                     <li><a class="nav-trigger" href="{{ url_for('log_in') }}">Log In</a>
                     </li>
@@ -68,7 +62,7 @@
                 </ul>
             </div>
         </nav>
-
+        <!-- Mobile navigation menu on left side -->
         <ul class="sidenav" id="mobile-demo">
             {% if session.user %}
             <li><a href="{{ url_for('dashboard') }}" class="side-nav">Dashboard</a></li>
@@ -78,6 +72,7 @@
             <li><a href="{{ url_for('table_plan') }}">Table Plan</a></li>
             <li><a href="{{ url_for('logout') }}">Log out</a></li>
             {% else %}
+            <!-- Nav elements if logged out -->
             <li><a class="side-nav" href="{{ url_for('log_in') }}">Log In</a>
             </li>
             <li><a href="{{ url_for('sign_up') }}">Sign Up</a>
@@ -96,6 +91,7 @@
         <div class="row">
             <div class="col s12">
                 <ul id="footer-links">
+                    <!-- Internal website links in footer -->
                     {% if session.user %}
                     <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
                     <li><a href="{{ url_for('checklist') }}">Checklist</a></li>
@@ -112,6 +108,7 @@
             </div>
             <div class="col s12">
                 <ul id="footer-socials">
+                    <!-- Social media website links in footer -->
                     <li><a href="https://www.facebook.com/" target="_blank"><i
                                 class="fa-brands fa-square-facebook"></i></a></li>
                     <li><a href="https://www.instagram.com/" target="_blank"><i
@@ -122,6 +119,7 @@
                                 class="fa-brands fa-square-youtube"></i></a></li>
                 </ul>
             </div>
+            <!-- Contact link in footer -->
             <div class="col s12" id="contact">
                 <p id="contact-p">Get in touch at <a class="contact-link"
                         href="mailto:enquiries@tie-the-knot.com">enquiries@tie-the-knot.com</a></p>

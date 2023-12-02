@@ -28,7 +28,7 @@
                         </p>
                     </div>
                 </div>
-                <!-- Modal Structure -->
+                <!-- Modal Structure to delete guests -->
                 <div id="deleteModal{{ guest.id }}" class="modal">
                     <div class="modal-content">
                         <h5>Are you sure you want to permanently delete "{{ guest.guest_name }}"?</h5>
@@ -49,6 +49,7 @@
         </div>
     </div>
 </div>
+<!-- Back button -->
 <div class="row dash-heading">
     <div class="col s11 xl8 back-dash" id="back-div-checklist">
         <a href="{{ url_for('dashboard') }}" class="green-row back-button">
