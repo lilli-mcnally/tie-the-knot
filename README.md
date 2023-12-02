@@ -73,14 +73,41 @@ Once logged in, the user will have their own dashboard. From here they can see t
 #### Prototype
 * [Checklist page](/tie-the-knot/static/images/readme/checklist-page-prototype.PNG)
 
+
+## Features
+
+
+## Design
+#### Colours
+#### Typography
+#### Imagery
+#### Styling
+#### Backgrounds
+
+
+## Responsive Design
+#### 4k Screen
+#### Large Laptop
+#### Laptop
+#### Tablet
+#### Mobile
+#### Small Mobile
+
+## Fixed Bugs
+
+## Unfixed Bugs
+
+## Deployment
+
+## Digital Testing
+#### Spell Check
+#### Validators
+#### Lighthouse
+
 ## Credits
+#### Research
+#### Frameworks, Libraries and Programs
+#### Images
+#### Media
 
-Planning: 
-* Logo rope image - Canva
-* Logo font – “Sweet” by Canva 
-* Figma – Structure plan and prototype
-* Balsamic – Wireframes
-
-
-Materialize:
-* Navbar
+## Acknowledgements

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-/* General */
+/* ------------------------------------------------------------------------ General */
 body {
     font-family: 'Spectral', serif;
     color: #000;
@@ -23,7 +23,7 @@ footer {
 }
 
 
-/* Base */
+/* ------------------------------------------------------------------------ Base */
 nav {
     height: 110px;
     padding: 10px 0;
@@ -174,7 +174,7 @@ nav .sidenav-trigger {
     margin: 5px;
 }
 
-/* Dashboard */
+/* ------------------------------------------------------------------------ Dashboard */
 
 #no-checklist {
     display: none;
@@ -294,7 +294,7 @@ nav .sidenav-trigger {
     cursor: pointer;
 }
 
-/* Checklist */
+/* ------------------------------------------------------------------------ Checklist */
 
 .new-green-row {
     background-color: #EFF6F3;
@@ -395,7 +395,7 @@ nav .sidenav-trigger {
     margin-left: 0 !important;
 }
 
-/* Add Checklist Item */
+/* ------------------------------------------------------------------------ Add Checklist Item */
 
 #form-row {
     display: flex;
@@ -496,7 +496,7 @@ nav .sidenav-trigger {
     margin-top: 30px;
 }
 
-/* Edit Checklist */
+/* ------------------------------------------------------------------------ Edit Checklist */
 
 .back-button {
     padding: 2px 5px;
@@ -528,13 +528,13 @@ nav .sidenav-trigger {
     margin-left: unset;
 }
 
-/* Guests Page */
+/* ------------------------------------------------------------------------ Guests Page */
 
 #guests-container {
     padding-top: 20px;
 }
 
-/* Add Guest */
+/* ------------------------------------------------------------------------ Add Guest */
 
 #chosen-table {
     padding: 2px 20px;
@@ -594,7 +594,7 @@ nav .sidenav-trigger {
     color: #366355;
 }
 
-/* Edit Guest */
+/* ------------------------------------------------------------------------ Edit Guest */
 
 .edit-chosen-table {
     border: 2px solid #366355;
@@ -604,7 +604,7 @@ nav .sidenav-trigger {
     text-transform: none;
 }
 
-/* Table Plan */
+/* ------------------------------------------------------------------------ Table Plan */
 
 .table-container {
     flex-direction: unset;
@@ -698,7 +698,7 @@ input:-internal-autofill-selected {
     border: 1px solid #366355;
 }
 
-/* Sign Up Page */
+/* ------------------------------------------------------------------------ Sign Up Page */
 
 .signup-details {
     display: flex;
@@ -723,7 +723,6 @@ input:-internal-autofill-selected {
 .signup-input-container {
     display: flex;
     flex-direction: column;
-    /* width: 30%; */
 }
 
 .signup-and p {
@@ -741,7 +740,7 @@ input:-internal-autofill-selected {
     font-style: italic;
 }
 
-/* Edit Profile */
+/* ------------------------------------------------------------------------ Edit Profile */
 input#input-disabled {
     background-color: #E8E8E8;
 }
@@ -789,9 +788,9 @@ input#input-disabled {
     margin: 10px 0 5px 0;
 }
 
-/* ------------------------------------------------------------------------ Responsive Design */
+/* ------------------------------------------------------------------------------------ Responsive Design */
 
-/* General */
+/* ------------------------------------------------------------------------ General */
 @media (min-width: 1900px) {
 
     p,
@@ -812,7 +811,7 @@ input#input-disabled {
     }
 }
 
-/* Nav */
+/* ------------------------------------------------------------------------ Nav */
 
 @media (max-width: 650px) {
     #footer-links {
@@ -890,7 +889,7 @@ input#input-disabled {
     }
 }
 
-/* Footer */
+/* ------------------------------------------------------------------------ Footer */
 
 @media (min-width: 1900px) {
 
@@ -916,7 +915,7 @@ input#input-disabled {
     }
 }
 
-/* Modals */
+/* ------------------------------------------------------------------------ Modals */
 
 @media (min-width: 1900px) {
 
@@ -934,7 +933,7 @@ input#input-disabled {
     }
 }
 
-/* Add Checklist */
+/* ------------------------------------------------------------------------ Add Checklist */
 
 @media (min-width: 1900px) {
 
@@ -992,7 +991,7 @@ input#input-disabled {
     }
 }
 
-/* Add Guest */
+/* ------------------------------------------------------------------------ Add Guest */
 @media (min-width: 1900px) {
 
     .radio-group li,
@@ -1024,7 +1023,7 @@ input#input-disabled {
     }
 }
 
-/* Edit Profile */
+/* ------------------------------------------------------------------------ Edit Profile */
 
 @media (max-width: 1100px) {
     .signup-details {
@@ -1044,7 +1043,7 @@ input#input-disabled {
     }
 }
 
-/* Checklist */
+/* ------------------------------------------------------------------------ Checklist */
 
 @media (max-width: 992px) {
     .checklist-item {
@@ -1065,7 +1064,7 @@ input#input-disabled {
 
 }
 
-/* Table Plan */
+/* ------------------------------------------------------------------------ Table Plan */
 
 
 @media (min-width: 1650px) {
@@ -1074,7 +1073,7 @@ input#input-disabled {
     }
 }
 
-/* Dashboard */
+/* ------------------------------------------------------------------------ Dashboard */
 
 @media (max-width: 800px) {
     .dash-content {
@@ -1101,7 +1100,7 @@ input#input-disabled {
     }
 }
 
-/* Home Page */
+/* ------------------------------------------------------------------------ Home Page */
 
 
 @media (max-width: 2500px) {
