@@ -764,7 +764,7 @@ input#input-disabled {
 }
 
 .home-image {
-    width: 30%;
+    height: 650px;
     border-radius: 8px;
 }
 
@@ -773,7 +773,7 @@ input#input-disabled {
     border-radius: 8px;
     margin: 100px;
     width: 70%;
-    padding: 30px;
+    padding: 3%;
 }
 
 .home-text p {
@@ -959,7 +959,8 @@ input#input-disabled {
     #nav-main,
     #dash-container,
     #back-div,
-    #back-div-checklist {
+    #back-div-checklist,
+    #home-wrapper {
         width: 83%;
     }
 
@@ -1097,5 +1098,26 @@ input#input-disabled {
 
     .dash-buttons {
         padding: 10px 10px;
+    }
+}
+
+/* Home Page */
+
+
+@media (max-width: 2500px) {
+    .home-text {
+        margin: 2% 4%;
+    }
+
+}
+
+@media (max-width: 1100px) {
+    .home-image {
+        display: none;
+    }
+
+    .home-text {
+        width: 96%;
+        margin: 4%;
     }
 }
