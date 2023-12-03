@@ -56,7 +56,7 @@
                     {% else %}
                     <li><a class="nav-trigger" href="{{ url_for('log_in') }}">Log In</a>
                     </li>
-                    <li><a class="nav-trigger" href="{{ url_for('sign_up') }}">Sign Up</a>
+                    <li><a class="nav-trigger" href="{{ url_for('sign_up') }}">Register</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -75,7 +75,7 @@
             <!-- Nav elements if logged out -->
             <li><a class="side-nav" href="{{ url_for('log_in') }}">Log In</a>
             </li>
-            <li><a href="{{ url_for('sign_up') }}">Sign Up</a>
+            <li><a href="{{ url_for('sign_up') }}">Register</a>
             </li>
             {% endif %}
         </ul>
@@ -101,7 +101,7 @@
                     {% else %}
                     <li><a class="side-nav" href="{{ url_for('log_in') }}">Log In</a>
                     </li>
-                    <li><a href="{{ url_for('sign_up') }}">Sign Up</a>
+                    <li><a href="{{ url_for('sign_up') }}">Register</a>
                     </li>
                     {% endif %}
                 </ul>

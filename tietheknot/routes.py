@@ -48,7 +48,7 @@ def sign_up():
         db.session.add(sign_up)
         db.session.commit()
         session["user"] = sign_up.id
-        flash("Sucessfully Signed Up!")
+        flash("Sucessfully Register!")
         return redirect(url_for('dashboard'))
     return render_template("sign_up.html")
 
@@ -176,7 +176,7 @@ def add_checklist_item():
             existing_checklist = Checklist.query.filter_by(checklist_name=new_checklist_name).first()
             # If Truthy, the message is flashed
             if existing_checklist:
-                flash("Checklist name already taken")
+                flash("This Payment / Checklist Item already exists")
                 return redirect(url_for('add_checklist_item'))
             # If Falsy, the item is committed to the database
             checklist_item = Checklist(
@@ -209,7 +209,7 @@ def edit_checklist_item(checklist_item_id):
                     # If Truthy, the message is flashed
                     if existing_checklist.id != checklist_item_id:
                         # Checks if the ID is the same, so the name can stay the same
-                        flash("Checklist name already taken")
+                        flash("This Payment / Checklist Item already exists")
                         return redirect(url_for('edit_checklist_item', checklist_item_id=checklist_item_id))
                         # if it's a different ID, the Checklist name taken message is flashed
                     else:
@@ -424,7 +424,7 @@ def add_payment_item():
             existing_checklist = Checklist.query.filter_by(checklist_name=new_checklist_name).first()
             # If Truthy, the message is flashed
             if existing_checklist:
-                flash("Checklist name already taken")
+                flash("This Payment / Checklist Item already exists")
                 return redirect(url_for('add_checklist_item'))
             # If Falsy, the item is committed to the database
             checklist_item = Checklist(
@@ -457,8 +457,8 @@ def edit_payment_item(checklist_item_id):
                     # If Truthy, the message is flashed
                     if existing_checklist.id != checklist_item_id:
                         # Checks if the ID is the same, so the name can stay the same
-                        flash("Checklist name already taken")
-                        return redirect(url_for('edit_checklist_item', checklist_item_id=checklist_item_id))
+                        flash("This Payment / Checklist Item already exists")
+                        return redirect(url_for('edit_payment_item', checklist_item_id=checklist_item_id))
                         # if it's a different ID, the Checklist name taken message is flashed
                     else:
                         # If not, the change is committed to the database

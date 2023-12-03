@@ -23,6 +23,7 @@
             <label for="checklist_name">{{ item_type }} Item Name</label>
             <input type="text" id="checklist_name" name="checklist_name" minlength="3" maxlength="30"
                 value="{{ checklist_item.checklist_name }}" required>
+            <p class="signup-note">Checklist / Payment Item names must be unique</p>
             <label for="checklist_notes">{{ item_type }} Item Description</label>
             <input type="text" id="checklist_notes" name="checklist_notes" minlength="3" maxlength="100"
                 value="{{ checklist_item.checklist_notes }}" required>
@@ -38,8 +39,9 @@
                 {% endif %}
                 <span id="payment-span">This is a payment</span>
             </label>
-            <br>
-            <button class="btn waves-effect waves-light submit modal-trigger" type="submit" name="action">Submit
+            <p class="signup-note">All payments will also be shown in the checklist</p>
+            <button class="btn waves-effect waves-light submit modal-trigger" type="submit" name="action"
+                id="submit-button">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>
             </button>
         </div>
@@ -60,6 +62,7 @@
             <label for="checklist_name">{{ item_type }} Item Name</label>
             <input type="text" id="checklist_name" name="checklist_name" minlength="3" maxlength="30"
                 value="{{ checklist_item.checklist_name }}" required>
+            <p class="signup-note">Checklist / Payment Item names must be unique</p>
             <label for="checklist_notes">{{ item_type }} Item Description</label>
             <input type="text" id="checklist_notes" name="checklist_notes" minlength="3" maxlength="100"
                 value="{{ checklist_item.checklist_notes }}" required>
@@ -75,6 +78,7 @@
                 {% endif %}
                 <span id="payment-span">This is a payment</span>
             </label>
+            <p class="signup-note">All payments will also be shown in the checklist</p>
             <button class="btn waves-effect waves-light submit modal-trigger" type="submit" name="action"
                 id="submit-button">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>

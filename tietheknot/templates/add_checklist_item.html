@@ -20,9 +20,9 @@
 <form action="{{ url_for('add_payment_item' )}}" method="POST">
     <div class="row" id="form-row">
         <div class="col s11 xl6" id="form-col">
-            <p class="signup-note">All payments will also be shown in the checklist</p>
             <label for="checklist_name">{{ item_type }} Item Name</label>
             <input type="text" id="checklist_name" name="checklist_name" minlength="3" maxlength="30" required>
+            <p class="signup-note">Checklist / Payment Item names must be unique</p>
             <label for="checklist_notes">{{ item_type }} Item Description</label>
             <input type="text" id="checklist_notes" name="checklist_notes" minlength="3" maxlength="100" required>
             <label for="checklist_date">{{ item_type }} Item Due Date</label>
@@ -31,6 +31,7 @@
                 <input type="checkbox" class="filled-in" id="checklist_payment" name="checklist_payment" checked />
                 <span id="payment-span">This is a payment</span>
             </label>
+            <p class="signup-note">All payments will also be shown in the checklist</p>
             <button class="btn waves-effect waves-light submit" type="submit" name="action" id="submit-button">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>
             </button>
@@ -52,6 +53,7 @@
         <div class="col s11 xl6" id="form-col">
             <label for="checklist_name">{{ item_type }} Item Name</label>
             <input type="text" id="checklist_name" name="checklist_name" minlength="3" maxlength="30" required>
+            <p class="signup-note">Checklist / Payment Item names must be unique</p>
             <label for="checklist_notes">{{ item_type }} Item Description</label>
             <input type="text" id="checklist_notes" name="checklist_notes" minlength="3" maxlength="100" required>
             <label for="checklist_date">{{ item_type }} Item Due Date</label>
@@ -60,6 +62,7 @@
                 <input type="checkbox" class="filled-in" id="checklist_payment" name="checklist_payment" />
                 <span id="payment-span">This is a payment</span>
             </label>
+            <p class="signup-note">All payments will also be shown in the checklist</p>
             <button class="btn waves-effect waves-light submit" type="submit" name="action" id="submit-button">Submit
                 <i class="fa-solid fa-arrow-right-long"></i>
             </button>

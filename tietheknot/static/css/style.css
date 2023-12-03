@@ -55,6 +55,16 @@ nav ul a {
     justify-content: center;
 }
 
+.nav-links li {
+    width: 173px;
+}
+
+#checklist-dropdown,
+#guest-dropdown,
+#dash-dropdown {
+    width: auto !important;
+}
+
 nav .sidenav-trigger {
     float: right;
 }
@@ -865,11 +875,15 @@ input#input-disabled {
     }
 
     .dropdown-content li>a {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .drop-option {
         padding: 24px !important;
+    }
+
+    .nav-links li {
+        width: 194px;
     }
 }
 
@@ -886,6 +900,10 @@ input#input-disabled {
         font-size: 26px;
         padding: 10px 25px;
         margin: 18px;
+    }
+
+    .nav-links li {
+        width: 239px;
     }
 }
 
@@ -957,10 +975,13 @@ input#input-disabled {
 
     #nav-main,
     #dash-container,
-    #back-div,
-    #back-div-checklist,
-    #home-wrapper {
+    #home-wrapper,
+    #back-div-checklist {
         width: 83%;
+    }
+
+    #back-div {
+        width: 66%;
     }
 
     #form-col {
