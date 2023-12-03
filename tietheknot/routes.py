@@ -110,27 +110,31 @@ def edit_profile(username):
             new_password = request.form.get("password")
             conf_password = request.form.get("conf_password")
             if old_password != "" or new_password != "" or conf_password != "":
-                # Checks if it needs to save the new password
-                if check_password_hash(username.password, request.form.get("old_password")):
-                    #  Checks if Old password field matches the current password
-                    if new_password != old_password:
-                        # Checks if the new password is different to the old password
-                        if new_password == conf_password:
-                            # Checks if the password and confirm password fields match
-                            # Then commits changes to the database
-                            username.password=generate_password_hash(request.form.get("password"))
-                            username.name_one=request.form.get("name_one"),
-                            username.name_two=request.form.get("name_two"),
-                            username.wedding_date=request.form.get("wedding_date")
-                            flash("Profile successfully changed")
-                            db.session.commit()
-                            return redirect(url_for('dashboard'))
-                        flash("Passwords did not match")
-                        return redirect(url_for('edit_profile', username=username))
-                    flash("New password cannot match a previous password")
+                if len(old_password) < 5 or len(new_password) < 5 or len(conf_password) < 5:
+                    flash("Minimum password length is five characters")
                     return redirect(url_for('edit_profile', username=username))
-                flash("Old password entered was incorrect")
-                return redirect(url_for('edit_profile', username=username))
+                else:
+                    # Checks if it needs to save the new password
+                    if check_password_hash(username.password, request.form.get("old_password")):
+                        #  Checks if Old password field matches the current password
+                        if new_password != old_password:
+                            # Checks if the new password is different to the old password
+                            if new_password == conf_password:
+                                # Checks if the password and confirm password fields match
+                                # Then commits changes to the database
+                                username.password=generate_password_hash(request.form.get("password"))
+                                username.name_one=request.form.get("name_one"),
+                                username.name_two=request.form.get("name_two"),
+                                username.wedding_date=request.form.get("wedding_date")
+                                flash("Profile successfully changed")
+                                db.session.commit()
+                                return redirect(url_for('dashboard'))
+                            flash("Passwords did not match")
+                            return redirect(url_for('edit_profile', username=username))
+                        flash("New password cannot match a previous password")
+                        return redirect(url_for('edit_profile', username=username))
+                    flash("Old password entered was incorrect")
+                    return redirect(url_for('edit_profile', username=username))
             # User not changing password, so two names and wedding date is saved
             username.name_one=request.form.get("name_one")
             username.name_two=request.form.get("name_two")
