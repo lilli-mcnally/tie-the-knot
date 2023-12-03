@@ -148,15 +148,20 @@ The Add Table page is a simple form with one input field for the Table Name. Upo
 This form is the same as the Add Table form except the value of the Table Name is already in the input field. Upon submission, a check is made to see whether the User trying to edit this Table is the User that created it. If so, the Table is committed to the database, and if not the user is redirected to the Log In page. This page also features a back button, that takes the User back to the Table Plan page.
 
 
-
-
-
-
 ## Design
+
 #### Colours
+
+
 #### Typography
+
+
 #### Imagery
+
+
 #### Styling
+
+
 #### Backgrounds
 
 
