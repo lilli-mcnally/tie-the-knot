@@ -20,7 +20,7 @@
                 <div>
                     <!-- Show a message if no tables have been created -->
                     {% if not tables %}
-                    <p class="col s12 green-row flash-message create-table">
+                    <p class="col s12 green-row flash-message" id="create-table">
                         No tables have been created. Click <a href="{{ url_for('add_table') }}"
                             class="create-table-a">here</a> to create a
                         table.
