@@ -48,7 +48,7 @@ def sign_up():
         db.session.add(sign_up)
         db.session.commit()
         session["user"] = sign_up.id
-        flash("Sucessfully Register!")
+        flash("Registration Successful!")
         return redirect(url_for('dashboard'))
     return render_template("sign_up.html")
 
