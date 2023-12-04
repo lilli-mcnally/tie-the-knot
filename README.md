@@ -151,21 +151,27 @@ This form is the same as the Add Table form except the value of the Table Name i
 ## Design
 
 #### Colours
-
+For this website, I decided to go for mint and sage green, and a coral-pink, as these are all very popular wedding theme colours. The contrast between the green and pink meant I could use pink for Flash messages and other import information, without being as alerting as a red colour. The pink was also a great hover colour for my footer elements, as the change was noticeable but doesn't clash with the sage. 
 
 #### Typography
+The whole website uses the font "Spectral", provided by [Google Fonts](https://fonts.google.com/). I liked this font because it has that slightly fancy feel with it being a Serif font. I've used various sizes of font across the site, with the heading of each page is the largest font. Flash messages and Navigation wording is slightly smaller but still matches it's higher importance. I've also used some subheadings with H5 elements, for which the fonts are a little larger than the remaining list, paragraph and anchor element wording. I used italics for information below some of the input fields. I also made Checklist Item names, Guest names and Table names all bold.
 
+The logo has the font "Nickainley" by [Canva](https://www.canva.com/). I chose this font because I like the caligraphy style for the logo.
 
 #### Imagery
-
+The only two images on the website are the logo and an image on the home page. I designed the Logo myself using [Canva](https://www.canva.com/), using a rope knot image from the Canva website. This was originally by [OpenClipart-Vectors](https://pixabay.com/users/openclipart-vectors-30363/) from [Pixabay](https://pixabay.com/). The Home page image was from [Unsplash](https://unsplash.com/), taken by [Victoria Priessnitz](https://unsplash.com/photos/woman-in-white-wedding-dress-standing-on-green-grass-field-during-daytime-ZLkQPMy4r5o). I chose this image because it's focus is on the couple, which fits with the website focusing on what planning tools a couple would need.
 
 #### Styling
+I added border radius across the website, so nearly all coloured divs have the same border radius for their scale. I used different divs to split the Dashboard into sections: The names and countdown at the top, the What's Next section just below, and then internal links at the bottom. I also used this design on the Checklist, Payment, Guest and Table Plan pages. The iterations are inside lighter green divs, with an "Add" button at the bottom / end of each list, clearly spaced from the looped list. I included a pencil and a cross in each loop, to clearly define which object a User will be editing or deleting.
 
+The forms have a clear difference in styling, having a green border but white background. Flash messages are consistently at the top, under the title, and always have a pink background to grab the Users attention. The Modals for deleting Guests, Checklist Items, Payments and Tables also have pink buttons to catch the User's attention in case clicked the cross was accidental.
 
 #### Backgrounds
+The website consistently features a white background. Most div's with information have green backgrounds, with important information having pink backgrounds. I chose a the dark sage green for the background of my footer so the definition between the main page and footer was clear. I also think the contrasting colours of dark green and white look really nice next to each other.
 
 
 ## Responsive Design
+
 #### 4k Screen
 #### Large Laptop
 #### Laptop
