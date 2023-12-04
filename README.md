@@ -173,11 +173,22 @@ The website consistently features a white background. Most div's with informatio
 ## Responsive Design
 
 #### 4k Screen
+For the largest screen sizes, I changed all paragraphs and links to be 20px, and for H5 elements to be 26px. All the content on the webpage takes up 8/12 screen with the use of the [Materialize](https://materializecss.com/) grid. The Dashboard is spread evenly, and the Checklist Items, Payments and Guests are all evenly spaced. The Table Plan grid is also well spaced with each row being three Tables wide.
+
 #### Large Laptop
+On Large Laptop, the paragraph and anchor elements are at 16px, and the Table Plan is two Tables per row. The Dashboard, Guest, Payment and Checklist pages look mainly the same. The Home page image and it's information div adjust very well with each other with the use of percentages in the width and margins.
+
 #### Laptop
+At 1400px, all divs across the website expand slightly to take up 11/12 of the width of the screen, again using the [Materialize](https://materializecss.com/) grid. I've also used the grid feature to adjust the size of the forms, which are a bit smaller than the rest of the website divs.
+
 #### Tablet
+I've used the [Materialize](https://materializecss.com/) Navigation element to add a hamburger menu for tablet and smaller screens. When clicked, a side Navigation element with a list of internal links. The list includes all six that are at the top when the screen is larger, including the Log Out button at the bottom of the list. I also chose to make this list background pink to give a clear definition for the User between the Navigation list and the page sitting behind it. The four internal links on the Dashboard are now stacked in twos. In the What's next section the Checklist Item name and notes are on top of each other as well. This format is the same on the Checklist, Payment and Guest pages. The Table Plan grid is also one Table per row. At 849px and below, the forms across the whole site change size to be as wide as the Navigation and Headings, to give Users maximum space for completing these forms.
+
 #### Mobile
+I adjusted the H5 font size tp 20px for Mobile and smaller devices. I also changed the box that shows the User which Table they've selected for a guest to be assigned to. This box now sits underneath the Choose Table dropdown, to give plenty of space for longer titled Tables. The Footer internal links have now changed from horizontal to a vertical list.
+
 #### Small Mobile
+For Smallest Mobile devices, I've adjusted the Logo to be a bit smaller, and the height of the Navigation to fit around it's new size. I've also amended the width of the side Navigation so it only takes up half the screen. I've amended H1 elements to take up a smaller portion of the screen, and the Dashboard internal links now stack one on top of the other.
 
 ## Fixed Bugs
 
