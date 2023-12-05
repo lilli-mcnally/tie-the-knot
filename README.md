@@ -192,7 +192,54 @@ For Smallest Mobile devices, I've adjusted the Logo to be a bit smaller, and the
 
 ## Fixed Bugs
 
+#### Grouping Items by Date
+I wanted to group Checklist Items and Payments that have the same date on the Checklist and Payment pages. I created a Jinja Template to check if the current Checklist Item had the same date as the one previous to it. However, I kept getting a Jinja template error because the first Checklist Item has no previous. I fixed this by creating a seperate template for the first iteration, and then running an if statement to display the next date, if it doesn't match the previous. The the second template would loop through until there are no more Checklist Items. I did try to remove the second template, but without having the loop.first, the Jinja Template throws an error due to there being no previous iteration.
+
+After I added this, I noticed some dates were coming up twice, and I realised it was because the list was being iterated by index. I went back to my routes.py file and amended the Checklist Items to be called as a list but ordered by the the Checklist Items dates.
+
+#### Duplicate Username / Checklist Item name
+My User and Checklist models both have a field that must be unique. I wanted to check whether the Username / Checklist Item name was taken, and show an error message if it was. I spoke to the Code Institute Tutor Support team who worked with me to create a filter for any Checklist Items names that matched what the user had input into the form. I then added an If statement to check if there was any matches, and implemented Flash into my project as the error message. I applied this to the Username field on the Register form as well.
+
+Once I had the Flash messages working, I was able to use this feature for other errors, such as the Log In credentials being incorrect, and a "Registration Successful" message once a User has created their account.
+
+#### Modals
+When opening the Modals, I noticed the screen behind the Modal would jump by one or two pixels. I looked into the issue on the internet and found a really [helpful article]((https://stackoverflow.com/questions/34964542/materialize-modal-shifts-background-and-causes-page-jumping-right)) on [Stack Overflow](https://stackoverflow.com/). I added the below which fixed the issue.
+
+`body {
+    overflow: auto !important;
+}`
+
+#### Removing the empty Unassigned Guests from Table Plan
+I wanted created the ability for Users to assign their Guests to a Table Number, and this would then be reflected in their Table Plan. I also knew that Users would need to have access to a list of Guests that don't have a Table assigned to them. I added an extra div for Unassigned Guests, but decided I didn't want this to be visible if there was nothing in it.
+
+I added a function to my Javascript to change the whole green "Display" styling to "None", if the div inside it is equal to `null` (meaning there are no Unassigned Guests). However, I noticed there was a recurring error in the Console of all my other pages, because there was no `innerHTML` of an element that doesn't exist. So, I researched how only run a function if the User is looking at the right page. I found [this article](https://stackoverflow.com/questions/4597050/how-to-check-if-the-url-contains-a-given-string) on [Stack Overflow](https://stackoverflow.com/). I added the below to my Javascript function to check the page URL, which fixed this issue.
+
+`if (window.location.toString().includes("table_plan"))`
+
+#### Hyphens
+On my Table Plan, I tried added a few very long names to make sure the formatting was correct for these Guests. I noticed that as I reduced screen size, although the word would break on to the next line, it wouldn't add a hyphen to show it was still one word. I found a [useful page](https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens) on [MDN Web Docs](https://developer.mozilla.org/en-US/). I added `hyphens: auto;` to all elements with the class of `green-container` so this would apply to Checkist Items, Payments and Table Names as well.
+
 ## Unfixed Bugs
+
+#### Autofill Colour
+I noticed when filling in the Log In form, my Google Chrome was suggesting Log In details, but once I clicked them the input field colour would change to blue. I used Developer Tools to try to find where the blue was coming from, and I tried to override it using:
+
+`input:autofill,`
+<br>
+`input:-webkit-autofill {`
+<br>
+&emsp; &emsp; `background-color: #dcece7 !important;`
+<br>
+`}`
+
+However this made no difference. I finally found an [article](https://developer.mozilla.org/en-US/docs/Web/CSS/:autofill) on [MDN Web Docs](https://developer.mozilla.org/en-US/) which states:
+
+> Note: The user agent style sheets of many browsers use !important in their :-webkit-autofill style declarations, making them non-overridable by webpages without resorting to JavaScript hacks ... This means that you cannot set the background-color, background-image, or color in your own rules.
+
+Unfortunately this means I cannot fix this bug, but on the luckily the blue colour does go well with my website anyway.
+
+#### Nav Dropdowns
+I had a similar issue with the Materialize Navigation Dropdown menus. I would like it if the dropdown content would render underneath the dropdown trigger.
 
 ## Deployment
 
