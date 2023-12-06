@@ -239,7 +239,7 @@ However this made no difference. I finally found an [article](https://developer.
 Unfortunately this means I cannot fix this bug, but on the luckily the blue colour does go well with my website anyway.
 
 #### Nav Dropdowns
-I had a similar issue with the Materialize Navigation Dropdown menus. I would like it if the dropdown content would render underneath the dropdown trigger.
+I had a similar issue with the Materialize Navigation Dropdown menus. I would like it if the dropdown content would render underneath the dropdown trigger. However, the [Materialize](https://materializecss.com/) dropdown is set up to automatically add the location of this dropdown content to inline styling using Javascript. I tried to override this by changing the `top` but writing this in Javascript didn't affect the inline styling Materialize had added.
 
 ## Deployment
 
