@@ -242,6 +242,18 @@ Unfortunately this means I cannot fix this bug, but on the luckily the blue colo
 I had a similar issue with the Materialize Navigation Dropdown menus. I would like it if the dropdown content would render underneath the dropdown trigger. However, the [Materialize](https://materializecss.com/) dropdown is set up to automatically add the location of this dropdown content to inline styling using Javascript. I tried to override this by changing the `top` but writing this in Javascript didn't affect the inline styling Materialize had added.
 
 ## Deployment
+I managed to deploy the website without any issues, and all my links worked perfectly. I used the following steps to achieve this:
+
+1. I created an account on Heroku for deploying the site, and ElephantSQL to host my database.
+2. I created the database on ElephantSQL using the "Create new instance", giving the project a name and selecting my plan and location.
+3. Then I created a requirements.txt file, and a Procfile, both of which are needed to deploy on Heroku.
+4. I used the "Create new app" button on Heroku and gave my project a name.
+5. I copied the URL from my ElephantSQL project and applied it as a Config Var under the Settings tab on Heroku.
+6. I added the rest of the variables from my env.py file to my Config Vars section on Heroku.
+7. I changed to the Deploy tab on Heroku, and clicked on Connect to Github.
+8. I enabled automatic deploys and deployed from the main branch.
+9. I built my database by using the Run Console button to open the terminal, and typing `from tietheknot import db`, and then `db.create_all()`
+10. My project successfuly deployed, and I checked this was working using the "Open App" button on Heroku.
 
 ## Digital Testing
 #### Spell Check
