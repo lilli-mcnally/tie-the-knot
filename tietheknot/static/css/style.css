@@ -686,10 +686,6 @@ nav .sidenav-trigger {
     padding: 0 5px;
 }
 
-.assign-button a:hover {
-    text-decoration: underline;
-}
-
 input:-internal-autofill-selected {
     appearance: menulist-button;
     background-image: none !important;
