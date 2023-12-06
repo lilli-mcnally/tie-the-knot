@@ -506,7 +506,8 @@ nav .sidenav-trigger {
     margin-top: 30px;
 }
 
-input#checklist_date {
+input#checklist_date,
+input#wedding_date {
     cursor: text;
 }
 
