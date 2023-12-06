@@ -440,8 +440,8 @@
 | Add Payment Item   | Payment Item Due Date input field    | Cursor: text        | Added `cursor: text;` to `input#checklist_date` in style.css |   Pass     |
 | Edit Checklist Item| Checklist Item Due Date input field  | Cursor: text        | Added `cursor: text;` to `input#checklist_date` in style.css |    Pass    |
 | Edit Payment Item  | Payment Item Due Date input field    | Cursor: text        | Added `cursor: text;` to `input#checklist_date` in style.css |   Pass     |
-| Edit Profile       | Wedding Date input field             | Cursor: text        | Added `cursor: text;` to `input#checklist_date` in style.css |        |
-| Register           | Wedding Date input field             | Cursor: text        | Added `cursor: text;` to `input#checklist_date` in style.css |        |
+| Edit Profile       | Wedding Date input field             | Cursor: text        | Added `cursor: text;` to `input#checklist_date` in style.css |    Pass    |
+| Register           | Wedding Date input field             | Cursor: text        | Added `cursor: text;` to `input#checklist_date` in style.css |     Pass   |
 
 
 

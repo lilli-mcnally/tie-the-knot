@@ -42,7 +42,7 @@ Cons:
 | Users able to add, update & delete their to do list     |  5     |  5    | :heavy_check_mark: |
 | Users able to set a budget and add, update and delete their wedding costs    |  3  |  3   | :heavy_check_mark:   |
 | Users able to see when payments need to be made  |  4  |  4  |  |
-| Users able to see what table their guests are sat on   |   4    |  3   | :heavy_check_mark: *    |
+| Users able to see what table their guests are sat on   |   4    |  3   | :heavy_check_mark:     |
 
 Table numbers will be added to the Guest List page. However, I would like to add a page specifically for showing the table numbers and the guests assigned to them on individual cards. In future updates I would also like to add the budget feature, so users can keep track of payments and budgets in one place.
 
@@ -55,23 +55,23 @@ I've chosen to have a home page that promotes the features of the website. The u
 Once logged in, the user will have their own dashboard. From here they can see their Checklist, from which they can add, edit and delete Checklist Items. They can also access their Guest list from the Dashboard, and add, edit or delete their Guests. The last page will filter any Items in the Checklist with the "Payment" field ticked, so users can keep track of their payments.
 
 #### Structure Plan
-* [Structure Plan](/tie-the-knot/static/images/readme/structure-plan.PNG)
+* [Structure Plan](/tietheknot/static/images/readme/structure-plan.PNG)
 
 #### Wireframes
-* [Home page](/tie-the-knot/static/images/readme/home-page-wireframe.PNG)
-* [Sign Up page](/tie-the-knot/static/images/readme/sign-up-page-wireframe.PNG)
-* [Log In page](/tie-the-knot/static/images/readme/log-in-page-wireframe.PNG)
-* [Dashboard page](/tie-the-knot/static/images/readme/dashboard-page-wireframe.PNG)
-* [Checklist page](/tie-the-knot/static/images/readme/checklist-page-wireframe.PNG)
-* [Add Checklist page](/tie-the-knot/static/images/readme/add-checklist-item-page-wireframe.PNG)
-* [Edit Checklist page](/tie-the-knot/static/images/readme/edit-checklist-item-page-wireframe.PNG)
-* [Guest page](/tie-the-knot/static/images/readme/guest-page-wireframe.PNG)
-* [Add Guest page](/tie-the-knot/static/images/readme/add-guest-page-wireframe.PNG)
-* [Edit Guest page](/tie-the-knot/static/images/readme/edit-guest-page-wireframe.PNG)
-* [Payments page](/tie-the-knot/static/images/readme/payments-page-wireframe.PNG)
+* [Home page](/tietheknot/static/images/readme/home-page-wireframe.PNG)
+* [Sign Up page](/tietheknot/static/images/readme/sign-up-page-wireframe.PNG)
+* [Log In page](/tietheknot/static/images/readme/log-in-page-wireframe.PNG)
+* [Dashboard page](/tietheknot/static/images/readme/dashboard-page-wireframe.PNG)
+* [Checklist page](/tietheknot/static/images/readme/checklist-page-wireframe.PNG)
+* [Add Checklist page](/tietheknot/static/images/readme/add-checklist-item-page-wireframe.PNG)
+* [Edit Checklist page](/tietheknot/static/images/readme/edit-checklist-item-page-wireframe.PNG)
+* [Guest page](/tietheknot/static/images/readme/guest-page-wireframe.PNG)
+* [Add Guest page](/tietheknot/static/images/readme/add-guest-page-wireframe.PNG)
+* [Edit Guest page](/tietheknot/static/images/readme/edit-guest-page-wireframe.PNG)
+* [Payments page](/tietheknot/static/images/readme/payments-page-wireframe.PNG)
 
 #### Prototype
-* [Checklist page](/tie-the-knot/static/images/readme/checklist-page-prototype.PNG)
+* [Checklist page](/tietheknot/static/images/readme/checklist-page-prototype.PNG)
 
 
 ## Features
@@ -254,6 +254,10 @@ I managed to deploy the website without any issues, and all my links worked perf
 8. I enabled automatic deploys and deployed from the main branch.
 9. I built my database by using the Run Console button to open the terminal, and typing `from tietheknot import db`, and then `db.create_all()`
 10. My project successfuly deployed, and I checked this was working using the "Open App" button on Heroku.
+
+## Manual Testing
+I've completed all my Manual Testing in an external file:
+* [Manual Testing](/test.md)
 
 ## Digital Testing
 #### Spell Check
