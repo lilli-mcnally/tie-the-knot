@@ -8,7 +8,6 @@
 | Checklist Item name input field        | Cursor: text                                                    |  Pass  |
 | Checklist Item Description input field | Cursor: text                                                    |    Pass    |
 | Checklist Item Due Date input field    | Cursor: text                                                    |   Fail     |
-| Checklist Item Due Date icon           | Cursor: pointer                                                 |    Fail    |
 | Payment Checkbox                       | Cursor: pointer                                                 |     Pass   |
 | Submit button                          | Cursor: pointer, background colour to change to lighter green   |    Pass    |
 | Back button                            | Cursor: pointer, border turns green                         |   Pass     |
@@ -19,7 +18,6 @@
 | Checklist Item name input field        | Able to type in input field                                     |      Pass  |
 | Checklist Item Description input field | Able to type in input field                                     |    Pass    |
 | Checklist Item Due Date input field    | Able to type in input field                                     |  Pass      |
-| Checklist Item Due Date icon           | Date picker opens                                               |     Pass   |
 | Payment Checkbox                       | Checkbox changes to Checked / Unchecked                         |   Pass     |
 | Submit button                          | Form is submitted                                               |   Pass     |
 | Back button                            | User redirected back to Checklist                               |   Pass     |
@@ -30,7 +28,6 @@
 | Payment Item name input field          | Cursor: text                                                    |   Pass     |
 | Payment Item Description input field   | Cursor: text                                                    |   Pass     |
 | Payment Item Due Date input field      | Cursor: text                                                    |    Fail    |
-| Payment Item Due Date icon             | Cursor: pointer                                                 |    Fail    |
 | Payment Checkbox                       | Cursor: pointer                                                 |   Pass     |
 | Submit button                          | Cursor: pointer, background colour to change to lighter green   |    Pass    |
 | Back button                            | Cursor: pointer, border turns green                         |     Pass   |
@@ -41,7 +38,6 @@
 | Payment Item name input field          | Able to type in input field                                     |    Pass    |
 | Payment Item Description input field   | Able to type in input field                                     |    Pass    |
 | Payment Item Due Date input field      | Able to type in input field                                     |    Pass    |
-| Payment Item Due Date icon             | Date picker opens                                               |   Pass     |
 | Payment Checkbox                       | Checkbox changes to Checked / Unchecked                         |   Pass     |
 | Submit button                          | Form is submitted                                               |   Pass     |
 | Back button                            | User redirected back to Payments                                |    Pass    |
@@ -218,7 +214,6 @@
 | Checklist Item name input field        | Cursor: text                                                    |    Pass    |
 | Checklist Item Description input field | Cursor: text                                                    |  Pass      |
 | Checklist Item Due Date input field    | Cursor: text                                                    |    Fail    |
-| Checklist Item Due Date icon           | Cursor: pointer                                                 |    Fail    |
 | Payment Checkbox                       | Cursor: pointer                                                 |    Pass    |
 | Submit button                          | Cursor: pointer, background colour to change to lighter green   |  Pass      |
 | Back button                            | Cursor: pointer, border turns green                         |     Pass   |
@@ -229,7 +224,6 @@
 | Checklist Item name input field        | Able to type in input field                                     |   Pass     |
 | Checklist Item Description input field | Able to type in input field                                     |   Pass     |
 | Checklist Item Due Date input field    | Able to type in input field                                     |   Pass     |
-| Checklist Item Due Date icon           | Date picker opens                                               |   Pass     |
 | Payment Checkbox                       | Checkbox changes to Checked / Unchecked                         |   Pass     |
 | Submit button                          | Form is submitted                                               |    Pass    |
 | Back button                            | User redirected back to Checklist                               |   Pass     |
@@ -240,7 +234,6 @@
 | Payment Item name input field          | Cursor: text                                                    |   Pass     |
 | Payment Item Description input field   | Cursor: text                                                    |   Pass     |
 | Payment Item Due Date input field      | Cursor: text                                                    |  Fail      |
-| Payment Item Due Date icon             | Cursor: pointer                                                 |     Fail   |
 | Payment Checkbox                       | Cursor: pointer                                                 |    Pass    |
 | Submit button                          | Cursor: pointer, background colour to change to lighter green   |   Pass     |
 | Back button                            | Cursor: pointer, border turns green                         |   Pass     |
@@ -251,7 +244,6 @@
 | Payment Item name input field          | Able to type in input field                                     |   Pass     |
 | Payment Item Description input field   | Able to type in input field                                     |   Pass     |
 | Payment Item Due Date input field      | Able to type in input field                                     |   Pass     |
-| Payment Item Due Date icon             | Date picker opens                                               |   Pass     |
 | Payment Checkbox                       | Checkbox changes to Checked / Unchecked                         |   Pass     |
 | Submit button                          | Form is submitted                                               |   Pass     |
 | Back button                            | User redirected back to Payments                                |  Pass      |
@@ -291,7 +283,6 @@
 | Your Name input field                | Cursor: text                                      |   Pass     |
 | Your Partners Name input field       | Cursor: text                                      |    Pass    |
 | Wedding Date input field             | Cursor: text                                      |    Fail    |
-| Wedding Date icon                    | Curson: pointer                                   |    Fail    |
 | Submit button                        | Cursor: pointer, background colour to change to lighter green |   Pass     |
 | Back button                          | Cursor: pointer, border turns green           |  Pass      |
 
@@ -304,7 +295,6 @@
 | Your Name input field                | Able to type in input field                       |   Pass     |
 | Your Partners Name input field       | Able to type in input field                       |    Pass    |
 | Wedding Date input field             | Able to type in input field                       |   Pass     |
-| Wedding Date icon                    | Date picker opens                                 |  Pass      |
 | Submit button                        | Form is submitted                                 |   Pass     |
 | Back button                          | User redirected back to Dashboard                 |    Pass    |
 
@@ -405,7 +395,6 @@
 | Your Name input field                | Cursor: text                                      |   Pass     |
 | Your Partners Name input field       | Cursor: text                                      |   Pass     |
 | Wedding Date input field             | Cursor: text                                      |    Fail    |
-| Wedding Date icon                    | Cursor: pointer                                   |    Fail    |
 | Submit button                        | Cursor: pointer, background colour to change to lighter green |   Pass     |
 | Back button                          | Cursor: pointer, border turns green           |    Pass    |
 
@@ -417,7 +406,6 @@
 | Your Name input field                | Able to type in input field                       |   Pass     |
 | Your Partners Name input field       | Able to type in input field                       |    Pass    |
 | Wedding Date input field             | Able to type in input field                       |    Pass    |
-| Wedding Date icon                    | Date picker opens                                 |    Pass    |
 | Submit button                        | Form is submitted                                 |    Pass    |
 | Back button                          | User redirected to Log In page                    |     Pass   |
 
@@ -444,6 +432,17 @@
 | Unassigned Guests Guest Edit button  | Redirect to Edit Guest page for this Guest             |     Pass   |
 | Add New Table button                 | Redirect to Add Table                                  |   Pass     |
 | Back button                          | User redirected back to Dashboard                      |      Pass  |
+
+### Failed Tests
+| Page               | Element Hovered                      | Expected Result     | Changes made                                                 | Result |
+| -------------------| ------------------------------------ | --------------------|------------------------------------------------------------- | :----: |
+| Add Checklist Item | Checklist Item Due Date input field  | Cursor: text        | Added `cursor: text;` to `input#checklist_date` in style.css |        |
+| Add Payment Item   | Payment Item Due Date input field    | Cursor: text        | Added `cursor: text;` to `input#checklist_date` in style.css |        |
+| Edit Checklist Item| Checklist Item Due Date input field  | Cursor: text        | Added `cursor: text;` to `input#checklist_date` in style.css |        |
+| Edit Payment Item  | Payment Item Due Date input field    | Cursor: text        | Added `cursor: text;` to `input#checklist_date` in style.css |        |
+| Edit Profile       | Wedding Date input field             | Cursor: text        | Added `cursor: text;` to `input#checklist_date` in style.css |        |
+| Register           | Wedding Date input field             | Cursor: text        | Added `cursor: text;` to `input#checklist_date` in style.css |        |
+
 
 
 ## Usability
