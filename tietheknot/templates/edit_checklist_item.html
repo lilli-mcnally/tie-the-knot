@@ -21,11 +21,11 @@
     <div class="row" id="form-row">
         <div class="col s11 xl6" id="form-col">
             <label for="checklist_name">{{ item_type }} Item Name</label>
-            <input type="text" id="checklist_name" name="checklist_name" minlength="3" maxlength="30"
+            <input type="text" id="checklist_name" name="checklist_name" pattern="^[a-zA-Z0-9]{3,30}$"
                 value="{{ checklist_item.checklist_name }}" required>
             <p class="signup-note">Checklist / Payment Item names must be unique</p>
             <label for="checklist_notes">{{ item_type }} Item Description</label>
-            <input type="text" id="checklist_notes" name="checklist_notes" minlength="3" maxlength="100"
+            <input type="text" id="checklist_notes" name="checklist_notes" pattern="^[a-zA-Z0-9]{3,100}$"
                 value="{{ checklist_item.checklist_notes }}" required>
             <label for="checklist_date">{{ item_type }} Item Due Date</label>
             <input type="date" id="checklist_date" name="checklist_date" value="{{ checklist_item.checklist_date }}"
@@ -60,11 +60,11 @@
     <div class="row" id="form-row">
         <div class="col s11 xl6" id="form-col">
             <label for="checklist_name">{{ item_type }} Item Name</label>
-            <input type="text" id="checklist_name" name="checklist_name" minlength="3" maxlength="30"
+            <input type="text" id="checklist_name" name="checklist_name" pattern="^[a-zA-Z0-9]{3,30}$"
                 value="{{ checklist_item.checklist_name }}" required>
             <p class="signup-note">Checklist / Payment Item names must be unique</p>
             <label for="checklist_notes">{{ item_type }} Item Description</label>
-            <input type="text" id="checklist_notes" name="checklist_notes" minlength="3" maxlength="100"
+            <input type="text" id="checklist_notes" name="checklist_notes" pattern="^[a-zA-Z0-9]{3,100}$"
                 value="{{ checklist_item.checklist_notes }}" required>
             <label for="checklist_date">{{ item_type }} Item Due Date</label>
             <input type="date" id="checklist_date" name="checklist_date" value="{{ checklist_item.checklist_date }}"

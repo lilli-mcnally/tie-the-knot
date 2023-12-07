@@ -446,3 +446,17 @@
 
 
 ## Usability
+| Task                                    | User 1 | User 2 | User 3 |
+| ----------------------------------------| :----: |:-----: |:-----: |
+| Create an account                       |    4    |   5     |   5     |
+| Add a new Checklist Item                |    5    |   5     |   5     |
+| Change the title of your Checklist Item |    5    |   5     |    5    |
+| Add a new Payment Item                  |   5     |   5     |      5  |
+| Delete your Payment Item                |   5     |   5     |     5   |
+| Create a new Table                      |    5    |    5    |        5|
+| Add a Guest                             |   5     |    5    |     5   |
+| Assign the Guest to your Table          |   5     |    5    |   5     |
+| Find your Dashboard                     |   5     |    5    |      5  |
+| Change your wedding date                |    3    |   5     |     3   |
+
+While completing my user testing, User 1 found that you could create or edit a Checklist Item, Payment Item, Guest or Table to have spaces in the Name and Description inputs. I've added `pattern="^[a-zA-Z0-9]{3,30}$"` and this has now fixed the issue.
