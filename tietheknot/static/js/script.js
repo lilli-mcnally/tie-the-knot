@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById("table_name").value = this.innerHTML.trim();
                 document.getElementById("chosen-table").style.border = "2px solid #366355";
                 document.getElementById("chosen-table").style.display = "block";
-            };
+            }
         });
-    };
+    }
 });
 
 // Display for the Dashboard
@@ -72,15 +72,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     scalar: 1.3,
                 });
             }
-        })
+        });
         // Changes the checklist items css dependent on if there's anything in the checklist table
         if (document.getElementById("dash-checklist").textContent.trim() === "") {
             document.getElementById("dash-checklist").style.display = "none";
             document.getElementById("whats-next").style.borderBottomLeftRadius = "6px";
             document.getElementById("whats-next").style.borderBottomRightRadius = "6px";
             document.getElementById("no-checklist").style.display = "block";
-        };
-    };
+        }
+    }
 });
 
 // Removes the Unassigned Guests div if no guests in this catagory
@@ -88,8 +88,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (window.location.toString().includes("table_plan")) {
         if (document.getElementById("no-guest") == null) {
             document.getElementById("no-guest-container").style.display = "none";
-        };
-    };
+        }
+    }
 });
 
 // Either shows table dropdown or no tables message on Guest pages
@@ -97,16 +97,16 @@ document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.dropdown-trigger');
     M.Dropdown.init(elems);
     if (window.location.href.indexOf("add_guests") != -1) {
-        console.log(document.getElementById("chosen-table"))
+        console.log(document.getElementById("chosen-table"));
         chosenTable = document.getElementById("chosen-table").innerHTML;
         if (chosenTable == "None") {
             document.getElementById("chosen-table").style.display = "none";
         }
     } else if (window.location.href.indexOf("edit_guests") != -1) {
-        console.log(document.getElementById("chosen-table"))
+        console.log(document.getElementById("chosen-table"));
         chosenTable = document.getElementById("chosen-table").innerHTML;
         if (chosenTable == "None") {
             document.getElementById("chosen-table").style.display = "none";
         }
-    };
+    }
 });

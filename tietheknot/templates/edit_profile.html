@@ -17,24 +17,24 @@
         {% endwith %}
     </div>
 </div>
-<form action="" method="POST">
+<form action="{{ url_for('edit_profile', username=username)}}" method="POST">
     <div class="row" id="form-row">
         <div class="col s11 xl6" id="form-col">
-            <label for="username">Username</label>
+            <label for="input-disabled">Username</label>
             <input id="input-disabled" value="{{ username }}" disabled>
             <p class="signup-note">Usernames cannot be changed</p>
             <label for="old_password">Old Password</label>
-            <input type="password" id="old_password" name="old_password" pattern="^[a-zA-Z0-9]{8,20}$">
+            <input type="password" id="old_password" name="old_password" pattern="^[a-zA-Z][a-zA-Z\s']{8,20}$">
             <label for="password">New Password</label>
-            <input type="password" id="password" name="password" pattern="^[a-zA-Z0-9]{8,20}$">
+            <input type="password" id="password" name="password" pattern="^[a-zA-Z][a-zA-Z\s']{8,20}$">
             <p class="signup-note">Passwords must be 5-20 characters, and only contain letters and numbers </p>
             <label for="conf_password">Confirm New Password</label>
-            <input type="password" id="conf_password" name="conf_password" pattern="^[a-zA-Z0-9]{8,20}$">
+            <input type="password" id="conf_password" name="conf_password" pattern="^[a-zA-Z][a-zA-Z\s']{8,20}$">
             <p id="edit-p">The happy couple:</p>
             <div class="signup-details">
                 <div class="signup-input-container signup-left">
                     <label for="name_one">Your Name</label>
-                    <input type="text" id="name_one" name="name_one" pattern="^[a-zA-Z][a-zA-Z\s']{1,15}$"
+                    <input type="text" id="name_one" name="name_one" pattern="^[a-zA-Z][a-zA-Z\s']{1,14}$"
                         value="{{ username.name_one }}" required>
                 </div>
                 <div class=" signup-and signup-middle">
@@ -42,8 +42,8 @@
                 </div>
                 <div class="signup-input-container signup-middle">
                     <label for="name_two">Your Partners Name</label>
-                    <input type="text" id="name_two" name="name_two" min="1" max="15"
-                        pattern="^[a-zA-Z][a-zA-Z\s']{1,15}$" value="{{ username.name_two }}" required>
+                    <input type="text" id="name_two" name="name_two" pattern="^[a-zA-Z][a-zA-Z\s']{1,14}$"
+                        value="{{ username.name_two }}" required>
                 </div>
                 <div class="signup-input-container signup-right">
                     <label for="wedding_date">Wedding Date</label>

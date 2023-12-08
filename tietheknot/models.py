@@ -1,5 +1,6 @@
 from tietheknot import db
 
+
 class User(db.Model):
     # Schema for the User model
     id = db.Column(db.Integer, primary_key=True)
@@ -13,8 +14,9 @@ class User(db.Model):
     table_rel = db.relationship("Table", backref="user", lazy=True)
 
     def __repr__(self):
-        #Represents itself as a string
+        # Represents itself as a string
         return self.username
+
 
 class Checklist(db.Model):
     # Schema for the Checklist model
@@ -24,10 +26,11 @@ class Checklist(db.Model):
     checklist_date = db.Column(db.Date, nullable=False)
     checklist_payment = db.Column(db.Boolean)
     created_by = db.Column(db.Integer, db.ForeignKey("user.id"))
-    
+
     def __repr__(self):
         # Represents itself as a string
         return self.checklist_name
+
 
 class Guest(db.Model):
     # Schema for the Guests model
@@ -40,6 +43,7 @@ class Guest(db.Model):
     def __repr__(self):
         # Represents itself as a string
         return self.guest_name
+
 
 class Table(db.Model):
     # Schema for the Payments model

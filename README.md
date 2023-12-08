@@ -65,7 +65,7 @@ Once logged in, the user will have their own dashboard. From here they can see t
 * [Checklist page](/tietheknot/static/images/readme/checklist-page-wireframe.PNG)
 * [Add Checklist page](/tietheknot/static/images/readme/add-checklist-item-page-wireframe.PNG)
 * [Edit Checklist page](/tietheknot/static/images/readme/edit-checklist-item-page-wireframe.PNG)
-* [Guest page](/tietheknot/static/images/readme/guest-page-wireframe.PNG)
+* [Guest page](/tietheknot/static/images/readme/guest-page-wireframe.png)
 * [Add Guest page](/tietheknot/static/images/readme/add-guest-page-wireframe.PNG)
 * [Edit Guest page](/tietheknot/static/images/readme/edit-guest-page-wireframe.PNG)
 * [Payments page](/tietheknot/static/images/readme/payments-page-wireframe.PNG)
@@ -260,14 +260,172 @@ I've completed all my Manual Testing in an external file:
 * [Manual Testing](/test.md)
 
 ## Digital Testing
-#### Spell Check
-#### Validators
-#### Lighthouse
+### Validators
+
+* [W3C HTML Markup Validation Service](https://validator.w3.org/)
+    * Various errors when running HTML Validation, all caused by Jinja Templating
+* [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+    * Passed with no errors
+* [JSHint](https://jshint.com/)
+    * Validator returned with `Functions declared within loops referencing an outer scoped variable may lead to confusing semantics. (chosenTable)`
+    * All missing semi-colons added
+    * All unnecessary semi-colons removed
+* [CI Python Linter](https://pep8ci.herokuapp.com/)
+    * First I used [Black](https://black.readthedocs.io/en/stable/getting_started.html) to format my Python files
+    * Then I ran the CI Python Linter:
+        * On the `routes.py` file, however there are some lines that still exceed the maximum 79 characters
+        * The `models.py` file has no errors
+        * the `__init__.py` file has an error due to the routes being imported at the bottom of the file
+
+### Lighthouse
+#### Add Checklist Desktop
+![Add Checklist Desktop](/tietheknot/static/images/readme/lighthouse/add-checklist-desktop.png)
+
+#### Add Checklist Mobile
+![Add Checklist Mobile](/tietheknot/static/images/readme/lighthouse/add-checklist-mobile.png)
+
+#### Add Guest Desktop
+![Add Guest Desktop](/tietheknot/static/images/readme/lighthouse/add-guest-desktop.png)
+
+#### Add Guest Mobile
+![Add Guest Mobile](/tietheknot/static/images/readme/lighthouse/add-guest-mobile.png)
+
+#### Add Payments Desktop
+![Add Payments Desktop](/tietheknot/static/images/readme/lighthouse/add-payments-desktop.png)
+
+#### Add Payments Mobile
+![Add Payments Mobile](/tietheknot/static/images/readme/lighthouse/add-payments-mobile.png)
+
+#### Add Table Desktop
+![Add Table Desktop](/tietheknot/static/images/readme/lighthouse/add-table-desktop.png)
+
+#### Add Table Mobile
+![Add Table Mobile](/tietheknot/static/images/readme/lighthouse/add-table-mobile.png)
+
+#### Checklist Desktop
+![Checklist Desktop](/tietheknot/static/images/readme/lighthouse/checklist-desktop.png)
+
+#### Checklist Mobile
+![Checklist Mobile](/tietheknot/static/images/readme/lighthouse/checklist-mobile.png)
+
+#### Dashboard Desktop
+![Dashboard Desktop](/tietheknot/static/images/readme/lighthouse/dashboard-desktop.png)
+
+#### Dashboard Mobile
+![Dashboard Mobile](/tietheknot/static/images/readme/lighthouse/dashboard-mobile.png)
+
+#### Edit Checklist Desktop
+![Edit Checklist Desktop](/tietheknot/static/images/readme/lighthouse/edit-checklist-desktop.png)
+
+#### Edit Checklist Mobile
+![Edit Checklist Mobile](/tietheknot/static/images/readme/lighthouse/edit-checklist-mobile.png)
+
+#### Edit Guest Desktop
+![Edit Guest Desktop](/tietheknot/static/images/readme/lighthouse/edit-guest-desktop.png)
+
+#### Edit Guest Mobile
+![Edit Guest Mobile](/tietheknot/static/images/readme/lighthouse/edit-guest-mobile.png)
+
+#### Edit Payments Desktop
+![Edit Payments Desktop](/tietheknot/static/images/readme/lighthouse/edit-payments-desktop.png)
+
+#### Edit Payments Mobile
+![Edit Payments Mobile](/tietheknot/static/images/readme/lighthouse/edit-payments-mobile.png)
+
+#### Edit Profile Desktop
+![Edit Profile Desktop](/tietheknot/static/images/readme/lighthouse/edit-profile-desktop.png)
+
+#### Edit Profile Mobile
+![Edit Profile Mobile](/tietheknot/static/images/readme/lighthouse/edit-profile-mobile.png)
+
+#### Edit Table Desktop
+![Edit Table Desktop](/tietheknot/static/images/readme/lighthouse/edit-table-desktop.png)
+
+#### Edit Table Mobile
+![Edit Table Mobile](/tietheknot/static/images/readme/lighthouse/edit-table-mobile.png)
+
+#### Guests Desktop
+![Guests Desktop](/tietheknot/static/images/readme/lighthouse/guests-desktop.png)
+
+#### Guests Mobile
+![Guests Mobile](/tietheknot/static/images/readme/lighthouse/guests-mobile.png)
+
+#### Home Desktop
+![Home Desktop](/tietheknot/static/images/readme/lighthouse/home-desktop.png)
+
+#### Home Mobile
+![Home Mobile](/tietheknot/static/images/readme/lighthouse/home-mobile.png)
+
+#### Log In Desktop
+![Log In Desktop](/tietheknot/static/images/readme/lighthouse/log-in-desktop.png)
+
+#### Log In Mobile
+![Log In Mobile](/tietheknot/static/images/readme/lighthouse/log-in-mobile.png)
+
+#### Payments Desktop
+![Payments Desktop](/tietheknot/static/images/readme/lighthouse/payments-desktop.png)
+
+#### Payments Mobile
+![Payments Mobile](/tietheknot/static/images/readme/lighthouse/payments-mobile.png)
+
+#### Register Desktop
+![Register Desktop](/tietheknot/static/images/readme/lighthouse/register-desktop.png)
+
+#### Register Mobile
+![Register Mobile](/tietheknot/static/images/readme/lighthouse/register-mobile.png)
+
+#### Table Plan Desktop
+![Table Plan Desktop](/tietheknot/static/images/readme/lighthouse/table-plan-desktop.png)
+
+#### Table Plan Mobile
+![Table Plan Mobile](/tietheknot/static/images/readme/lighthouse/table-plan-mobile.png)
+
+
 
 ## Credits
-#### Research
-#### Frameworks, Libraries and Programs
-#### Images
-#### Media
+* [Canva](https://www.canva.com/)
+    * [Logo rope image](https://pixabay.com/users/openclipart-vectors-30363/)
+        * [OpenClipart-Vectors - Pixabay](https://pixabay.com/users/openclipart-vectors-30363/)
+    * Logo font – "Nickainley" by [Canva](https://www.canva.com/)
+* [Figma](https://www.figma.com/)
+    * Structure plan
+    * Prototype
+* [Balsamic](https://balsamiq.com/)
+    * Wireframes
+* [Materialize](https://materializecss.com/)
+    * Grid styling
+    * Modals
+    * Navbar for all sized screens
+    * Buttons
+    * Waves classes on submit buttons
+    * Checkbox
+* [Font Awesome](https://fontawesome.com/)
+    * Pencil and cross icons
+    * Social media icons
+* [Google Fonts](https://fonts.google.com/)
+    * Spectral
+* [Favicon Converter](https://favicon.io/favicon-converter/)
+    * Knot Favicon
+* [MDN Wed Docs](https://developer.mozilla.org/en-US/)
+    * [Hyphens Auto](https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens )
+* [Stack Overflow](https://stackoverflow.com/)
+    * [Check a URL for a string](https://stackoverflow.com/questions/4597050/how-to-check-if-the-url-contains-a-given-string)
+    * [Check if a User is in session](https://stackoverflow.com/questions/15591620/how-to-retrieve-session-data-with-flask)
+    * [How to add Regex spaces](https://stackoverflow.com/questions/19619428/html5-form-validation-pattern-alphanumeric-with-spaces)
+    * [Used to add four spaces (tab) to readme](https://stackoverflow.com/questions/66828242/how-to-add-tab-spaces-in-git-readme-between-two-sentences )
+* [Python String From Time](https://strftime.org/ )
+    * Used to format dates on Checklist and Payments page
+* [Youtube - Sandeep Sudhakaran](https://www.youtube.com/watch?v=7EeAZx78P2U)
+    * Setting up my User Credentials
+* [Confetti](Confetti: https://www.npmjs.com/package/canvas-confetti)
+    * Added to my Dashboard
+* [Bridebook](https://bridebook.com/uk/home)
+    * I got the idea for the confetti from the Bridebook home page
+* [W3 Schools](https://www.w3schools.com/html/html_emojis.asp)
+    * Used to render Emoji's on the page
+* [Unsplash - Victoria Priessnitz](https://unsplash.com/photos/woman-in-white-wedding-dress-standing-on-green-grass-field-during-daytime-ZLkQPMy4r5o)
+    * Home Page image
 
 ## Acknowledgements
+* The fantastic Student Support Team at Code Institute
+* My City of Bristol College Tutors
