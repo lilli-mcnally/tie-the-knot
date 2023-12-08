@@ -1,5 +1,6 @@
 # Tie the Knot Wedding Planner
 *Tie the Knot is a website designed to assist users who are planning their wedding and need to keep track of their To Do list, their Payments and their Guest List.*
+![Mockup](/tietheknot/static/images/readme/mockup.PNG)
 
 ## Purpose and Value
 
@@ -381,7 +382,6 @@ I've completed all my Manual Testing in an external file:
 ![Table Plan Mobile](/tietheknot/static/images/readme/lighthouse/table-plan-mobile.png)
 
 
-
 ## Credits
 * [Canva](https://www.canva.com/)
     * [Logo rope image](https://pixabay.com/users/openclipart-vectors-30363/)
@@ -425,6 +425,9 @@ I've completed all my Manual Testing in an external file:
     * Used to render Emoji's on the page
 * [Unsplash - Victoria Priessnitz](https://unsplash.com/photos/woman-in-white-wedding-dress-standing-on-green-grass-field-during-daytime-ZLkQPMy4r5o)
     * Home Page image
+* [ElephantSQL](https://www.elephantsql.com/)
+* [Heroku](https://heroku.com/)
+* [Am I Responsive](https://ui.dev/amiresponsive)
 
 ## Acknowledgements
 * The fantastic Student Support Team at Code Institute
